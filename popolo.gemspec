@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency 'combustion', '~> 0.3.2'
+  s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'rspec-rails', '~> 2.11'
   s.add_development_dependency 'shoulda-matchers', '~> 1.0'
 end
