@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'combustion', '~> 0.3.2'
   s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'guard-bundler'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'guard-spork'
   # https://github.com/guard/guard#os-x

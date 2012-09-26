@@ -18,3 +18,8 @@ guard 'rspec', version: 2, cli: '--drb', all_on_start: false, all_after_pass: fa
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 end
+
+guard 'bundler' do
+  watch('Gemfile')
+  watch(/^.+\.gemspec/)
+end
