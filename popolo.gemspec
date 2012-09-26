@@ -15,10 +15,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.8"
+  s.add_dependency 'rails', '~> 3.2.8'
+  s.add_dependency 'mongoid', '~> 3.0.6'
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency 'combustion', '~> 0.3.2'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'shoulda-matchers'
+  s.add_development_dependency 'rspec-rails', '~> 2.11'
+  s.add_development_dependency 'shoulda-matchers', '~> 1.0'
 end
