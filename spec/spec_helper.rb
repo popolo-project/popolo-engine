@@ -10,9 +10,16 @@ Spork.prefork do
     puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
   end
 
-  # https://github.com/pat/combustion
   Bundler.require :default, :development
 
+  # Needs to run before initializing Rails.
+  # @see https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
+  require 'rails/mongoid'
+  Spork.trap_class_method(Rails::Mongoid, :load_models)
+  Spork.trap_method(Rails::Application, :eager_load!)
+
+  # Needs to run before requiring RSpec.
+  # @see https://github.com/pat/combustion
   Combustion.initialize! :action_controller, :action_view, :sprockets
 
   require 'rspec/rails'
@@ -20,6 +27,9 @@ Spork.prefork do
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  # https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
+  Rails.application.railties.all { |r| r.eager_load! }
 
   RSpec.configure do |config|
     # == Mock Framework
@@ -34,10 +44,14 @@ Spork.prefork do
     config.after(:each) do
       DatabaseCleaner.clean
     end
+
+    # http://railscasts.com/episodes/285-spork
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+    config.run_all_when_everything_filtered = true
+    config.filter_run focus: true
   end
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
-
+  # I18n.backend.reload!
 end
