@@ -23,6 +23,11 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'combustion', '~> 0.3.2'
   s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'guard-spork'
+  # https://github.com/guard/guard#os-x
+  s.add_development_dependency 'rb-fsevent'
   s.add_development_dependency 'rspec-rails', '~> 2.11'
   s.add_development_dependency 'shoulda-matchers', '~> 1.0'
+  s.add_development_dependency 'spork'
 end
