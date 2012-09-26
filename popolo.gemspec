@@ -7,11 +7,10 @@ require "popolo/version"
 Gem::Specification.new do |s|
   s.name        = "popolo"
   s.version     = Popolo::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Popolo."
-  s.description = "TODO: Description of Popolo."
+  s.authors     = ["Open North"]
+  s.email       = ["info@opennorth.ca"]
+  s.homepage    = "http://github.com/opennorth/popolo"
+  s.summary     = "A Rails engine for open government websites."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
@@ -19,5 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.8"
   # s.add_dependency "jquery-rails"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'combustion', '~> 0.3.2'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'shoulda-matchers'
 end
