@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 3.2.8'
   s.add_dependency 'mongoid', '~> 3.0.6'
+  s.add_dependency 'mongoid-tree'
+  s.add_dependency 'unicode_utils'
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency 'combustion', '~> 0.3.2'
