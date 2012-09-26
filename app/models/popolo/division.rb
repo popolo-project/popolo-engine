@@ -30,7 +30,7 @@ module Popolo
   private
 
     def set_slug
-      self.slug ||= Helpers.slug(name) if name
+      self.slug ||= name.parameterize if name
     end
   end
 end
