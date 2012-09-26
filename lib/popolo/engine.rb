@@ -1,3 +1,5 @@
+require 'rails'
+
 module Popolo
   class Engine < ::Rails::Engine
     isolate_namespace Popolo
