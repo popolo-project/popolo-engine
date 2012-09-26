@@ -13,6 +13,7 @@ module Popolo
     validates_presence_of :name, :slug
 
     # Woe to jurisdictions with non-unique party names!
+
     index({name: 1}, unique: true)
     index({slug: 1}, unique: true)
   end
