@@ -3,10 +3,10 @@ require 'spork'
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
 
-  # https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
   require 'rails/application'
-  require 'rails/mongoid'
-  Spork.trap_class_method(Rails::Mongoid, :load_models)
+  # Prevent Spork from caching the routes.
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  # Prevent Spork from caching Popolo classes (see below).
   Spork.trap_method(Rails::Application, :eager_load!)
 
   require File.expand_path("../dummy/config/environment.rb",  __FILE__)
@@ -16,21 +16,18 @@ Spork.prefork do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-  # https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
-  Rails.application.railties.all { |r| r.eager_load! }
+  # Prevent Spork from caching Popolo classes (see above).
+  Rails.application.railties.all do |railtie|
+    unless railtie.respond_to?(:engine_name) && railtie.engine_name == 'popolo'
+      railtie.eager_load!
+    end
+  end
 
   require 'database_cleaner'
   require 'factory_girl_rails'
   require 'shoulda/matchers'
 
   RSpec.configure do |config|
-    # == Mock Framework
-    #
-    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-    #
-    # config.mock_with :mocha
-    # config.mock_with :flexmock
-    # config.mock_with :rr
     config.mock_with :rspec
 
     config.after(:each) do
