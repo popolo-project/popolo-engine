@@ -5,6 +5,9 @@ module Popolo
     inherit_resources
     respond_to :html, :json
     actions :index, :show
+    custom_actions resource: :nested_show, collection: :nested_index
+
+    before_filter :validate_path, only: [:nested_index, :nested_show]
 
     def index
       @divisions = Division.roots
@@ -16,17 +19,26 @@ module Popolo
       show!
     end
 
-    def glob
-      parts = params[:path].split '/'
-      children = parts.pop if parts.last == 'divisions'
+    def nested_index
+      @divisions = @division.children
 
-      base = Division
-      @divisions = []
-      parts.each do |part|
-        division = base.find_by(slug: part)
-        base = division.children
-        @divisions << division
+      nested_index! do |format|
+        format.html { render action: 'index'}
       end
+    end
+
+    def nested_show
+      nested_show! do |format|
+        format.html { render action: 'show'}
+      end
+    end
+
+  protected
+
+    def validate_path
+      parts = params[:path].split '/'
+      @division = Division.find_by_slug parts.pop
+      raise Popolo::ImproperlyNestedResource unless parts == @division.ancestors.map(&:slug)
     end
   end
 end

@@ -42,6 +42,13 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  # It's now okay to load Popolo.
+  Rails.application.railties.all do |railtie|
+    if railtie.respond_to?(:engine_name) && railtie.engine_name == 'popolo'
+      railtie.eager_load!
+    end
+  end
+
   # @todo I18n.backend.reload!
   FactoryGirl.reload
 end

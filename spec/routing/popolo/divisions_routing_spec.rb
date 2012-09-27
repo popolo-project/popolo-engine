@@ -18,8 +18,12 @@ describe Popolo::DivisionsController do
       get('/places/foo').should route_to('popolo/divisions#show', id: 'foo')
     end
 
-    it 'routes to #glob' do
-      get('/places/foo/bar/baz').should route_to('popolo/divisions#glob', path: 'foo/bar/baz')
+    it 'routes to #nested_index' do
+      get('/places/foo/divisions').should route_to('popolo/divisions#nested_index', path: 'foo')
+    end
+
+    it 'routes to #nested_show' do
+      get('/places/foo/bar').should route_to('popolo/divisions#nested_show', path: 'foo/bar')
     end
   end
 end
