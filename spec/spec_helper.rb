@@ -1,27 +1,15 @@
 require 'spork'
 
 Spork.prefork do
-  # Loading more in this block will cause your tests to run faster. However,
-  # if you change any configuration or code from libraries loaded here, you'll
-  # need to restart spork for it take effect.
-  begin
-    require 'bundler/setup'
-  rescue LoadError
-    puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
-  end
+  ENV["RAILS_ENV"] ||= 'test'
 
-  Bundler.require :default, :development
-
-  # Needs to run before initializing Rails.
-  # @see https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
+  # https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
+  require 'rails/application'
   require 'rails/mongoid'
   Spork.trap_class_method(Rails::Mongoid, :load_models)
   Spork.trap_method(Rails::Application, :eager_load!)
 
-  # Needs to run before requiring RSpec.
-  # @see https://github.com/pat/combustion
-  Combustion.initialize! :action_controller, :action_view, :sprockets
-
+  require File.expand_path("../dummy/config/environment.rb",  __FILE__)
   require 'rspec/rails'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
@@ -30,6 +18,9 @@ Spork.prefork do
 
   # https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
   Rails.application.railties.all { |r| r.eager_load! }
+
+  require 'database_cleaner'
+  require 'shoulda/matchers'
 
   RSpec.configure do |config|
     # == Mock Framework

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Popolo::DivisionsController do
+  before(:each) do
+    @routes = Popolo::Engine.routes
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # District. As you add validations to District, be sure to
   # update the return value of this method accordingly.
