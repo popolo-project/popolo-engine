@@ -1,30 +1,27 @@
 require 'spec_helper'
 
 describe Popolo::DivisionsController do
-  # Alternatively, we can add "use_route: :popolo" to each "get" call.
-  # @see https://github.com/radar/forem/blob/master/spec/support/controller_hacks.rb
-  # @see https://github.com/radar/forem/blob/master/spec/support/routes.rb
-  before(:each) do
+  before :each do
     @routes = Popolo::Engine.routes
-  end
-
-  def valid_attributes
-    {name: 'Foo'}
+    @division = FactoryGirl.create :division
   end
 
   describe 'GET index' do
-    it 'assigns all divisions as @division' do
-      division = Popolo::Division.create! valid_attributes
+    it 'assigns all divisions as @divisions' do
       get :index
-      assigns(:divisions).to_a.should == [division]
+      assigns(:divisions).to_a.should == [@division]
     end
   end
 
   describe 'GET show' do
     it 'assigns the requested division as @division' do
-      division = Popolo::Division.create! valid_attributes
-      get :show, id: division.id.to_s
-      assigns(:division).should == division
+      get :show, id: @division.id.to_s
+      assigns(:division).should == @division
+    end
+
+    it 'gets the requested division by slug' do
+      get :show, id: @division.slug
+      assigns(:division).should == @division
     end
   end
 end

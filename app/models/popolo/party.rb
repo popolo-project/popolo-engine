@@ -4,6 +4,7 @@ module Popolo
     include Mongoid::Document
 
     has_many :people
+    embeds_many :sources, as: :sourceable
 
     # The party's official name.
     field :name, type: String
@@ -18,6 +19,10 @@ module Popolo
     index({slug: 1}, unique: true)
 
     before_validation :set_slug
+
+    def self.find_by_slug(slug)
+      where(slug: slug).first || find(slug)
+    end
 
   private
 

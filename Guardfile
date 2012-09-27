@@ -1,8 +1,8 @@
 guard 'spork', rspec_env: { 'RAILS_ENV' => 'test' } do
   watch('Gemfile')
   watch('Gemfile.lock')
-  watch('spec/spec_helper.rb') { :rspec }
-  watch(%r{^spec/support/.+\.rb$}) { :rspec }
+  watch('spec/spec_helper.rb')
+  watch(%r{^spec/support/.+\.rb$})
 end
 
 guard 'rspec', version: 2, cli: '--drb', all_on_start: false, all_after_pass: false do
@@ -22,4 +22,11 @@ end
 guard 'bundler' do
   watch('Gemfile')
   watch(/^.+\.gemspec/)
+end
+
+guard 'brakeman' do
+  watch(%r{^app/.+\.(erb|haml|rhtml|rb)$})
+  watch(%r{^config/.+\.rb$})
+  watch(%r{^lib/.+\.rb$})
+  watch('Gemfile')
 end

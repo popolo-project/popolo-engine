@@ -1,13 +1,14 @@
 require_dependency 'popolo/application_controller'
 
 module Popolo
-  class DivisionsController < ApplicationController
+  class PeopleController < ApplicationController
     inherit_resources
     respond_to :html, :json
     actions :index, :show
 
     def show
-      @division = Division.find_by_slug(params[:id])
+      @person = Person.find_by_slug(params[:id])
+      # @todo @activities = @person.activities.sort(:published_at.desc).limit(50)
       show!
     end
   end

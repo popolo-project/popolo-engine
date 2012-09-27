@@ -1,9 +1,9 @@
 module Popolo
-  # A person's address.
+  # An office including postal address and telephone and facsimile numbers.
   class Address
     include Mongoid::Document
 
-    embedded_in :person
+    embedded_in :addressable, polymorphic: true
 
     # A human-readable identifier for the address, e.g. "Constituency address".
     field :name, type: String

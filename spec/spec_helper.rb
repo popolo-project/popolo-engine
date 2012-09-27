@@ -20,6 +20,7 @@ Spork.prefork do
   Rails.application.railties.all { |r| r.eager_load! }
 
   require 'database_cleaner'
+  require 'factory_girl_rails'
   require 'shoulda/matchers'
 
   RSpec.configure do |config|
@@ -44,5 +45,6 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  # I18n.backend.reload!
+  # @todo I18n.backend.reload!
+  FactoryGirl.reload
 end

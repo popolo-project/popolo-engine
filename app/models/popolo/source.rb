@@ -1,9 +1,9 @@
 module Popolo
-  # A source of information about a person.
+  # A source of information.
   class Source
     include Mongoid::Document
 
-    embedded_in :person
+    embedded_in :sourceable, polymorphic: true
 
     # A human-readable unique identifier for the source, e.g. "news.google.ca".
     field :name, type: String

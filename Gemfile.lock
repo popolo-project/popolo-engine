@@ -39,16 +39,37 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    brakeman (1.8.1)
+      activesupport
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (~> 3.0)
+      highline (~> 1.6)
+      i18n
+      json_pure
+      ruby2ruby (~> 1.2)
+      ruby_parser (= 2.3.1)
+      sass (~> 3.0)
+      terminal-table (~> 1.4)
     builder (3.0.3)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     database_cleaner (0.8.0)
     diff-lcs (1.1.3)
     erubis (2.7.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
+    fastercsv (1.5.5)
     ffi (1.1.5)
     guard (1.4.0)
       listen (>= 0.4.2)
       thor (>= 0.14.6)
+    guard-brakeman (0.5.0)
+      brakeman (>= 1.5.3)
+      guard (>= 1.1.0)
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
@@ -59,7 +80,9 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
       sys-proctable
+    haml (3.1.7)
     has_scope (0.5.1)
+    highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.1)
     inherited_resources (1.3.1)
@@ -67,6 +90,7 @@ GEM
       responders (~> 0.6)
     journey (1.0.4)
     json (1.7.5)
+    json_pure (1.7.5)
     listen (0.5.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -125,6 +149,13 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    ruby2ruby (1.3.1)
+      ruby_parser (~> 2.0)
+      sexp_processor (~> 3.0)
+    ruby_parser (2.3.1)
+      sexp_processor (~> 3.0)
+    sass (3.2.1)
+    sexp_processor (3.2.0)
     shoulda-matchers (1.3.0)
       activesupport (>= 3.0.0)
     spork (0.9.2)
@@ -133,6 +164,7 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sys-proctable (0.9.1)
+    terminal-table (1.4.5)
     thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -146,6 +178,8 @@ PLATFORMS
 
 DEPENDENCIES
   database_cleaner
+  factory_girl_rails
+  guard-brakeman
   guard-bundler
   guard-rspec
   guard-spork
