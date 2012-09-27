@@ -17,5 +17,9 @@ describe Popolo::DivisionsController do
     it 'routes to #show' do
       get('/places/foo').should route_to('popolo/divisions#show', id: 'foo')
     end
+
+    it 'routes to #glob' do
+      get('/places/foo/bar/baz').should route_to('popolo/divisions#glob', path: 'foo/bar/baz')
+    end
   end
 end
