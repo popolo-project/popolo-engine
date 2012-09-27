@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Popolo::DivisionsController do
   # Alternatively, we can add "use_route: :popolo" to each "get" call.
   # @see https://github.com/radar/forem/blob/master/spec/support/controller_hacks.rb
+  # @see https://github.com/radar/forem/blob/master/spec/support/routes.rb
   before(:each) do
     @routes = Popolo::Engine.routes
   end

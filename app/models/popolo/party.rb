@@ -16,5 +16,13 @@ module Popolo
 
     index({name: 1}, unique: true)
     index({slug: 1}, unique: true)
+
+    before_validation :set_slug
+
+  private
+
+    def set_slug
+      self.slug ||= name.parameterize if name
+    end
   end
 end
