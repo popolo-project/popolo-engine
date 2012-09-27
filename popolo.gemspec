@@ -31,5 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rb-fsevent'
   s.add_development_dependency 'rspec-rails', '~> 2.11'
   s.add_development_dependency 'shoulda-matchers', '~> 1.0'
-  s.add_development_dependency 'spork'
+  s.add_development_dependency 'spork-rails'
 end
