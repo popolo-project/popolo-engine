@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 describe Popolo::DivisionsController do
+  # Alternatively, we can add "use_route: :popolo" to each "get" call.
+  # @see https://github.com/radar/forem/blob/master/spec/support/controller_hacks.rb
   before(:each) do
     @routes = Popolo::Engine.routes
   end
 
-  # This should return the minimal set of attributes required to create a valid
-  # District. As you add validations to District, be sure to
-  # update the return value of this method accordingly.
   def valid_attributes
     {name: 'Foo'}
   end
