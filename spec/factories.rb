@@ -1,6 +1,6 @@
 # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
 FactoryGirl.define do
-  factory :division, class: Popolo::Division do
+  factory :area, class: Popolo::Area do
     name 'Foo'
   end
 

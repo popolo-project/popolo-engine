@@ -3,7 +3,6 @@ module Popolo
   class Person
     include Mongoid::Document
 
-    belongs_to :division, index: true
     belongs_to :party, index: true
     embeds_many :addresses, as: :addressable
     embeds_many :sources, as: :sourceable

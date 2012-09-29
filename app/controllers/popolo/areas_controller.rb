@@ -1,26 +1,26 @@
 require_dependency 'popolo/application_controller'
 
 module Popolo
-  class DivisionsController < ApplicationController
+  class AreasController < ApplicationController
     inherit_resources
     respond_to :html, :json
     actions :index, :show
-    custom_actions resource: :nested_show, collection: :nested_index
+    custom_actions collection: :nested_index, resource: :nested_show
 
     before_filter :validate_path, only: [:nested_index, :nested_show]
 
     def index
-      @divisions = Division.roots
+      @areas = Area.roots
       index!
     end
 
     def show
-      @division = Division.find_by_slug(params[:id])
+      @area = Area.find_by_slug(params[:id])
       show!
     end
 
     def nested_index
-      @divisions = @division.children
+      @areas = @area.children
 
       nested_index! do |format|
         format.html { render action: 'index'}
@@ -37,8 +37,8 @@ module Popolo
 
     def validate_path
       parts = params[:path].split '/'
-      @division = Division.find_by_slug parts.pop
-      raise Popolo::ImproperlyNestedResource unless parts == @division.ancestors.map(&:slug)
+      @area = Area.find_by_slug parts.pop
+      raise ImproperlyNestedResource unless parts == @area.ancestors.map(&:slug)
     end
   end
 end
