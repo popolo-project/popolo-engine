@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/opennorth/popolo"
   s.summary     = "A Rails engine for open government websites."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency 'rails', '~> 3.2.8'
   s.add_dependency 'inherited_resources', '~> 1.3.1'
