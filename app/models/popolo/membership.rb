@@ -34,5 +34,7 @@ module Popolo
     # The subjects the person is responsible for in the organization, eg a
     # member of an executive committee may be responsible for culture.
     field :subjects, type: Array
+
+    index({'addresses.name' => 1}, unique: true, sparse: true)
   end
 end
