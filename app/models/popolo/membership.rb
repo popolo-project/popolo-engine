@@ -21,6 +21,8 @@ module Popolo
   #       ].
   #
   class Membership
+    include Mongoid::Document
+
     belongs_to :person, index: true
     belongs_to :organization, index: true
     belongs_to :spatial, polymorphic: true, index: true
