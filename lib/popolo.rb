@@ -8,4 +8,5 @@ require 'unicode_utils'
 
 module Popolo
   class ImproperlyNestedResource < StandardError; end
+  autoload :Mixins, 'popolo/mixins'
 end

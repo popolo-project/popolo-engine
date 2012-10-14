@@ -35,17 +35,15 @@ module Popolo
   class Person
     include Mongoid::Document
     include Mongoid::Timestamps
+    include Popolo::Mixins::Sluggable
+    include Popolo::Mixins::Eventable
 
     has_many :memberships, class_name: 'Popolo::Membership'
-    embeds_many :sources, as: :sourceable, class_name: 'Popolo::Source'
-    has_and_belongs_to_many :events, index: true, class_name: 'Popolo::Event'
 
     mount_uploader :photo, Popolo::PhotoUploader
 
     # The person's formatted name.
     field :name, type: String
-    # A lowercase identifier composed of letters, numbers and dashes.
-    field :slug, type: String
 
     # The person's given name.
     field :given_name, type: String
@@ -72,21 +70,6 @@ module Popolo
     # Links to other pages about this person, eg Wikipedia.
     field :links, type: Hash, localize: true
 
-    validates_presence_of :name, :slug
-
-    index({slug: 1}, unique: true)
-
-    before_validation :set_slug
-
-    def self.find_by_slug(slug)
-      where(slug: slug).first || find(slug)
-    end
-
-  private
-
-    # @note Leave it to the content manager to choose a slug in case of conflicts.
-    def set_slug
-      self.slug ||= name.parameterize if name
-    end
+    validates_presence_of :name
   end
 end

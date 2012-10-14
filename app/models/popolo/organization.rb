@@ -21,34 +21,17 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
     include Mongoid::Tree
+    include Popolo::Mixins::Sluggable
+    include Popolo::Mixins::Eventable
 
     has_many :memberships, class_name: 'Popolo::Membership'
-    embeds_many :sources, as: :sourceable, class_name: 'Popolo::Source'
-    has_and_belongs_to_many :events, index: true, class_name: 'Popolo::Event'
     belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
 
     # The organization's official name.
     field :name, type: String
-    # A lowercase identifier composed of letters, numbers and dashes.
-    field :slug, type: String
     # The organization's category.
     field :classification, type: String
 
-    validates_presence_of :name, :slug
-
-    index({slug: 1}, unique: true)
-
-    before_validation :set_slug
-
-    def self.find_by_slug(slug)
-      where(slug: slug).first || find(slug)
-    end
-
-  private
-
-    # @note Leave it to the content manager to choose a slug in case of conflicts.
-    def set_slug
-      self.slug ||= name.parameterize if name
-    end
+    validates_presence_of :name
   end
 end
