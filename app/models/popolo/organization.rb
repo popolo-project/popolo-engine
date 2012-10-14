@@ -22,10 +22,10 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
-    has_many :memberships
-    embeds_many :sources, as: :sourceable
-    has_and_belongs_to_many :events, index: true
-    belongs_to :spatial, polymorphic: true, index: true
+    has_many :memberships, class_name: 'Popolo::Membership'
+    embeds_many :sources, as: :sourceable, class_name: 'Popolo::Source'
+    has_and_belongs_to_many :events, index: true, class_name: 'Popolo::Event'
+    belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
 
     # The organization's official name.
     field :name, type: String
@@ -37,7 +37,6 @@ module Popolo
     validates_presence_of :name, :slug
 
     index({slug: 1}, unique: true)
-    index({'sources.name' => 1}, unique: true)
 
     before_validation :set_slug
 

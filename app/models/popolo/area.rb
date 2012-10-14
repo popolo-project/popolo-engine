@@ -9,7 +9,8 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Tree
 
-    embeds_many :sources, as: :sourceable
+    embeds_many :sources, as: :sourceable, class_name: 'Popolo::Source'
+    has_and_belongs_to_many :events, index: true, class_name: 'Popolo::Event'
 
     # The area's name.
     field :name, type: String
@@ -24,7 +25,6 @@ module Popolo
 
     index({name: 1}, unique: true)
     index({slug: 1}, unique: true)
-    index({'sources.name' => 1}, unique: true)
 
     before_validation :set_slug
 

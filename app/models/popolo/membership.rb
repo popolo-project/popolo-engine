@@ -23,10 +23,10 @@ module Popolo
   class Membership
     include Mongoid::Document
 
-    belongs_to :person, index: true
-    belongs_to :organization, index: true
-    belongs_to :spatial, polymorphic: true, index: true
-    embeds_many :addresses, as: :addressable
+    belongs_to :person, index: true, class_name: 'Popolo::Person'
+    belongs_to :organization, index: true, class_name: 'Popolo::Organization'
+    belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
+    embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
 
     # The person's role in the organization. Roles should preferably belong to a
     # controlled vocabulary.
