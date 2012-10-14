@@ -17,6 +17,16 @@ describe Popolo::Area do
     it 'should not attempt to set the slug if the name is empty' do
       expect {Popolo::Area.create!}.to raise_error(Mongoid::Errors::Validations)
     end
+
+    it 'should prevent duplicate names' do
+      Popolo::Area.create name: 'Foo', slug: 'foo'
+      expect {Popolo::Area.with(safe: true).create(name: 'Foo', slug: 'bar')}.to raise_error(Moped::Errors::OperationFailure)
+    end
+
+    it 'should prevent duplicate slugs' do
+      Popolo::Person.create name: 'Foo', slug: 'foo'
+      expect {Popolo::Person.with(safe: true).create(name: 'Bar', slug: 'foo')}.to raise_error(Moped::Errors::OperationFailure)
+    end
   end
 
   describe '#find_by_slug' do

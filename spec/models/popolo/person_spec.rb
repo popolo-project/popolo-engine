@@ -7,7 +7,7 @@ describe Popolo::Person do
 
   describe '#create' do
     it 'should set the slug' do
-      FactoryGirl.create(:person).slug.should == 'foo'
+      FactoryGirl.create(:person).slug.should == 'john-q-public'
     end
 
     it 'should not set the slug if it is already set' do
@@ -16,6 +16,11 @@ describe Popolo::Person do
 
     it 'should not attempt to set the slug if the name is empty' do
       expect {Popolo::Person.create!}.to raise_error(Mongoid::Errors::Validations)
+    end
+
+    it 'should prevent duplicate slugs' do
+      Popolo::Person.create name: 'Foo', slug: 'foo'
+      expect {Popolo::Person.with(safe: true).create(name: 'Bar', slug: 'foo')}.to raise_error(Moped::Errors::OperationFailure)
     end
   end
 
