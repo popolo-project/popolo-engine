@@ -40,7 +40,7 @@ module Popolo
     embeds_many :sources, as: :sourceable, class_name: 'Popolo::Source'
     has_and_belongs_to_many :events, index: true, class_name: 'Popolo::Event'
 
-    mount_uploader :photo, PhotoUploader
+    mount_uploader :photo, Popolo::PhotoUploader
 
     # The person's formatted name.
     field :name, type: String
