@@ -23,6 +23,15 @@ Spork.prefork do
     end
   end
 
+  # Create non-Popolo indexes.
+  Rails.application.railties.engines.each do |engine|
+    unless engine.engine_name == 'popolo'
+      engine.paths["app/models"].expanded.each do |path|
+        Rails::Mongoid.create_indexes("#{path}/**/*.rb")
+      end
+    end
+  end
+
   require 'database_cleaner'
   require 'factory_girl_rails'
   require 'shoulda/matchers'
@@ -43,9 +52,18 @@ end
 
 Spork.each_run do
   # It's now okay to load Popolo.
-  Rails.application.railties.all do |railtie|
-    if railtie.respond_to?(:engine_name) && railtie.engine_name == 'popolo'
-      railtie.eager_load!
+  Rails.application.railties.engines.each do |engine|
+    if engine.engine_name == 'popolo'
+      engine.eager_load!
+    end
+  end
+
+  # Create Popolo indexes.
+  Rails.application.railties.engines.each do |engine|
+    if engine.engine_name == 'popolo'
+      engine.paths["app/models"].expanded.each do |path|
+        Rails::Mongoid.create_indexes("#{path}/**/*.rb")
+      end
     end
   end
 
