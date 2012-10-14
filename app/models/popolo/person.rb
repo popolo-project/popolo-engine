@@ -27,6 +27,7 @@ module Popolo
   #
   # @note FOAF has no property for additional names or honorific suffixes.
   # @note Schema.org can't represent alternative names.
+  # @see http://www.w3.org/wiki/RepresentingVCardinRDFOWL
   # @see http://vocab.org/bio/0.1/.html
   # @see http://dublincore.org/documents/dcmi-terms/
   # @see http://xmlns.com/foaf/spec/
