@@ -36,7 +36,5 @@ module Popolo
     field :tel, type: Integer
     # The facsimile number.
     field :fax, type: Integer
-
-    validates_presence_of :name, :address
   end
 end
