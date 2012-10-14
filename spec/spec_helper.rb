@@ -51,6 +51,10 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  # DatabaseCleaner will not truncate system.indexes between tests, but it
+  # should be truncated before running the full test suite.
+  Mongoid::Sessions.default.drop
+
   # It's now okay to load Popolo.
   Rails.application.railties.engines.each do |engine|
     if engine.engine_name == 'popolo'

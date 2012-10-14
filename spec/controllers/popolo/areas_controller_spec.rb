@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe Popolo::AreasController do
@@ -5,8 +6,8 @@ describe Popolo::AreasController do
     @routes = Popolo::Engine.routes
     @area       = FactoryGirl.create :area, name: 'Canada'
     @ontario    = @area.children.create name: 'Ontario'
-    @quebec     = @area.children.create name: 'Quebec'
-    @montreal   = @quebec.children.create name: 'Montreal'
+    @quebec     = @area.children.create name: 'Québec'
+    @montreal   = @quebec.children.create name: 'Montréal'
     @villemarie = @montreal.children.create name: 'Ville-Marie'
   end
 

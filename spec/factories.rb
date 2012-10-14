@@ -4,11 +4,24 @@ FactoryGirl.define do
     name 'Foo'
   end
 
-  factory :party, class: Popolo::Party do
-    name 'Foo'
+  factory :event, class: Popolo::Event do
+    # @todo
+  end
+
+  factory :membership, class: Popolo::Membership do
+    person
+    organization
+  end
+
+  factory :organization, class: Popolo::Organization do
+    name 'ABC, Inc.'
+  end
+
+  factory :organizational_unit, class: Popolo::OrganizationalUnit do
+    name 'Marketing'
   end
 
   factory :person, class: Popolo::Person do
-    name 'Foo'
+    name 'John Q. Public'
   end
 end
