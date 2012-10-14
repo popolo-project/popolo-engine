@@ -69,7 +69,7 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
-    database_cleaner (0.8.0)
+    database_cleaner (0.9.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     excon (0.16.4)
@@ -100,8 +100,9 @@ GEM
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
-    guard-rspec (1.2.1)
+    guard-rspec (2.1.0)
       guard (>= 1.1)
+      rspec (~> 2.11)
     guard-spork (1.2.0)
       childprocess
       guard (>= 1.1)
@@ -219,14 +220,14 @@ PLATFORMS
 
 DEPENDENCIES
   carrierwave-mongoid!
-  database_cleaner
-  factory_girl_rails
-  guard-brakeman
-  guard-bundler
-  guard-rspec
-  guard-spork
+  database_cleaner (~> 0.9)
+  factory_girl_rails (~> 4.1)
+  guard-brakeman (~> 0.5)
+  guard-bundler (~> 1.0)
+  guard-rspec (~> 2.1)
+  guard-spork (~> 1.2)
   popolo!
-  rb-fsevent
+  rb-fsevent (~> 0.9)
   rspec-rails (~> 2.11)
   shoulda-matchers (~> 1.0)
-  spork-rails
+  spork-rails (~> 3.2)
