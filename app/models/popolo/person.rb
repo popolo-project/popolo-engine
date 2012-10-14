@@ -75,6 +75,7 @@ module Popolo
     validates_presence_of :name, :slug
 
     index({slug: 1}, unique: true)
+    index({'sources.name' => 1}, unique: true)
 
     before_validation :set_slug
 

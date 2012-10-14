@@ -24,6 +24,7 @@ module Popolo
 
     index({name: 1}, unique: true)
     index({slug: 1}, unique: true)
+    index({'sources.name' => 1}, unique: true)
 
     before_validation :set_slug
 
@@ -33,6 +34,7 @@ module Popolo
 
   private
 
+    # @note Leave it to the content manager to choose a slug in case of conflicts.
     def set_slug
       self.slug ||= name.parameterize if name
     end

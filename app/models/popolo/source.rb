@@ -7,6 +7,8 @@ module Popolo
 
     # A human-readable unique identifier for the source, e.g. "news.google.ca".
     field :name, type: String
+    # The source's URL.
+    field :url, type: String
     # The source's ETag.
     field :etag, type: String
     # The source's last modified timestamp.
@@ -15,7 +17,5 @@ module Popolo
     field :extra, type: Hash
 
     validates_presence_of :name, :last_modified
-
-    index({name: 1}, unique: true)
   end
 end
