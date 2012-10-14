@@ -1,13 +1,13 @@
 require_dependency 'popolo/application_controller'
 
 module Popolo
-  class PartiesController < ApplicationController
+  class OrganizationsController < ApplicationController
     inherit_resources
     respond_to :html, :json
     actions :index, :show
 
     def show
-      @party = Party.find_by_slug(params[:id])
+      @organization = Organization.find_by_slug(params[:id])
       show!
     end
   end
