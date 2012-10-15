@@ -42,9 +42,6 @@ module Popolo
 
     mount_uploader :photo, Popolo::PhotoUploader
 
-    # The person's formatted name.
-    field :name, type: String
-
     # The person's given name.
     field :given_name, type: String
     # The person's family name.
@@ -69,7 +66,5 @@ module Popolo
     field :accounts, type: Hash
     # Links to other pages about this person, eg Wikipedia.
     field :links, type: Hash, localize: true
-
-    validates_presence_of :name
   end
 end

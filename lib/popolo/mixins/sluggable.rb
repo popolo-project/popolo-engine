@@ -4,10 +4,12 @@ module Popolo
       extend ActiveSupport::Concern
 
       included do
+        # The resource's name.
+        field :name, type: String
         # A lowercase identifier composed of letters, numbers and dashes.
         field :slug, type: String
 
-        validates_presence_of :slug
+        validates_presence_of :name, :slug
 
         index({slug: 1}, unique: true)
 
@@ -16,7 +18,7 @@ module Popolo
 
       module ClassMethods
         # @param [String] slug a slug or ID
-        # @return a matching record
+        # @return a matching resource
         def find_by_slug(slug)
           where(slug: slug).first || find(slug)
         end

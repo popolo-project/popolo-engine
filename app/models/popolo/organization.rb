@@ -27,11 +27,7 @@ module Popolo
     has_many :memberships, class_name: 'Popolo::Membership'
     belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
 
-    # The organization's official name.
-    field :name, type: String
     # The organization's category.
     field :classification, type: String
-
-    validates_presence_of :name
   end
 end
