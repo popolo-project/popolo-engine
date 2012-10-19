@@ -5,7 +5,10 @@ FactoryGirl.define do
   end
 
   factory :event, class: Popolo::Event do
-    # @todo
+    source 'example.org'
+    url 'http://example.org/news/123.html'
+    body 'Lorem ipsum dolor sit amet'
+    issued_at 1.day.ago
   end
 
   factory :membership, class: Popolo::Membership do

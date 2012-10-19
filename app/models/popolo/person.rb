@@ -37,7 +37,6 @@ module Popolo
     include Mongoid::Paranoia
     include Mongoid::Timestamps
     include Popolo::Mixins::Sluggable
-    include Popolo::Mixins::Eventable
 
     has_many :memberships, class_name: 'Popolo::Membership'
 
