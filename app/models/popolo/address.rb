@@ -1,5 +1,5 @@
 module Popolo
-  # A contact point including postal address and telephone and fax numbers.
+  # A contact point including a postal address and telephone and fax numbers.
   #
   # Turtle document:
   #

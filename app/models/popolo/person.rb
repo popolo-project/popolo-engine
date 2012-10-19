@@ -34,6 +34,7 @@ module Popolo
   # @see http://schema.org/Person
   class Person
     include Mongoid::Document
+    include Mongoid::Paranoia
     include Mongoid::Timestamps
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable

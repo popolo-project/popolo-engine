@@ -10,7 +10,7 @@ module Popolo
   #         a skos:Concept;
   #         skos:prefLabel "Company";
   #       ];
-  #       rdfs:seeAlso <http://example.com/people/17cc67093475061e3d95369d>;
+  #       rdfs:seeAlso <http://example.com/organizations/17cc67093475061e3d95369d>;
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
   #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
   #
@@ -19,6 +19,7 @@ module Popolo
   # @see http://dublincore.org/documents/dcmi-terms/
   class Organization
     include Mongoid::Document
+    include Mongoid::Paranoia
     include Mongoid::Timestamps
     include Mongoid::Tree
     include Popolo::Mixins::Sluggable
