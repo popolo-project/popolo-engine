@@ -8,7 +8,7 @@ module Popolo
   #       skos:prefLabel "ABC, Inc.";
   #       org:classification [
   #         a skos:Concept;
-  #         skos:prefLabel "Company";
+  #         skos:prefLabel "Company"
   #       ];
   #       rdfs:seeAlso <http://example.com/organizations/17cc67093475061e3d95369d>;
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;

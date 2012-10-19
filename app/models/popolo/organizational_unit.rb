@@ -10,7 +10,7 @@ module Popolo
   #       skos:prefLabel "Marketing";
   #       org:classification [
   #         a skos:Concept;
-  #         skos:prefLabel "Department";
+  #         skos:prefLabel "Department"
   #       ];
   #       rdfs:seeAlso <http://example.com/organizational_units/27cc67093475061e3d95369d>;
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
