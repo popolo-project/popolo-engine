@@ -24,7 +24,7 @@ module Popolo
   # @see http://tools.ietf.org/html/rfc6350
   # @see http://tools.ietf.org/html/rfc3966
   # @see http://www.iana.org/assignments/vcard-elements/vcard-elements.xml
-  # @see http://schema.org/ContactPoint
+  # @see http://schema.org/PostalAddress
   class Address
     include Mongoid::Document
 

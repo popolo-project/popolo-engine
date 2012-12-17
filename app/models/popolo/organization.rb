@@ -22,6 +22,7 @@ module Popolo
     include Mongoid::Paranoia
     include Mongoid::Timestamps
     include Mongoid::Tree
+
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 

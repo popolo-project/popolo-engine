@@ -29,6 +29,7 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Paranoia
     include Mongoid::Timestamps
+
     include Popolo::Mixins::Eventable
 
     belongs_to :person, index: true, class_name: 'Popolo::Person'
