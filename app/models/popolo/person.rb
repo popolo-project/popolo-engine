@@ -5,7 +5,7 @@ module Popolo
   #
   #     <http://example.com/people/47cc67093475061e3d95369d.ttl>
   #       a v:Individual;
-  #       v:fn "Mr. John Q. Public Esq.";
+  #       v:formattedName "Mr. John Q. Public Esq.";
   #       v:hasName [
   #         v:givenName "John";
   #         v:familyName "Public";
@@ -40,8 +40,9 @@ module Popolo
 
     include Popolo::Mixins::Sluggable
 
-    has_many :memberships, class_name: 'Popolo::Membership'
+    has_many :posts, class_name: 'Popolo::Post'
 
+    # The person's photo.
     mount_uploader :photo, Popolo::PhotoUploader
 
     # The person's given name.

@@ -33,7 +33,7 @@ module Popolo
     field :extra, type: Hash
 
     index 'related.area' => 1, source: 1, issued_at: -1
-    index 'related.membership' => 1, source: 1, issued_at: -1
+    index 'related.post' => 1, source: 1, issued_at: -1
     index 'related.organization' => 1, source: 1, issued_at: -1
     index 'related.organizational_unit' => 1, source: 1, issued_at: -1
 

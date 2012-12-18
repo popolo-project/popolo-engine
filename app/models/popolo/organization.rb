@@ -26,7 +26,7 @@ module Popolo
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 
-    has_many :memberships, class_name: 'Popolo::Membership'
+    has_many :posts, class_name: 'Popolo::Post'
     belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
 
     # The organization's category.
