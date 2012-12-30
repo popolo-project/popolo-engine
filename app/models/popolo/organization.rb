@@ -27,7 +27,7 @@ module Popolo
     include Popolo::Mixins::Eventable
 
     has_many :posts, class_name: 'Popolo::Post'
-    belongs_to :spatial, polymorphic: true, index: true, class_name: 'Popolo::Area'
+    belongs_to :area, polymorphic: true, index: true, class_name: 'Popolo::Area'
 
     # The organization's category.
     field :classification, type: String

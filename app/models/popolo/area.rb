@@ -19,6 +19,8 @@ module Popolo
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 
+    has_many :agents, as: :area
+
     # Woe to jurisdictions with non-unique administrative division names!
 
     index({name: 1}, unique: true)
