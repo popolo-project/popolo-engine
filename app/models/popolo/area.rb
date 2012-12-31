@@ -19,7 +19,9 @@ module Popolo
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 
+    # Organizations related to the area, e.g. governments.
     has_many :organizations, class_name: 'Popolo::Organization'
+    # Posts related to the area, e.g. officials.
     has_many :posts, class_name: 'Popolo::Post'
 
     # Woe to jurisdictions with non-unique administrative division names!

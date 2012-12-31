@@ -40,6 +40,7 @@ module Popolo
 
     include Popolo::Mixins::Sluggable
 
+    # The posts held by the person.
     has_many :posts, class_name: 'Popolo::Post'
 
     # The person's photo.
