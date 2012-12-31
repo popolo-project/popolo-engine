@@ -1,5 +1,5 @@
 module Popolo
-  # An occurrence, eg an action mentioning or performed by an agent.
+  # An occurrence, e.g. an action mentioning or performed by an agent.
   #
   # Turtle document:
   #

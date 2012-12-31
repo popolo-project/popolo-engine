@@ -49,25 +49,25 @@ module Popolo
     field :given_name, type: String
     # The person's family name.
     field :family_name, type: String
-    # An additional name, eg a middle name.
+    # An additional name, e.g. a middle name.
     field :additional_name, type: String
-    # An honorific prefix before the person's name, eg "Dr.".
+    # An honorific prefix before the person's name, e.g. "Dr.".
     field :honorific_prefix, type: String
-    # An honorific suffix after the person's name, eg "Jr.".
+    # An honorific suffix after the person's name, e.g. "Jr.".
     field :honorific_suffix, type: String
 
     # The person's email address.
     field :email, type: String
-    # The person's gender, eg "male", "female" or another value.
+    # The person's gender, e.g. "male", "female" or another value.
     field :gender, type: String
     # The person's one-line biography.
     field :summary, type: String, localize: true
     # The person's extended biography.
     field :biography, type: String, localize: true
 
-    # Accounts this person has on other websites, eg Twitter.
+    # Accounts this person has on other websites, e.g. Twitter.
     field :accounts, type: Hash
-    # Links to other pages about this person, eg Wikipedia.
+    # Links to other pages about this person, e.g. Wikipedia.
     field :links, type: Hash, localize: true
   end
 end

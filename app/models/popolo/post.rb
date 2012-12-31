@@ -37,7 +37,7 @@ module Popolo
     # The post's name. Names should preferably belong to a controlled
     # vocabulary.
     field :name, type: String
-    # The subjects the post is responsible, eg a treasurer of an executive
+    # The subjects the post is responsible, e.g. a treasurer of an executive
     # committee may be responsible for finances.
     field :subjects, type: Array
   end
