@@ -19,7 +19,8 @@ module Popolo
     include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 
-    has_many :agents, as: :area
+    has_many :organizations, class_name: 'Popolo::Organization'
+    has_many :posts, class_name: 'Popolo::Post'
 
     # Woe to jurisdictions with non-unique administrative division names!
 

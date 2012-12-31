@@ -29,9 +29,9 @@ module Popolo
 
     include Popolo::Mixins::Eventable
 
-    belongs_to :person, index: true, class_name: 'Popolo::Person'
+    belongs_to :area, index: true, class_name: 'Popolo::Area'
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
-    belongs_to :area, polymorphic: true, index: true, class_name: 'Popolo::Area'
+    belongs_to :person, index: true, class_name: 'Popolo::Person'
     embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
 
     # The post's name. Names should preferably belong to a controlled

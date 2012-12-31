@@ -32,10 +32,13 @@ module Popolo
     # Any additional information about the event.
     field :extra, type: Hash
 
+    # @note It's not possible to do a many-to-many polymorphic relation, so we
+    #   must list every index individually.
+
     index 'related.area' => 1, source: 1, issued_at: -1
-    index 'related.post' => 1, source: 1, issued_at: -1
     index 'related.organization' => 1, source: 1, issued_at: -1
     index 'related.organizational_unit' => 1, source: 1, issued_at: -1
+    index 'related.post' => 1, source: 1, issued_at: -1
 
     validates_presence_of :source, :url, :body, :issued_at
   end
