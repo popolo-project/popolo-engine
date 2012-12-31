@@ -1,18 +1,19 @@
 module Popolo
-  # A structured collection of people.
+  # A structured collection of posts and/or people.
   #
   # Turtle document:
   #
   #     <http://example.com/organizations/17cc67093475061e3d95369d.ttl>
   #       a org:Organization;
   #       skos:prefLabel "ABC, Inc.";
+  #       org:hasUnit <http://example.com/organizations/27cc67093475061e3d95369d.ttl>;
   #       org:classification [
   #         a skos:Concept;
   #         skos:prefLabel "Company"
   #       ];
-  #       rdfs:seeAlso <http://example.com/organizations/17cc67093475061e3d95369d>;
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
+  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime;
+  #       rdfs:seeAlso <http://example.com/organizations/17cc67093475061e3d95369d> .
   #
   # @see http://www.w3.org/TR/vocab-org/
   # @see http://www.w3.org/TR/skos-reference/

@@ -5,7 +5,7 @@ module Popolo
   #
   #     <http://example.com/posts/37cc67093475061e3d95369d.ttl>
   #       a org:Post;
-  #       skos:prefLabel "Treasurer"
+  #       skos:prefLabel "Treasurer";
   #       org:heldBy <http://example.com/people/47cc67093475061e3d95369d.ttl>;
   #       org:postIn <http://example.com/organizations/17cc67093475061e3d95369d.ttl>;
   #       dcterms:subject [
@@ -27,6 +27,7 @@ module Popolo
     include Mongoid::Paranoia
     include Mongoid::Timestamps
 
+    include Popolo::Mixins::Sluggable
     include Popolo::Mixins::Eventable
 
     # An area related to the post, e.g. an electoral riding.
@@ -38,10 +39,7 @@ module Popolo
 
     embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
 
-    # The post's name. Names should preferably belong to a controlled
-    # vocabulary.
-    field :name, type: String
-    # The subjects the post is responsible, e.g. a treasurer of an executive
+    # The subjects the post is responsible for, e.g. a treasurer of an executive
     # committee may be responsible for finances.
     field :subjects, type: Array
   end

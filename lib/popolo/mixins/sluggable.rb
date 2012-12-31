@@ -5,7 +5,7 @@ module Popolo
 
       included do
         # The resource's name.
-        field :name, type: String
+        field :name, type: String, localize: true
         # A lowercase identifier composed of letters, numbers and dashes.
         field :slug, type: String
 
