@@ -17,7 +17,8 @@ module Popolo
   #         skos:prefLabel "Legal affairs"
   #       ];
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
+  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime;
+  #       rdfs:seeAlso <http://example.com/posts/37cc67093475061e3d95369d> .
   #
   # @see http://www.w3.org/TR/vocab-org/
   # @see http://www.w3.org/TR/skos-reference/

@@ -4,11 +4,11 @@ module Popolo
   # Turtle document:
   #
   #     <http://example.com/sources/67cc67093475061e3d95369d.ttl>
-  #       @todo
   #       rdfs:label "news.google.com";
   #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
   #
   # @see http://dublincore.org/documents/dcmi-terms/
+  # @todo Add the ETag to the Turtle document.
   class Source
     include Mongoid::Document
 

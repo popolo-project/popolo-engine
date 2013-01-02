@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency 'rails', '~> 3.2.8'
+  s.add_dependency 'rails', '~> 3.2.9'
+  s.add_dependency 'devise', '~> 2.1.2'
   s.add_dependency 'inherited_resources', '~> 1.3.1'
   s.add_dependency 'mongoid', '~> 3.0.6'
   s.add_dependency 'mongoid-tree', '~> 1.0.1'
@@ -34,6 +35,6 @@ Gem::Specification.new do |s|
   # https://github.com/guard/guard#os-x
   s.add_development_dependency 'rb-fsevent', '~> 0.9'
   s.add_development_dependency 'rspec-rails', '~> 2.11'
-  s.add_development_dependency 'shoulda-matchers', '~> 1.4'
+  s.add_development_dependency 'mongoid-rspec', '~> 1.5'
   s.add_development_dependency 'spork-rails', '~> 3.2'
 end
