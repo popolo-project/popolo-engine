@@ -16,8 +16,8 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
-    include Popolo::Mixins::Sluggable
-    include Popolo::Mixins::Eventable
+    include Popolo::Sluggable
+    include Popolo::Eventable
 
     # Organizations related to the area, e.g. governments.
     has_many :organizations, class_name: 'Popolo::Organization'

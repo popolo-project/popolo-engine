@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Popolo::Mixins::Eventable do
+describe Popolo::Eventable do
   describe '.included' do
     describe '#events' do
       let :resource do

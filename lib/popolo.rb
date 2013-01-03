@@ -1,13 +1,15 @@
 require 'popolo/engine'
 
+require 'active_support/concern'
+require 'inherited_resources'
 require 'mongoid'
 require 'mongoid/tree'
-require 'inherited_resources'
 require 'unicode_utils'
 
 module Popolo
   # Raised if a resource is improperly nested in a URL.
   class ImproperlyNestedResource < StandardError; end
-
-  autoload :Mixins, 'popolo/mixins'
 end
+
+require 'popolo/mixins/eventable'
+require 'popolo/mixins/sluggable'

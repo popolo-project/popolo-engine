@@ -38,7 +38,7 @@ module Popolo
     include Mongoid::Paranoia
     include Mongoid::Timestamps
 
-    include Popolo::Mixins::Sluggable
+    include Popolo::Sluggable
 
     # The posts held by the person.
     has_many :posts, class_name: 'Popolo::Post'

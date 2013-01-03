@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Popolo::Mixins::Sluggable do
+describe Popolo::Sluggable do
   describe '.included' do
     describe '#new' do
       subject {Cat.new}

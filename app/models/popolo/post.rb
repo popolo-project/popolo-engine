@@ -28,8 +28,8 @@ module Popolo
     include Mongoid::Paranoia
     include Mongoid::Timestamps
 
-    include Popolo::Mixins::Sluggable
-    include Popolo::Mixins::Eventable
+    include Popolo::Sluggable
+    include Popolo::Eventable
 
     # An area related to the post, e.g. an electoral riding.
     belongs_to :area, index: true, class_name: 'Popolo::Area'

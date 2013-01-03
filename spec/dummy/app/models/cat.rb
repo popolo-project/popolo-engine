@@ -1,6 +1,6 @@
 class Cat
   include Mongoid::Document
 
-  include Popolo::Mixins::Sluggable
-  include Popolo::Mixins::Eventable
+  include Popolo::Sluggable
+  include Popolo::Eventable
 end

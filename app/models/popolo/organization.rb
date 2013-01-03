@@ -24,8 +24,8 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
-    include Popolo::Mixins::Sluggable
-    include Popolo::Mixins::Eventable
+    include Popolo::Sluggable
+    include Popolo::Eventable
 
     # An area related to the organization, e.g. a region or country.
     belongs_to :area, index: true, class_name: 'Popolo::Area'
