@@ -34,9 +34,11 @@ Spork.prefork do
 
   require 'database_cleaner'
   require 'factory_girl_rails'
-  require 'shoulda/matchers'
+  require 'mongoid-rspec'
 
   RSpec.configure do |config|
+    config.include Mongoid::Matchers
+
     config.mock_with :rspec
 
     config.after(:each) do
