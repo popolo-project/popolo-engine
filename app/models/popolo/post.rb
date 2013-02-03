@@ -1,28 +1,6 @@
 module Popolo
-  # A post in an organization.
-  #
-  # Turtle document:
-  #
-  #     <http://example.com/posts/37cc67093475061e3d95369d.ttl>
-  #       a org:Post;
-  #       skos:prefLabel "Treasurer";
-  #       org:heldBy <http://example.com/people/47cc67093475061e3d95369d.ttl>;
-  #       org:postIn <http://example.com/organizations/17cc67093475061e3d95369d.ttl>;
-  #       dcterms:subject [
-  #         a skos:Concept;
-  #         skos:prefLabel "Finances"
-  #       ];
-  #       dcterms:subject [
-  #         a skos:Concept;
-  #         skos:prefLabel "Legal affairs"
-  #       ];
-  #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       rdfs:seeAlso <http://example.com/posts/37cc67093475061e3d95369d> .
-  #
-  # @see http://www.w3.org/TR/vocab-org/
-  # @see http://www.w3.org/TR/skos-reference/
-  # @see http://dublincore.org/documents/dcmi-terms/
+  # A position in an organization that exists independently of the person
+  # holding it.
   class Post
     include Mongoid::Document
     include Mongoid::Paranoia

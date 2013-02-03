@@ -1,23 +1,6 @@
 module Popolo
-  # A structured collection of posts and/or people.
-  #
-  # Turtle document:
-  #
-  #     <http://example.com/organizations/17cc67093475061e3d95369d.ttl>
-  #       a org:Organization;
-  #       skos:prefLabel "ABC, Inc.";
-  #       org:hasUnit <http://example.com/organizations/27cc67093475061e3d95369d.ttl>;
-  #       org:classification [
-  #         a skos:Concept;
-  #         skos:prefLabel "Company"
-  #       ];
-  #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime;
-  #       rdfs:seeAlso <http://example.com/organizations/17cc67093475061e3d95369d> .
-  #
-  # @see http://www.w3.org/TR/vocab-org/
-  # @see http://www.w3.org/TR/skos-reference/
-  # @see http://dublincore.org/documents/dcmi-terms/
+  # A group with a common purpose or reason for existence that goes beyond the
+  # set of people belonging to it, e.g. a political structure.
   class Organization
     include Mongoid::Document
     include Mongoid::Paranoia

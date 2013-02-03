@@ -1,10 +1,11 @@
 module Popolo
   # A source of information.
   #
-  # Turtle document:
+  # Turtle document: @todo move into popoloproject.com
   #
   #     <http://example.com/sources/67cc67093475061e3d95369d.ttl>
   #       rdfs:label "news.google.com";
+  #       dcterms:identifier "67cc67093475061e3d95369d";
   #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
   #
   # @see http://dublincore.org/documents/dcmi-terms/

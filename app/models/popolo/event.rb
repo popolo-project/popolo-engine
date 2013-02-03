@@ -1,7 +1,7 @@
 module Popolo
   # An occurrence, e.g. an action mentioning or performed by an agent.
   #
-  # Turtle document:
+  # Turtle document: @todo move into popoloproject.com
   #
   #     <http://example.com/events/57cc67093475061e3d95369d.ttl>
   #       a cnt:ContentAsText;
@@ -10,6 +10,7 @@ module Popolo
   #       dcterms:format "text/plain";
   #       dcterms:isFormatOf <http://example.org/news/123.html>;
   #       dcterms:issued "2012-01-01T00:00:00Z"^^xsd:dateTime;
+  #       dcterms:identifier "57cc67093475061e3d95369d";
   #       dcterms:created "2012-01-01T00:00:00Z"^^xsd:dateTime;
   #       dcterms:modified "2012-01-01T00:00:00Z"^^xsd:dateTime .
   #
@@ -37,7 +38,6 @@ module Popolo
 
     index 'related.area' => 1, source: 1, issued_at: -1
     index 'related.organization' => 1, source: 1, issued_at: -1
-    index 'related.organizational_unit' => 1, source: 1, issued_at: -1
     index 'related.post' => 1, source: 1, issued_at: -1
 
     validates_presence_of :source, :url, :body, :issued_at
