@@ -12,7 +12,6 @@ module Popolo
     include Mongoid::Tree
 
     include Popolo::Sluggable
-    include Popolo::Eventable
 
     # Organizations related to the area, e.g. governments.
     has_many :organizations, class_name: 'Popolo::Organization'

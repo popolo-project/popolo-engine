@@ -11,7 +11,7 @@ FactoryGirl.define do
     issued_at 1.day.ago
   end
 
-  factory :post, class: Popolo::Post do
+  factory :membership, class: Popolo::Membership do
     person
     organization
   end
@@ -26,5 +26,11 @@ FactoryGirl.define do
 
   factory :person, class: Popolo::Person do
     name 'John Q. Public'
+  end
+
+  factory :post, class: Popolo::Post do
+    role 'Director'
+    person
+    organization
   end
 end

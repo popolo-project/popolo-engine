@@ -11,5 +11,4 @@ module Popolo
   class ImproperlyNestedResource < StandardError; end
 end
 
-require 'popolo/mixins/eventable'
 require 'popolo/mixins/sluggable'

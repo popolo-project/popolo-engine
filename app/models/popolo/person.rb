@@ -7,6 +7,8 @@ module Popolo
 
     include Popolo::Sluggable
 
+    # The relationships to which the person is a party.
+    has_many :memberships, class_name: 'Popolo::Membership'
     # The posts held by the person.
     has_many :posts, class_name: 'Popolo::Post'
 
@@ -29,12 +31,12 @@ module Popolo
     # The person's gender, e.g. "male", "female" or another value.
     field :gender, type: String
     # The person's one-line biography.
-    field :summary, type: String, localize: true
+    field :summary, type: String
     # The person's extended biography.
-    field :biography, type: String, localize: true
+    field :biography, type: String
 
     # Links to other pages about this person, e.g. Wikipedia, or to accounts
     # this person has on other websites, e.g. Twitter.
-    field :links, type: Hash, localize: true
+    field :links, type: Hash
   end
 end

@@ -17,5 +17,13 @@ describe Popolo::OrganizationsController do
     it 'routes to #show' do
       get('/organizations/foo').should route_to('popolo/organizations#show', id: 'foo')
     end
+
+    it 'routes to #nested_index' do
+      get('/organizations/foo/organizations').should route_to('popolo/organizations#nested_index', path: 'foo')
+    end
+
+    it 'routes to #nested_show' do
+      get('/organizations/foo/bar').should route_to('popolo/organizations#nested_show', path: 'foo/bar')
+    end
   end
 end

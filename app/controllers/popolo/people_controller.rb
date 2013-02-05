@@ -8,7 +8,6 @@ module Popolo
 
     def show
       @person = Person.find_by_slug(params[:id])
-      # @todo @activities = @person.activities.sort(:published_at.desc).limit(50)
       show!
     end
   end

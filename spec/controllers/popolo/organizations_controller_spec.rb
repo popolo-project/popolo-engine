@@ -1,9 +1,14 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe Popolo::OrganizationsController do
   before :each do
     @routes = Popolo::Engine.routes
-    @organization = FactoryGirl.create :organization
+    @organization  = FactoryGirl.create :organization, name: 'Acme Corporation'
+    @abc           = @organization.children.create name: 'ABC, Inc.'
+    @xyz           = @organization.children.create name: 'XYZ, Inc.'
+    @department    = @xyz.children.create name: "Marketing Department"
+    @branch        = @department.children.create name: "Youth Branch"
   end
 
   describe 'GET index' do
@@ -22,6 +27,28 @@ describe Popolo::OrganizationsController do
     it 'gets the requested organization by slug' do
       get :show, id: @organization.slug
       assigns(:organization).should == @organization
+    end
+  end
+
+  describe 'GET nested_index' do
+    it 'succeeds if properly nested' do
+      get :nested_index, path: 'acme-corporation/xyz-inc/marketing-department'
+      assigns(:organizations).to_a.should == [@branch]
+    end
+
+    it 'fails if improperly nested' do
+      expect {get :nested_index, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Popolo::ImproperlyNestedResource)
+    end
+  end
+
+  describe 'GET nested_show' do
+    it 'succeeds if properly nested' do
+      get :nested_show, path: 'acme-corporation/xyz-inc/marketing-department'
+      assigns(:organization).should == @department
+    end
+
+    it 'fails if improperly nested' do
+      expect {get :nested_show, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Popolo::ImproperlyNestedResource)
     end
   end
 end
