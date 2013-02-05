@@ -16,11 +16,9 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency 'rails', '~> 3.1'
-  s.add_dependency 'devise', '~> 2.1.2'
   s.add_dependency 'inherited_resources', '~> 1.3.1'
   s.add_dependency 'mongoid', '~> 3.0.17'
   s.add_dependency 'mongoid-tree', '~> 1.0.1'
-  s.add_dependency 'unicode_utils', '~> 1.4.0'
 
   s.add_dependency 'fog', '~> 1.6.0'
   s.add_dependency 'rmagick', '~> 2.13.1'

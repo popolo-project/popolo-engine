@@ -4,7 +4,6 @@ require 'active_support/concern'
 require 'inherited_resources'
 require 'mongoid'
 require 'mongoid/tree'
-require 'unicode_utils'
 
 module Popolo
   # Raised if a resource is improperly nested in a URL.
