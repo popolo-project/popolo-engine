@@ -3,7 +3,7 @@ module Popolo
   class Membership
     include Mongoid::Document
 
-    # An area related to the post, e.g. an electoral riding.
+    # An area related to the membership, e.g. an electoral riding.
     belongs_to :area, index: true, class_name: 'Popolo::Area'
     # The person who is a party to the relationship.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
