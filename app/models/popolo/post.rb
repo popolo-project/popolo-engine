@@ -18,5 +18,7 @@ module Popolo
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The address at which the post is based.
     embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
+
+    validates_presence_of :organization_id
   end
 end
