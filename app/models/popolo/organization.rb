@@ -3,7 +3,6 @@ module Popolo
   # set of people belonging to it, e.g. a political structure.
   class Organization
     include Mongoid::Document
-    include Mongoid::Timestamps
     include Mongoid::Tree
 
     include Popolo::Sluggable

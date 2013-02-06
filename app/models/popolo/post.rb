@@ -3,7 +3,6 @@ module Popolo
   # holding it.
   class Post
     include Mongoid::Document
-    include Mongoid::Timestamps
 
     def self.slug_source
       :role

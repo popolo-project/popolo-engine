@@ -2,7 +2,6 @@ module Popolo
   # A relationship between a person and an organization.
   class Membership
     include Mongoid::Document
-    include Mongoid::Timestamps
 
     # An area related to the post, e.g. an electoral riding.
     belongs_to :area, index: true, class_name: 'Popolo::Area'
