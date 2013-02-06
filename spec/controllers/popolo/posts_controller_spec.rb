@@ -10,6 +10,7 @@ describe Popolo::PostsController do
     it 'assigns all posts as @posts' do
       get :index
       assigns(:posts).to_a.should == [@post]
+      response.should be_success
     end
   end
 
@@ -17,11 +18,13 @@ describe Popolo::PostsController do
     it 'assigns the requested post as @post' do
       get :show, id: @post.id.to_s
       assigns(:post).should == @post
+      response.should be_success
     end
 
     it 'gets the requested post by slug' do
       get :show, id: @post.slug
       assigns(:post).should == @post
+      response.should be_success
     end
   end
 end

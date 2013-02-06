@@ -10,6 +10,7 @@ describe Popolo::PeopleController do
     it 'assigns all people as @people' do
       get :index
       assigns(:people).to_a.should == [@person]
+      response.should be_success
     end
   end
 
@@ -17,11 +18,13 @@ describe Popolo::PeopleController do
     it 'assigns the requested person as @person' do
       get :show, id: @person.id.to_s
       assigns(:person).should == @person
+      response.should be_success
     end
 
     it 'gets the requested person by slug' do
       get :show, id: @person.slug
       assigns(:person).should == @person
+      response.should be_success
     end
   end
 end

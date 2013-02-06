@@ -15,6 +15,7 @@ describe Popolo::OrganizationsController do
     it 'assigns all organizations as @organizations' do
       get :index
       assigns(:organizations).to_a.should == [@organization]
+      response.should be_success
     end
   end
 
@@ -22,11 +23,13 @@ describe Popolo::OrganizationsController do
     it 'assigns the requested organization as @organization' do
       get :show, id: @organization.id.to_s
       assigns(:organization).should == @organization
+      response.should be_success
     end
 
     it 'gets the requested organization by slug' do
       get :show, id: @organization.slug
       assigns(:organization).should == @organization
+      response.should be_success
     end
   end
 
@@ -34,6 +37,7 @@ describe Popolo::OrganizationsController do
     it 'succeeds if properly nested' do
       get :nested_index, path: 'acme-corporation/xyz-inc/marketing-department'
       assigns(:organizations).to_a.should == [@branch]
+      response.should be_success
     end
 
     it 'fails if improperly nested' do
@@ -45,6 +49,7 @@ describe Popolo::OrganizationsController do
     it 'succeeds if properly nested' do
       get :nested_show, path: 'acme-corporation/xyz-inc/marketing-department'
       assigns(:organization).should == @department
+      response.should be_success
     end
 
     it 'fails if improperly nested' do
