@@ -2,7 +2,7 @@
 require 'carrierwave/processing/mime_types'
 
 module Popolo
-  class PhotoUploader < CarrierWave::Uploader::Base
+  class ImageUploader < CarrierWave::Uploader::Base
     include CarrierWave::MimeTypes
 
     # Include RMagick or MiniMagick support:

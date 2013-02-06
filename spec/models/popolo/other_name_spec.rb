@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Popolo::Person do
+describe Popolo::OtherName do
   it {should validate_presence_of :name}
 
-  [:birth_date, :death_date].each do |attribute|
+  [:start_date, :end_date].each do |attribute|
     it {
       should validate_format_of(attribute).
         # 4.1.2.2 Basic format
