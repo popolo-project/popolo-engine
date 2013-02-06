@@ -2,7 +2,6 @@ module Popolo
   # A real person, alive or dead.
   class Person
     include Mongoid::Document
-    include Mongoid::Paranoia
     include Mongoid::Timestamps
 
     include Popolo::Sluggable

@@ -7,7 +7,6 @@ module Popolo
   #   would have advantages – we use a flexible tree structure.
   class Area
     include Mongoid::Document
-    include Mongoid::Paranoia
     include Mongoid::Timestamps
     include Mongoid::Tree
 

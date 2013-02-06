@@ -3,7 +3,6 @@ module Popolo
   # holding it.
   class Post
     include Mongoid::Document
-    include Mongoid::Paranoia
     include Mongoid::Timestamps
 
     def self.slug_source
@@ -20,7 +19,5 @@ module Popolo
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The address at which the post is based.
     embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
-
-    # The role that the holder of the post fulfills is provided by a mixin.
   end
 end
