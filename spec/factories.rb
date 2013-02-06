@@ -20,10 +20,6 @@ FactoryGirl.define do
     name 'ABC, Inc.'
   end
 
-  factory :organizational_unit, class: Popolo::OrganizationalUnit do
-    name 'Marketing'
-  end
-
   factory :person, class: Popolo::Person do
     name 'John Q. Public'
   end

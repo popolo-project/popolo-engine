@@ -13,8 +13,19 @@ module Popolo
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
     # The posts within the organization.
     has_many :posts, class_name: 'Popolo::Post', dependent: :destroy
+    # The organization's alternate or former names.
+    embeds_many :other_names, as: :nameable, class_name: 'Popolo::OtherName'
+    # The organization's issued identifiers.
+    embeds_many :identifiers, class_name: 'Popolo::Identifier'
 
     # The organization's category.
     field :classification, type: String
+    # The organization's date of founding in ISO 8601:2004 format.
+    field :founding_date, type: String
+    # The organization's date of dissolution in ISO 8601:2004 format.
+    field :dissolution_date, type: String
+
+    validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
   end
 end

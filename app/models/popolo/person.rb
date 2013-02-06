@@ -41,9 +41,8 @@ module Popolo
     # The person's extended biography.
     field :biography, type: String
 
-    validates_presence_of :name
+    # @note Add email address validation to match JSON Schema?
     validates_format_of :birth_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :death_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
-    # @note Add email address validation to match JSON Schema?
   end
 end
