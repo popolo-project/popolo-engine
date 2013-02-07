@@ -5,9 +5,13 @@ module Popolo
     # @example
     #   rails generate popolo
     class PopoloGenerator < Rails::Generators::Base
-      desc "Adds a rescue_from block to ApplicationController."
+      desc "Adds Popolo routes and rescues Popolo exceptions."
 
       namespace 'popolo'
+
+      def add_routes
+        route "mount Popolo::Engine => '/popolo'"
+      end
 
       def add_rescue_from_block_to_application_controller
         inject_into_class 'app/controllers/application_controller.rb', 'ApplicationController' do
