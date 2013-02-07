@@ -20,10 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'mongoid', '~> 3.0.17'
   s.add_dependency 'mongoid-tree', '~> 1.0.1'
 
-  s.add_dependency 'fog', '~> 1.6.0'
-  s.add_dependency 'rmagick', '~> 2.13.1'
-  # @todo add carrierwave-mongoid dependency when possible
-
   s.add_development_dependency 'database_cleaner', '~> 0.9'
   s.add_development_dependency 'factory_girl_rails', '~> 4.1'
   s.add_development_dependency 'guard-brakeman', '~> 0.5'

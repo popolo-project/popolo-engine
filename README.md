@@ -10,15 +10,23 @@ Popolo is a [Ruby on Rails engine](http://guides.rubyonrails.org/engines.html) t
 
 In addition to being a Rails engine, Popolo is also a [data standard](http://popoloproject.com/data.html) and an [API specification](http://popoloproject.com/api.html).
 
-## Dependencies
+## Getting Started
 
-Popolo uses Mongoid, which supports only MRI 1.9.3 and HEAD, and JRuby 1.6.0+ in 1.9 mode.
+Popolo uses Mongoid to connect to MongoDB, which requires Rails 3 and supports only MRI 1.9.3 and HEAD, and JRuby 1.6.0+ in 1.9 mode.
 
-Until [carrierwave-mongoid](https://github.com/jnicklas/carrierwave-mongoid) releases its [Mongoid 3 branch](https://github.com/jnicklas/carrierwave-mongoid/tree/mongoid-3.0) ([jnicklas/carrierwave-mongoid#29](https://github.com/jnicklas/carrierwave-mongoid/pull/29#issuecomment-7249357)), add the following to your Gemfile:
+First, create your Rails application:
 
-```ruby
-gem 'carrierwave-mongoid', git: 'git://github.com/jnicklas/carrierwave-mongoid.git', branch: 'mongoid-3.0'
-```
+    rails new myapp --skip-active-record
+
+Add the `popolo` gem to your `Gemfile`:
+
+    gem 'popolo'
+
+### Mongoid
+
+If you didn't run `rails new` with the `--skip-active-record` option, follow Mongoid's [installation instructions](http://mongoid.org/en/mongoid/docs/installation.html). Otherwise:
+
+    rails generate mongoid:config
 
 ## Bugs? Questions?
 

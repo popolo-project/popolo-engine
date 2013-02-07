@@ -15,9 +15,6 @@ module Popolo
     # person has on other websites, e.g. Twitter.
     embeds_many :links, class_name: 'Popolo::Link'
 
-    # The person's photo.
-    mount_uploader :image, Popolo::ImageUploader
-
     # The person's family name.
     field :family_name, type: String
     # The person's given name.
@@ -36,12 +33,15 @@ module Popolo
     field :birth_date, type: String
     # The person's date of death in ISO 8601:2004 format.
     field :death_date, type: String
+    # The URL of the person's head shot.
+    field :image, type: String
     # The person's one-line biography.
     field :summary, type: String
     # The person's extended biography.
     field :biography, type: String
 
     # @note Add email address validation to match JSON Schema?
+    # @note Add URL validation to match JSON Schema?
     validates_format_of :birth_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :death_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
   end
