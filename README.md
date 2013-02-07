@@ -22,11 +22,13 @@ Add the `popolo` gem to your `Gemfile`:
 
     gem 'popolo'
 
-### Mongoid
-
 If you didn't run `rails new` with the `--skip-active-record` option, follow Mongoid's [installation instructions](http://mongoid.org/en/mongoid/docs/installation.html). Otherwise:
 
     rails generate mongoid:config
+
+Finally, run the `popolo` generator:
+
+    rails generate popolo
 
 ## Bugs? Questions?
 
