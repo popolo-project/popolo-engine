@@ -10,7 +10,7 @@ module Popolo
       namespace 'popolo'
 
       def add_routes
-        route "mount Popolo::Engine => '/popolo'"
+        route "mount Popolo::Engine => '/'"
       end
 
       def add_rescue_from_block_to_application_controller
