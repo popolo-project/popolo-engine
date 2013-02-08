@@ -6,6 +6,7 @@ module Popolo
     include Mongoid::Tree
 
     include Popolo::Sluggable
+    index({slug: 1, parent_id: 1}, unique: true)
 
     # An area related to the organization, e.g. a region or country.
     belongs_to :area, index: true, class_name: 'Popolo::Area'

@@ -9,6 +9,7 @@ module Popolo
     end
 
     include Popolo::Sluggable
+    index({slug: 1}, unique: true)
 
     # An area related to the post, e.g. an electoral riding.
     belongs_to :area, index: true, class_name: 'Popolo::Area'

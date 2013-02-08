@@ -6,4 +6,5 @@ class Dog
   end
 
   include Popolo::Sluggable
+  index({slug: 1}, unique: true)
 end

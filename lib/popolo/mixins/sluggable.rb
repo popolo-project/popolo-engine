@@ -8,8 +8,6 @@ module Popolo
       # A lowercase identifier composed of letters, numbers and dashes.
       field :slug, type: String
 
-      index({slug: 1}, unique: true)
-
       validates_presence_of slug_source, :slug
 
       before_validation :set_slug

@@ -4,6 +4,7 @@ module Popolo
     include Mongoid::Document
 
     include Popolo::Sluggable
+    index({slug: 1}, unique: true)
 
     # The relationships to which the person is a party.
     has_many :memberships, class_name: 'Popolo::Membership'

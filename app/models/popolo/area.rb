@@ -10,6 +10,7 @@ module Popolo
     include Mongoid::Tree
 
     include Popolo::Sluggable
+    index({slug: 1, parent_id: 1}, unique: true)
 
     # Memberships related to the area, e.g. officials.
     has_many :memberships, class_name: 'Popolo::Membership'
