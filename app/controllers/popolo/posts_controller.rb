@@ -1,7 +1,5 @@
-require_dependency 'popolo/application_controller'
-
 module Popolo
-  class PostsController < ApplicationController
+  class PostsController < PopoloController
     inherit_resources
     respond_to :html, :json
     actions :index, :show
