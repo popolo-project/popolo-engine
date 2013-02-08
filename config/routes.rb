@@ -8,4 +8,8 @@ Popolo::Engine.routes.draw do
   match 'areas/*path' => 'areas#nested_show', as: 'nested_area'
   match 'organizations/*path/organizations' => 'organizations#nested_index', as: 'nested_organizations'
   match 'organizations/*path' => 'organizations#nested_show', as: 'nested_organization'
+
+  # A host application will sometimes complain about a missing `root_path`, even
+  # if it defines a `root_path`. Setting a reasonable default here.
+  root to: 'organizations#index'
 end

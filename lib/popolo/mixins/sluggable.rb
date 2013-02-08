@@ -32,6 +32,10 @@ module Popolo
       end
     end
 
+    def to_param
+      slug
+    end
+
   private
 
     # @return [String] the value of the field used as the basis of the slug
