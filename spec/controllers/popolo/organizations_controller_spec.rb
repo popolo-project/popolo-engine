@@ -41,7 +41,7 @@ describe Popolo::OrganizationsController do
     end
 
     it 'fails if improperly nested' do
-      expect {get :nested_index, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Popolo::ImproperlyNestedResource)
+      expect {get :nested_index, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Mongoid::Errors::DocumentNotFound)
     end
   end
 
@@ -53,7 +53,7 @@ describe Popolo::OrganizationsController do
     end
 
     it 'fails if improperly nested' do
-      expect {get :nested_show, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Popolo::ImproperlyNestedResource)
+      expect {get :nested_show, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Mongoid::Errors::DocumentNotFound)
     end
   end
 end

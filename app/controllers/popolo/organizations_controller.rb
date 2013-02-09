@@ -33,10 +33,12 @@ module Popolo
 
   protected
 
+    # @raises [Mongoid::Errors::DocumentNotFound] if a resource is improperly nested
     def validate_path
       parts = params[:path].split '/'
-      @organization = Organization.find_by_slug parts.pop
-      raise ImproperlyNestedResource unless parts == @organization.ancestors.map(&:slug)
+      parts.each do |part|
+        @organization = Organization.find_by(parent_id: @organization, slug: part)
+      end
     end
   end
 end

@@ -5,7 +5,7 @@ module Popolo
     # @example
     #   rails generate popolo
     class PopoloGenerator < Rails::Generators::Base
-      desc "Adds Popolo routes and rescues Popolo exceptions."
+      desc "Adds Popolo routes and rescues Mongoid exceptions."
 
       namespace 'popolo'
 
@@ -16,7 +16,7 @@ module Popolo
       def add_rescue_from_block_to_application_controller
         inject_into_class 'app/controllers/application_controller.rb', 'ApplicationController' do
           <<-EOS
-  rescue_from Mongoid::Errors::DocumentNotFound, Popolo::ImproperlyNestedResource do |exception|
+  rescue_from Mongoid::Errors::DocumentNotFound do |exception|
     respond_to do |format|
       format.html { render file: Rails.root.join('public', '404.html'), status: :not_found }
       format.json { head :not_found }

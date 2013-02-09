@@ -41,7 +41,7 @@ describe Popolo::AreasController do
     end
 
     it 'fails if improperly nested' do
-      expect {get :nested_index, path: 'canada/ontario/montreal'}.to raise_error(Popolo::ImproperlyNestedResource)
+      expect {get :nested_index, path: 'canada/ontario/montreal'}.to raise_error(Mongoid::Errors::DocumentNotFound)
     end
   end
 
@@ -53,7 +53,7 @@ describe Popolo::AreasController do
     end
 
     it 'fails if improperly nested' do
-      expect {get :nested_show, path: 'canada/ontario/montreal'}.to raise_error(Popolo::ImproperlyNestedResource)
+      expect {get :nested_show, path: 'canada/ontario/montreal'}.to raise_error(Mongoid::Errors::DocumentNotFound)
     end
   end
 end
