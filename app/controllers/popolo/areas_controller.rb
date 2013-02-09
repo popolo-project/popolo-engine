@@ -13,7 +13,7 @@ module Popolo
     end
 
     def show
-      @area = Area.find_by_slug(params[:id])
+      @area = Area.find_by_slug_or_id(params[:id])
       show!
     end
 

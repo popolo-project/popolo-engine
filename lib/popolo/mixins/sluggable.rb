@@ -14,10 +14,22 @@ module Popolo
     end
 
     module ClassMethods
+      # Finds a resource by its slug or ID.
+      #
       # @param [String] slug a slug or ID
       # @return a matching resource
-      def find_by_slug(slug)
-        where(slug: slug).first || find(slug)
+      def find_by_slug_or_id(slug)
+        where(slug: slug.to_s.parameterize).first || find(slug)
+      end
+
+      # Finds a resource by its slug or raises an error.
+      #
+      # @param [String] slug a slug
+      # @param [Hash] opts conditions
+      # @return a matching resource
+      # @raises [Mongoid::Errors::DocumentNotFound] if not found
+      def find_by_slug(slug, opts = {})
+        find_by(opts.merge(slug: slug.parameterize))
       end
 
       # @private

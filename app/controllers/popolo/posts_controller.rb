@@ -5,7 +5,7 @@ module Popolo
     actions :index, :show
 
     def show
-      @post = Post.find_by_slug(params[:id])
+      @post = Post.find_by_slug_or_id(params[:id])
       show!
     end
   end

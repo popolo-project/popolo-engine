@@ -13,7 +13,7 @@ module Popolo
     end
 
     def show
-      @organization = Organization.find_by_slug(params[:id])
+      @organization = Organization.find_by_slug_or_id(params[:id])
       show!
     end
 

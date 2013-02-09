@@ -79,8 +79,8 @@ describe Popolo::Sluggable do
         Cat.find_by_slug(resource.slug).should == resource
       end
 
-      it 'should find a resource by its ID' do
-        Cat.find_by_slug(resource.id).should == resource
+      it 'should find a resource by its slug source' do
+        Cat.find_by_slug(resource.name).should == resource
       end
 
       context 'with a custom slug source' do
@@ -92,8 +92,44 @@ describe Popolo::Sluggable do
           Dog.find_by_slug(resource.slug).should == resource
         end
 
+        it 'should find a resource by its slug source' do
+          Dog.find_by_slug(resource.moniker).should == resource
+        end
+      end
+    end
+
+    describe '#find_by_slug_or_id' do
+      let :resource do
+        Cat.create(name: 'Foo')
+      end
+
+      it 'should find a resource by its slug' do
+        Cat.find_by_slug_or_id(resource.slug).should == resource
+      end
+
+      it 'should find a resource by its slug source' do
+        Cat.find_by_slug(resource.name).should == resource
+      end
+
+      it 'should find a resource by its ID' do
+        Cat.find_by_slug_or_id(resource.id).should == resource
+      end
+
+      context 'with a custom slug source' do
+        let :resource do
+          Dog.create(moniker: 'Foo')
+        end
+
+        it 'should find a resource by its slug' do
+          Dog.find_by_slug_or_id(resource.slug).should == resource
+        end
+
+        it 'should find a resource by its slug' do
+          Dog.find_by_slug_or_id(resource.moniker).should == resource
+        end
+
         it 'should find a resource by its ID' do
-          Dog.find_by_slug(resource.id).should == resource
+          Dog.find_by_slug_or_id(resource.id).should == resource
         end
       end
     end
