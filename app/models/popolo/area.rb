@@ -18,5 +18,8 @@ module Popolo
     has_many :organizations, class_name: 'Popolo::Organization'
     # Posts related to the area, e.g. officials.
     has_many :posts, class_name: 'Popolo::Post'
+
+    # The area's category.
+    field :classification, type: String
   end
 end
