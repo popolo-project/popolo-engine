@@ -1,6 +1,9 @@
 module Popolo
   class AreasController < PopoloController
     inherit_resources
+    # inherited_resources assumes the routes are namespaced.
+    self.resources_configuration[:self][:route_prefix] = nil
+
     respond_to :html, :json
     actions :index, :show
     custom_actions collection: :nested_index, resource: :nested_show

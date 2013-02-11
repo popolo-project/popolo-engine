@@ -19,6 +19,8 @@ module Popolo
     # Posts related to the area, e.g. officials.
     has_many :posts, class_name: 'Popolo::Post'
 
+    # The area's sort name.
+    field :sort_name, type: String
     # The area's category.
     field :classification, type: String
   end
