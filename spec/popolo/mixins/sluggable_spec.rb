@@ -5,14 +5,14 @@ describe Popolo::Sluggable do
     describe '#new' do
       subject {Cat.new}
 
-      [:name, :slug].each do |attribute|
+      [:name, :slug, :sort_name].each do |attribute|
         it {should validate_presence_of attribute}
       end
 
       context 'with a custom slug source' do
         subject {Dog.new}
 
-        [:moniker, :slug].each do |attribute|
+        [:moniker, :slug, :sort_name].each do |attribute|
           it {should validate_presence_of attribute}
         end
 
@@ -50,6 +50,14 @@ describe Popolo::Sluggable do
         expect {Cat.with(safe: true).create(name: 'Bar', slug: 'foo')}.to raise_error(Moped::Errors::OperationFailure)
       end
 
+      it 'should set the sort name' do
+        Cat.create(name: 'Foo').sort_name.should == 'Foo'
+      end
+
+      it 'should not set the sort name if it is already set' do
+        Cat.create(name: 'Foo', sort_name: 'Bar').sort_name.should == 'Bar'
+      end
+
       context 'with a custom slug source' do
         it 'should set the slug' do
           Dog.create(moniker: 'Foo').slug.should == 'foo'
@@ -66,6 +74,14 @@ describe Popolo::Sluggable do
         it 'should prevent duplicate slugs' do
           Dog.create moniker: 'Foo', slug: 'foo'
           expect {Dog.with(safe: true).create(moniker: 'Bar', slug: 'foo')}.to raise_error(Moped::Errors::OperationFailure)
+        end
+
+        it 'should set the sort name' do
+          Dog.create(moniker: 'Foo').sort_name.should == 'Foo'
+        end
+
+        it 'should not set the sort name if it is already set' do
+          Dog.create(moniker: 'Foo', sort_name: 'Bar').sort_name.should == 'Bar'
         end
       end
     end

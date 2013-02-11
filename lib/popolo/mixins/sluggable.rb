@@ -7,10 +7,12 @@ module Popolo
       field slug_source, type: String
       # A lowercase identifier composed of letters, numbers and dashes.
       field :slug, type: String
+      # The field used to sort the document.
+      field :sort_name, type: String
 
-      validates_presence_of slug_source, :slug
+      validates_presence_of slug_source, :slug, :sort_name
 
-      before_validation :set_slug
+      before_validation :set_slug_and_sort_name
     end
 
     module ClassMethods
@@ -54,8 +56,9 @@ module Popolo
     end
 
     # @note Leave it to the content manager to choose a slug in case of conflicts.
-    def set_slug
+    def set_slug_and_sort_name
       self.slug ||= slug_source.parameterize if slug_source
+      self.sort_name ||= slug_source
     end
   end
 end

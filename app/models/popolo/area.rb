@@ -19,19 +19,7 @@ module Popolo
     # Posts related to the area, e.g. officials.
     has_many :posts, class_name: 'Popolo::Post'
 
-    # The area's sort name.
-    field :sort_name, type: String
     # The area's category.
     field :classification, type: String
-
-    validates_presence_of :sort_name
-
-    before_validation :set_sort_name
-
-  private
-
-    def set_sort_name
-      self.sort_name ||= name
-    end
   end
 end
