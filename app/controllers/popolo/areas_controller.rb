@@ -1,7 +1,8 @@
 module Popolo
   class AreasController < PopoloController
     inherit_resources
-    # inherited_resources assumes the routes are namespaced.
+    # inherited_resources assumes the routes are namespaced. If an engine is
+    # mounted at root, however, there will be no namespace.
     self.resources_configuration[:self][:route_prefix] = nil
 
     respond_to :html, :json
