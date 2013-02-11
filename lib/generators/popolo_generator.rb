@@ -8,6 +8,7 @@ module Popolo
       desc "Adds Popolo routes and rescues Mongoid exceptions."
 
       namespace 'popolo'
+      source_root File.expand_path('../templates', __FILE__)
 
       def add_routes
         route "mount Popolo::Engine => '/'"
@@ -25,6 +26,10 @@ module Popolo
   end
           EOS
         end
+      end
+
+      def show_readme
+        readme 'README' if behavior == :invoke
       end
     end
   end

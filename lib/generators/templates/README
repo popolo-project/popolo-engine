@@ -1,0 +1,7 @@
+Popolo by default adds its routes to the root path:
+
+    mount Popolo::Engine => '/'
+
+You can namespace its routes by changing the mount point:
+
+    mount Popolo::Engine => '/mynamespace'
