@@ -10,18 +10,18 @@ module Popolo
     # The postal address.
     field :address, type: String
     # A voice telephone number.
-    field :voice, type: Integer
+    field :voice, type: String
     # A facsimile telephone number.
-    field :fax, type: Integer
+    field :fax, type: String
     # A mobile telephone number.
-    field :cell, type: Integer
+    field :cell, type: String
     # A toll-free telephone number.
-    field :tollfree, type: Integer
+    field :tollfree, type: String
     # A video conferencing telephone number.
-    field :video, type: Integer
+    field :video, type: String
     # A paging device telephone number.
-    field :pager, type: Integer
+    field :pager, type: String
     # A telecommunication device for people with hearing or speech difficulties.
-    field :textphone, type: Integer
+    field :textphone, type: String
   end
 end
