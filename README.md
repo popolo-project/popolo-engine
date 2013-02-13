@@ -18,17 +18,19 @@ First, create your Rails application:
 
     rails new myapp --skip-active-record
 
-Add the `popolo` gem to your `Gemfile`:
+Add the `popolo` gem to your `Gemfile` and bundle your dependencies:
 
     gem 'popolo'
+    bundle
 
 If you didn't run `rails new` with the `--skip-active-record` option, follow Mongoid's [installation instructions](http://mongoid.org/en/mongoid/docs/installation.html). Otherwise:
 
     rails generate mongoid:config
 
-Finally, run the `popolo` generator:
+Finally, run the `popolo` generator and create the MongoDB indexes:
 
     rails generate popolo
+    bundle exec rake db:mongoid:create_indexes
 
 ## Bugs? Questions?
 

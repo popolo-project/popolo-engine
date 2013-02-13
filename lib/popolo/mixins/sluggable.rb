@@ -10,6 +10,8 @@ module Popolo
       # The field used to sort the document.
       field :sort_name, type: String
 
+      index sort_name: 1
+
       validates_presence_of slug_source, :slug, :sort_name
 
       before_validation :set_slug_and_sort_name
