@@ -20,11 +20,11 @@
   <header>
     <h1><%= t(classification, scope: [:popolo, resource_collection_name, :classifications]) %></h1>
   </header>
-  <ul>
+  <ol>
     <% documents.each do |document| %>
     <li><%= link_to document.name, nested_resource_path([object, document]) %></li>
     <% end %>
-  </ul>
+  </ol>
 </section>
   <% end %>
 <% end %>
