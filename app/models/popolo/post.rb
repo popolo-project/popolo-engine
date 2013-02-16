@@ -4,10 +4,6 @@ module Popolo
   class Post
     include Mongoid::Document
 
-    def self.slug_source
-      :role
-    end
-
     include Popolo::Sluggable
     index({slug: 1, organization_id: 1}, unique: true)
 
@@ -20,6 +16,10 @@ module Popolo
     # The address at which the post is based.
     embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
 
-    validates_presence_of :organization_id
+    # The role that the holder of the post fulfills. Roles should preferably
+    # belong to a controlled vocabulary.
+    field :role, type: String
+
+    validates_presence_of :role, :organization_id
   end
 end
