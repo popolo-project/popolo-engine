@@ -26,12 +26,6 @@ describe Popolo::OrganizationsController do
       assigns(:organization).should == @organization
       response.should be_success
     end
-
-    it 'gets the requested organization by slug' do
-      get :show, id: @organization.slug
-      assigns(:organization).should == @organization
-      response.should be_success
-    end
   end
 
   describe 'GET nested_index' do

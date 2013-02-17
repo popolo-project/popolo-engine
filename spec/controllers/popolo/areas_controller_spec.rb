@@ -26,12 +26,6 @@ describe Popolo::AreasController do
       assigns(:area).should == @area
       response.should be_success
     end
-
-    it 'gets the requested area by slug' do
-      get :show, id: @area.slug
-      assigns(:area).should == @area
-      response.should be_success
-    end
   end
 
   describe 'GET nested_index' do

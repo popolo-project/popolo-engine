@@ -16,11 +16,6 @@ module Popolo
       index!
     end
 
-    def show
-      @organization = Organization.find_by_slug_or_id(params[:id])
-      show!
-    end
-
     def nested_index
       @organizations = @organization.children
 

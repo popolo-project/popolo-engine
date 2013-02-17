@@ -14,7 +14,7 @@
       <div class="media-body">
         <h4 class="media-heading"><%= link_to post.name, post %></h4>
         <% if post.person %>
-        <%= link_to post.person.name, post.person %>
+        <%= post.person.name %>
         <% end %>
       </div>
     </li>

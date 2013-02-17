@@ -20,11 +20,5 @@ describe Popolo::PostsController do
       assigns(:post).should == @post
       response.should be_success
     end
-
-    it 'gets the requested post by slug' do
-      get :show, id: @post.slug
-      assigns(:post).should == @post
-      response.should be_success
-    end
   end
 end
