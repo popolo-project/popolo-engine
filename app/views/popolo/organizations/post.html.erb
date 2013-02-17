@@ -14,7 +14,7 @@
       <% end %>
     </div>
   </div>
-  <% if @post.person @post.person.summary? %>
+  <% if @post.person && @post.person.summary? %>
   <p><%= @post.person.summary %></p>
   <% end %>
 
