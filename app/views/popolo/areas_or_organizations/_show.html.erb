@@ -1,16 +1,4 @@
-<nav>
-  <ul class="breadcrumb">
-    <li><%= link_to resource_collection_name.capitalize, collection_path %> <span class="divider">/</span></li>
-<% ancestors = object.ancestors %>
-<% ancestors.each_with_index do |ancestor,index| %>
-    <li>
-      <%= link_to ancestor.name, nested_resource_path(ancestors[0..index]) %>
-      <span class="divider">/</span>
-    </li>
-<% end %>
-    <li class="active"><%= object.name %></li>
-  </ul>
-</nav>
+<%= render partial: 'popolo/areas_or_organizations/breadcrumb', locals: {object: object} %>
 
 <% collection = object.children %>
 <% unless collection.empty? %>
