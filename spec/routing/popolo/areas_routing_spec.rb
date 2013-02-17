@@ -25,5 +25,9 @@ describe Popolo::AreasController do
     it 'routes to #nested_show' do
       get('/areas/foo/bar').should route_to('popolo/areas#nested_show', path: 'foo/bar')
     end
+
+    it 'routes to #posts' do
+      get('/areas/foo/posts').should route_to('popolo/areas#posts', path: 'foo')
+    end
   end
 end

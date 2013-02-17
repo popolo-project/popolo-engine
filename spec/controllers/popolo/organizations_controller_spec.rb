@@ -9,6 +9,7 @@ describe Popolo::OrganizationsController do
     @xyz           = @organization.children.create name: 'XYZ, Inc.'
     @department    = @xyz.children.create name: "Marketing Department"
     @branch        = @department.children.create name: "Youth Branch"
+    @post          = FactoryGirl.create :post, organization: @xyz
   end
 
   describe 'GET index' do
@@ -54,6 +55,14 @@ describe Popolo::OrganizationsController do
 
     it 'fails if improperly nested' do
       expect {get :nested_show, path: 'acme-corporation/abc-inc/marketing-department'}.to raise_error(Mongoid::Errors::DocumentNotFound)
+    end
+  end
+
+  describe 'GET posts' do
+    it 'assigns posts as @posts' do
+      get :posts, path: 'acme-corporation/xyz-inc'
+      assigns(:posts).to_a.should == [@post]
+      response.should be_success
     end
   end
 end

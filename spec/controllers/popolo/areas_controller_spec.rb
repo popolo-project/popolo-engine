@@ -9,6 +9,7 @@ describe Popolo::AreasController do
     @quebec     = @area.children.create name: 'Québec'
     @montreal   = @quebec.children.create name: 'Montréal'
     @villemarie = @montreal.children.create name: 'Ville-Marie'
+    @post       = FactoryGirl.create :post, area: @quebec
   end
 
   describe 'GET index' do
@@ -54,6 +55,14 @@ describe Popolo::AreasController do
 
     it 'fails if improperly nested' do
       expect {get :nested_show, path: 'canada/ontario/montreal'}.to raise_error(Mongoid::Errors::DocumentNotFound)
+    end
+  end
+
+  describe 'GET posts' do
+    it 'assigns posts as @posts' do
+      get :posts, path: 'canada/quebec'
+      assigns(:posts).to_a.should == [@post]
+      response.should be_success
     end
   end
 end

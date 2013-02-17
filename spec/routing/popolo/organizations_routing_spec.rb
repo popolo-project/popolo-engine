@@ -25,5 +25,9 @@ describe Popolo::OrganizationsController do
     it 'routes to #nested_show' do
       get('/organizations/foo/bar').should route_to('popolo/organizations#nested_show', path: 'foo/bar')
     end
+
+    it 'routes to #posts' do
+      get('/organizations/foo/posts').should route_to('popolo/organizations#posts', path: 'foo')
+    end
   end
 end

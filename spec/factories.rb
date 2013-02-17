@@ -18,6 +18,7 @@ FactoryGirl.define do
   end
 
   factory :post, class: Popolo::Post do
+    name 'Marketing Director'
     role 'Director'
     person
     organization
