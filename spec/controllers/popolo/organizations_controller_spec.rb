@@ -53,9 +53,17 @@ describe Popolo::OrganizationsController do
   end
 
   describe 'GET posts' do
-    it 'assigns posts as @posts' do
+    it 'assigns the requested posts as @posts' do
       get :posts, path: 'acme-corporation/xyz-inc'
       assigns(:posts).to_a.should == [@post]
+      response.should be_success
+    end
+  end
+
+  describe 'GET post' do
+    it 'assigns the requested post as @post' do
+      get :post, path: 'acme-corporation/xyz-inc', id: 'marketing-director'
+      assigns(:post).should == @post
       response.should be_success
     end
   end

@@ -7,9 +7,9 @@ module Popolo
 
     respond_to :html, :json
     actions :index, :show
-    custom_actions collection: :nested_index, resource: [:nested_show, :posts]
+    custom_actions collection: :nested_index, resource: :nested_show
 
-    before_filter :validate_path, only: [:nested_index, :nested_show, :posts]
+    before_filter :validate_path, only: [:nested_index, :nested_show]
 
     def index
       @areas = Area.roots
@@ -28,10 +28,6 @@ module Popolo
       nested_show! do |format|
         format.html { render action: 'show'}
       end
-    end
-
-    def posts
-      @posts = @area.posts
     end
 
   protected

@@ -25,5 +25,9 @@ describe Popolo::OrganizationsController do
     it 'routes to #posts' do
       get('/organizations/foo/posts').should route_to('popolo/organizations#posts', path: 'foo')
     end
+
+    it 'routes to #post' do
+      get('/organizations/foo/posts/bar').should route_to('popolo/organizations#post', path: 'foo', id: 'bar')
+    end
   end
 end

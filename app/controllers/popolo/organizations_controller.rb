@@ -7,9 +7,9 @@ module Popolo
 
     respond_to :html, :json
     actions :index, :show
-    custom_actions collection: :nested_index, resource: [:nested_show, :posts]
+    custom_actions collection: :nested_index, resource: [:nested_show, :posts, :post]
 
-    before_filter :validate_path, only: [:nested_index, :nested_show, :posts]
+    before_filter :validate_path, only: [:nested_index, :nested_show, :posts, :post]
 
     def index
       @organizations = Organization.roots
@@ -32,6 +32,10 @@ module Popolo
 
     def posts
       @posts = @organization.posts
+    end
+
+    def post
+      @post = Post.find_by(organization_id: @organization, slug: params[:id])
     end
 
   protected
