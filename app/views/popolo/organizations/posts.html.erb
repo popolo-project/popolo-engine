@@ -8,7 +8,7 @@
     <li class="media">
       <% if post.person && post.person.image? %>
       <span class="pull-left">
-        <%= image_tag(post.person.image) %>
+        <%= image_tag(post.person.image, class: 'image-object') %>
       </span>
       <% end %>
       <div class="media-body">

@@ -1,0 +1,27 @@
+<%= render partial: 'popolo/areas_or_organizations/breadcrumb', locals: {object: @organization} %>
+
+<section>
+  <div class="media">
+    <% if @post.person && @post.person.image? %>
+    <span class="pull-left">
+      <%= image_tag(@post.person.image, class: 'media-object') %>
+    </span>
+    <% end %>
+    <div class="media-body">
+      <h4 class="media-heading"><%= @post.name %></h4>
+      <% if @post.person %>
+      <%= @post.person.name %>
+      <% end %>
+    </div>
+  </div>
+  <% if @post.person @post.person.summary? %>
+  <p><%= @post.person.summary %></p>
+  <% end %>
+
+  <aside>
+    <% if @post.person && @post.person.email? %>
+    <p>Email: <%= mail_to @post.person.email %></p>
+    <% end %>
+    <%= render @post.addresses %>
+  </aside>
+</section>
