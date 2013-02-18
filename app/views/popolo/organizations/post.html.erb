@@ -2,25 +2,34 @@
 
 <section>
   <div class="media">
-    <% if @post.person && @post.person.image? %>
     <span class="pull-left">
-      <%= image_tag(@post.person.image, class: 'media-object') %>
+      <% if @post.person && @post.person.image? %>
+        <%= image_tag(@post.person.image, alt: '', class: 'media-object') %>
+      <% end %>
     </span>
-    <% end %>
     <div class="media-body">
-      <h4 class="media-heading"><%= @post.name %></h4>
+      <h1 class="media-heading">
+        <%= @post.name %>
+      </h1>
       <% if @post.person %>
-      <%= @post.person.name %>
+        <%= @post.person.name %>
+      <% end %>
+      <% if @post.person && @post.area %>
+        –
+      <% end %>
+      <% if @post.area %>
+        <%= @post.area.name %>
       <% end %>
     </div>
   </div>
+
   <% if @post.person && @post.person.summary? %>
-  <p><%= @post.person.summary %></p>
+    <p><%= @post.person.summary %></p>
   <% end %>
 
   <aside>
     <% if @post.person && @post.person.email? %>
-    <p>Email: <%= mail_to @post.person.email %></p>
+      <p>Email: <%= mail_to @post.person.email %></p>
     <% end %>
     <%= render @post.addresses %>
   </aside>

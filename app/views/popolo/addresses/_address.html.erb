@@ -1,16 +1,16 @@
 <section>
   <% if address.type? %>
-  <header>
-    <%=t address.type, scope: [:popolo, :addresses, :types], default: address.type %>
-  </header>
+    <header>
+      <%=t address.type, scope: [:popolo, :addresses, :types], default: address.type %>
+    </header>
   <% end %>
   <% if address.voice? %>
-  <p>Phone: <%= address.voice %></p>
+    <p>Phone: <%= address.voice %></p>
   <% end %>
   <% if address.fax? %>
-  <p>Fax: <%= address.fax %></p>
+    <p>Fax: <%= address.fax %></p>
   <% end %>
   <% if address.address? %>
-  <%= simple_format address.address %>
+    <%= simple_format address.address %>
   <% end %>
 </section>
