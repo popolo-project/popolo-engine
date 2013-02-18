@@ -1,7 +1,7 @@
 <section>
   <% if address.type? %>
   <header>
-    <%=t address.type, default: address.type %>
+    <%=t address.type, scope: [:popolo, :addresses, :types], default: address.type %>
   </header>
   <% end %>
   <% if address.voice? %>
