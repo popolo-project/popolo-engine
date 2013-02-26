@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Popolo::Engine => '/popolo'
+  mount Popolo::Engine => '/'
 end

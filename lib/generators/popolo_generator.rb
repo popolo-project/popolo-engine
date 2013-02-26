@@ -28,6 +28,10 @@ module Popolo
         end
       end
 
+      def add_ruby_version_to_gemfile
+        prepend_to_file 'Gemfile', "ruby '1.9.3'"
+      end
+
       def show_readme
         readme 'README' if behavior == :invoke
       end
