@@ -7,7 +7,7 @@ module Popolo
     index({slug: 1}, unique: true)
 
     # The relationships to which the person is a party.
-    has_many :memberships, class_name: 'Popolo::Membership'
+    has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
     # The posts held by the person.
     has_many :posts, class_name: 'Popolo::Post'
     # The person's alternate or former names.
