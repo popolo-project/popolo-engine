@@ -15,4 +15,4 @@ module Popolo
   @@parent_controller = 'ApplicationController'
 end
 
-require 'popolo/mixins/sluggable'
+require 'popolo/concerns/sluggable'
