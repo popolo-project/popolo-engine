@@ -24,10 +24,10 @@ guard 'rspec', cli: '--drb', all_on_start: false, all_after_pass: false do
   watch('spec/spec_helper.rb')  { "spec" }
 
   # Rails example
-  watch(%r{^app/(.+)\.rb$})                          { |m| "spec/#{m[1]}_spec.rb" }
-  watch(%r{^app/(.*)(\.erb|\.haml)$})                { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
-  watch(%r{^app/controllers/(.+)_controller\.rb$})   { |m| "spec/routing/#{m[1]}_routing_spec.rb" }
-  watch(%r{^spec/support/(.+)\.rb$})                 { "spec" }
-  watch('config/routes.rb')                          { "spec/routing" }
-  watch('app/controllers/application_controller.rb') { "spec/controllers" }
+  watch(%r{^app/(.+)\.rb$})                        { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^app/(.*)(\.erb|\.haml)$})              { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+  watch(%r{^app/controllers/(.+)_controller\.rb$}) { |m| "spec/routing/#{m[1]}_routing_spec.rb" }
+  watch(%r{^spec/support/(.+)\.rb$})               { "spec" }
+  watch('config/routes.rb')                        { "spec/routing" }
+  watch('app/controllers/popolo_controller.rb')    { "spec/controllers" }
 end

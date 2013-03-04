@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 3.1'
   s.add_dependency 'inherited_resources', '~> 1.3.1'
-  s.add_dependency 'mongoid', '~> 3.0.17'
+  s.add_dependency 'mongoid', '~> 3.1.2'
   s.add_dependency 'mongoid-tree', '~> 1.0.1'
 
   s.add_development_dependency 'database_cleaner', '~> 0.9'
