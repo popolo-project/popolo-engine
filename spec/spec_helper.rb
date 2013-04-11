@@ -33,7 +33,6 @@ Spork.prefork do
   end
 
   require 'database_cleaner'
-  require 'factory_girl_rails'
   require 'mongoid-rspec'
 
   RSpec.configure do |config|
@@ -77,5 +76,7 @@ Spork.each_run do
   Rails::Mongoid.create_indexes(File.expand_path("../dummy/app/models/**/*.rb", __FILE__))
 
   # @todo I18n.backend.reload!
+
+  require 'factory_girl_rails'
   FactoryGirl.reload
 end
