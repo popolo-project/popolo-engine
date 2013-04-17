@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '~> 2.11'
   s.add_development_dependency 'mongoid-rspec', '~> 1.5'
   s.add_development_dependency 'spork-rails', '~> 3.2'
+  s.add_development_dependency 'coveralls'
 end

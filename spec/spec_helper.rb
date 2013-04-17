@@ -3,6 +3,9 @@ require 'spork'
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
 
+  require 'coveralls'
+  Coveralls.wear!
+
   require 'rails/application'
   # Prevent Spork from caching the routes.
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
