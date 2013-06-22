@@ -1,11 +1,11 @@
-# Popolo
+# Popolo Rails Engine
 
-*If you are looking for the GitHub repository for the data specification, head over to the [popolo-standard](https://github.com/opennorth/popolo-standard) repository.*
+*If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/opennorth/popolo-spec/tree/gh-pages) repository.*
 
-[![Build Status](https://secure.travis-ci.org/opennorth/popolo.png)](http://travis-ci.org/opennorth/popolo)
-[![Dependency Status](https://gemnasium.com/opennorth/popolo.png)](https://gemnasium.com/opennorth/popolo)
-[![Coverage Status](https://coveralls.io/repos/opennorth/popolo/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo)
-[![Code Climate](https://codeclimate.com/github/opennorth/popolo.png)](https://codeclimate.com/github/opennorth/popolo)
+[![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](http://travis-ci.org/opennorth/popolo-engine)
+[![Dependency Status](https://gemnasium.com/opennorth/popolo-engine.png)](https://gemnasium.com/opennorth/popolo-engine)
+[![Coverage Status](https://coveralls.io/repos/opennorth/popolo-engine/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo-engine)
+[![Code Climate](https://codeclimate.com/github/opennorth/popolo-engine.png)](https://codeclimate.com/github/opennorth/popolo-engine)
 
 Popolo's goal is to make it easier for civic developers to create government transparency, monitoring and engagement websites.
 
@@ -53,7 +53,7 @@ If you are using Popolo's default views, you can translate your address types an
 
 ## Bugs? Questions?
 
-This engine's main repository is on GitHub: [http://github.com/opennorth/popolo](http://github.com/opennorth/popolo), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
+This engine's main repository is on GitHub: [http://github.com/opennorth/popolo-engine](http://github.com/opennorth/popolo-engine), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
 
 ## Acknowledgements
 
