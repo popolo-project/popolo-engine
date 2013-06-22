@@ -4,7 +4,7 @@
 
 [![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](http://travis-ci.org/opennorth/popolo-engine)
 [![Dependency Status](https://gemnasium.com/opennorth/popolo-engine.png)](https://gemnasium.com/opennorth/popolo-engine)
-[![Coverage Status](https://coveralls.io/repos/opennorth/popolo-engine/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo-engine)
+[![Coverage Status](https://coveralls.io/repos/opennorth/popolo/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo)
 [![Code Climate](https://codeclimate.com/github/opennorth/popolo-engine.png)](https://codeclimate.com/github/opennorth/popolo-engine)
 
 Popolo's goal is to make it easier for civic developers to create government transparency, monitoring and engagement websites.
