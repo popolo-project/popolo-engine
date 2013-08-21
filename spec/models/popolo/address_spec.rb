@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Popolo::Address do
+describe Popolo::ContactDetail do
 end

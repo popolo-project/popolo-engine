@@ -14,7 +14,7 @@ module Popolo
     # The person holding the post.
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The address at which the post is based.
-    embeds_many :addresses, as: :addressable, class_name: 'Popolo::Address'
+    embeds_many :addresses, as: :addressable, class_name: 'Popolo::ContactDetail'
 
     # The role that the holder of the post fulfills. Roles should preferably
     # belong to a controlled vocabulary.
