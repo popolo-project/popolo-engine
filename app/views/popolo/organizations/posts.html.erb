@@ -1,11 +1,11 @@
-<%= render partial: 'popolo/areas_or_organizations/breadcrumb', locals: {object: @organization} %>
+<%= render partial: 'popolo/organizations/breadcrumb', locals: {object: @organization} %>
 <% ancestors = @organization.ancestors_and_self %>
 
 <section>
   <h1><%= @organization.name %></h1>
 
   <ol class="media-list">
-    <% @posts.includes(:area).asc(:sort_name).each do |post| %>
+    <% @posts.asc(:sort_name).each do |post| %>
       <li class="media">
         <span class="pull-left">
           <% if post.person && post.person.image? %>
@@ -18,12 +18,6 @@
           </h2>
           <% if post.person %>
             <%= post.person.name %>
-          <% end %>
-          <% if post.person && post.area %>
-            –
-          <% end %>
-          <% if post.area %>
-            <%= post.area.name %>
           <% end %>
         </div>
       </li>

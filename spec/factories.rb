@@ -1,9 +1,5 @@
 # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
 FactoryGirl.define do
-  factory :area, class: Popolo::Area do
-    name 'Foo'
-  end
-
   factory :membership, class: Popolo::Membership do
     person
     organization

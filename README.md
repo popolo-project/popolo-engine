@@ -37,13 +37,10 @@ Finally, run the `popolo` generator and create the MongoDB indexes:
 
 ## Internationalization
 
-If you are using Popolo's default views, you can translate your address types and organization and area categories by creating a locale file, e.g. `config/locales/en.yml`:
+If you are using Popolo's default views, you can translate your address types and organization categories by creating a locale file, e.g. `config/locales/en.yml`:
 
     en:
       popolo:
-        areas:
-          classifications:
-            state: States
         organizations:
           classifications:
             party: Parties

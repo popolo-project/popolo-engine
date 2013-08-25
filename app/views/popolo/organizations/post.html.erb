@@ -1,4 +1,4 @@
-<%= render partial: 'popolo/areas_or_organizations/breadcrumb', locals: {object: @organization} %>
+<%= render partial: 'popolo/organizations/breadcrumb', locals: {object: @organization} %>
 
 <section>
   <div class="media">
@@ -13,12 +13,6 @@
       </h1>
       <% if @post.person %>
         <%= @post.person.name %>
-      <% end %>
-      <% if @post.person && @post.area %>
-        –
-      <% end %>
-      <% if @post.area %>
-        <%= @post.area.name %>
       <% end %>
     </div>
   </div>
