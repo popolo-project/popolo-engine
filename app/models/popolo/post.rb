@@ -4,9 +4,6 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
 
-    include Popolo::Sluggable
-    index({slug: 1, organization_id: 1}, unique: true)
-
     # The organization in which the post is held.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
     # The memberships through which people hold the post in the organization.

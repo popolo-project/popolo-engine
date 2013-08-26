@@ -14,5 +14,3 @@ module Popolo
   mattr_accessor :parent_controller
   @@parent_controller = 'ApplicationController'
 end
-
-require 'popolo/concerns/sluggable'

@@ -6,9 +6,6 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
-    include Popolo::Sluggable
-    index({slug: 1, parent_id: 1}, unique: true)
-
     # The relationships to which the organization is a party.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
     # Posts within the organization.

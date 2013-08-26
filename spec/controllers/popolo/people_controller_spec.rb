@@ -20,11 +20,5 @@ describe Popolo::PeopleController do
       assigns(:person).should == @person
       response.should be_success
     end
-
-    it 'gets the requested person by slug' do
-      get :show, id: @person.slug
-      assigns(:person).should == @person
-      response.should be_success
-    end
   end
 end

@@ -13,9 +13,5 @@ describe Popolo::PeopleController do
     it 'routes to #show' do
       get('/people/1').should route_to('popolo/people#show', id: '1')
     end
-
-    it 'routes to #show' do
-      get('/people/foo').should route_to('popolo/people#show', id: 'foo')
-    end
   end
 end
