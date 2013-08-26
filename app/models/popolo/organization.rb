@@ -1,31 +1,39 @@
 module Popolo
   # A group with a common purpose or reason for existence that goes beyond the
-  # set of people belonging to it, e.g. a political structure.
+  # set of people belonging to it.
   class Organization
     include Mongoid::Document
+    include Mongoid::Timestamps
     include Mongoid::Tree
 
     include Popolo::Sluggable
     index({slug: 1, parent_id: 1}, unique: true)
 
-    # An area related to the organization, e.g. a region or country.
-    belongs_to :area, index: true, class_name: 'Popolo::Area'
     # The relationships to which the organization is a party.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
-    # The posts within the organization.
+    # Posts within the organization.
     has_many :posts, class_name: 'Popolo::Post', dependent: :destroy
-    # The organization's alternate or former names.
+    # Alternate or former names.
     embeds_many :other_names, as: :nameable, class_name: 'Popolo::OtherName'
-    # The organization's issued identifiers.
-    embeds_many :identifiers, class_name: 'Popolo::Identifier'
+    # Issued identifiers.
+    embeds_many :identifiers, as: :identifiable, class_name: 'Popolo::Identifier'
+    # Means of contacting the organization.
+    embeds_many :contact_details, as: :contactable, class_name: 'Popolo::ContactDetail'
+    # URLs to documents about the organization.
+    embeds_many :links, as: :linkable, class_name: 'Popolo::Link'
+    # URLs to source documents about the organization.
+    embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
-    # The organization's category.
+    # A primary name, e.g. a legally recognized name.
+    field :name, type: String
+    # An organization category, e.g. committee.
     field :classification, type: String
-    # The organization's date of founding in ISO 8601:2004 format.
+    # A date of founding.
     field :founding_date, type: String
-    # The organization's date of dissolution in ISO 8601:2004 format.
+    # A date of dissolution.
     field :dissolution_date, type: String
 
+    validates_presence_of :name
     validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
   end

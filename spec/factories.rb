@@ -1,8 +1,9 @@
 # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
 FactoryGirl.define do
   factory :membership, class: Popolo::Membership do
-    person
     organization
+    person
+    post
   end
 
   factory :organization, class: Popolo::Organization do
@@ -14,9 +15,7 @@ FactoryGirl.define do
   end
 
   factory :post, class: Popolo::Post do
-    name 'Marketing Director'
-    role 'Director'
-    person
+    label 'Marketing Director'
     organization
   end
 end

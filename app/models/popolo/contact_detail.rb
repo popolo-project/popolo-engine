@@ -1,19 +1,22 @@
 module Popolo
-  # A physical location or a mail delivery point.
+  # A means of contacting an entity.
   class ContactDetail
     include Mongoid::Document
+    include Mongoid::Timestamps
 
-    embedded_in :addressable, polymorphic: true
+    embedded_in :contactable, polymorphic: true
+    # URLs to source documents about the contact detail.
+    embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
-    # e.g. "Hill Address" or "Mobile Number"
+    # A human-readable label for the contact detail.
     field :label, type: String
-    # The address' type, e.g. 'capitol'.
+    # A type of medium, e.g. 'fax' or 'email'.
     field :type, type: String
-    # The value of the contact detail
+    # A value, e.g. a phone number or email address.
     field :value, type: String
-    # A voice telephone number.
+    # A note, e.g. for grouping contact details by physical location.
     field :note, type: String
-    # e.g. for grouping contact details by physical location
 
+    validates_presence_of :type, :value
   end
 end

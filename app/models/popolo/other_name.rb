@@ -11,7 +11,7 @@ module Popolo
     field :start_date, type: String
     # The date on which the name was abandoned.
     field :end_date, type: String
-    # A note, e.g. "Birth name".
+    # A note, e.g. 'Birth name'.
     field :note, type: String
 
     validates_presence_of :name

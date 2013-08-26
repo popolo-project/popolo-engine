@@ -3,7 +3,7 @@ module Popolo
   class Identifier
     include Mongoid::Document
 
-    embedded_in :organization, class_name: 'Popolo::Organization'
+    embedded_in :identifiable, polymorphic: true
 
     # An issued identifier, e.g. a DUNS number.
     field :identifier, type: String

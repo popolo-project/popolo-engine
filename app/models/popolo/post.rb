@@ -1,25 +1,34 @@
 module Popolo
-  # A position in an organization that exists independently of the person
-  # holding it.
+  # A position that exists independent of the person holding it.
   class Post
     include Mongoid::Document
+    include Mongoid::Timestamps
 
     include Popolo::Sluggable
     index({slug: 1, organization_id: 1}, unique: true)
 
-    # An area related to the post, e.g. an electoral riding.
-    belongs_to :area, index: true, class_name: 'Popolo::Area'
-    # The organization in which the post exists.
+    # The organization in which the post is held.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
-    # The person holding the post.
-    belongs_to :person, index: true, class_name: 'Popolo::Person'
-    # The address at which the post is based.
-    embeds_many :addresses, as: :addressable, class_name: 'Popolo::ContactDetail'
+    # The memberships through which people hold the post in the organization.
+    has_many :memberships, class_name: 'Popolo::Membership'
+    # Means of contacting the holder of the post.
+    embeds_many :contact_details, as: :contactable, class_name: 'Popolo::ContactDetail'
+    # URLs to documents about the post.
+    embeds_many :links, as: :linkable, class_name: 'Popolo::Link'
+    # URLs to source documents about the post.
+    embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
-    # The role that the holder of the post fulfills. Roles should preferably
-    # belong to a controlled vocabulary.
+    # A label describing the post.
+    field :label, type: String
+    # The function that the holder of the post fulfills.
     field :role, type: String
+    # The date on which the post was created.
+    field :start_date, type: String
+    # The date on which the post was eliminated.
+    field :end_date, type: String
 
-    validates_presence_of :role, :organization_id
+    validates_presence_of :label, :organization_id
+    validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validates_format_of :end_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
   end
 end

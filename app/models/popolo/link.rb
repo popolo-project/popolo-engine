@@ -1,11 +1,11 @@
 module Popolo
-  # A URL for a document about a person.
+  # A URL.
   class Link
     include Mongoid::Document
 
-    embedded_in :person, class_name: 'Popolo::Person'
+    embedded_in :linkable, polymorphic: true
 
-    # A URL for a document about a person.
+    # A URL.
     field :url, type: String
     # A note, e.g. 'Wikipedia page'.
     field :note, type: String
