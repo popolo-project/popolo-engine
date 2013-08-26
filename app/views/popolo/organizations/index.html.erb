@@ -1,1 +1,40 @@
-<%= render partial: 'popolo/organizations/index', locals: {collection: @organizations, object: @organization} %>
+<% if @organization %>
+  <% ancestors = @organization.ancestors %>
+  <nav>
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to resource_collection_name.capitalize, collection_path %>
+        <span class="divider">/</span>
+      </li>
+      <% ancestors.each_with_index do |ancestor,index| %>
+        <li>
+          <%= link_to ancestor.name, nested_resources_path(ancestors[0..index]) %>
+          <span class="divider">/</span>
+        </li>
+      <% end %>
+      <li class="active">
+        <%= @organization.name %>
+      </li>
+    </ul>
+  </nav>
+<% end %>
+
+<% unless @organizations.empty? %>
+  <% groups = @organizations.group_by(&:classification) %>
+  <% groups.each do |classification,documents| %>
+    <section>
+      <header>
+        <h1>
+          <%=t classification, scope: [:popolo, resource_collection_name, :classifications] %>
+        </h1>
+      </header>
+      <ol>
+        <% documents.each do |document| %>
+          <li>
+            <%= link_to document.name, nested_resources_path([@organization, document].compact) %>
+          </li>
+        <% end %>
+      </ol>
+    </section>
+  <% end %>
+<% end %>

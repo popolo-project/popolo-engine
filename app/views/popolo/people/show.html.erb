@@ -1,0 +1,25 @@
+<section>
+  <div class="media">
+    <span class="pull-left">
+      <% if @person.image? %>
+        <%= image_tag(@person.image, alt: '', class: 'media-object') %>
+      <% end %>
+    </span>
+    <div class="media-body">
+      <h1 class="media-heading">
+        <%= @person.name %>
+      </h1>
+    </div>
+  </div>
+
+  <% if @person.summary? %>
+    <p><%= @person.summary %></p>
+  <% end %>
+
+  <aside>
+    <% if @person.email? %>
+      <p>Email: <%= mail_to @person.email %></p>
+    <% end %>
+    <%= render @person.contact_details %>
+  </aside>
+</section>

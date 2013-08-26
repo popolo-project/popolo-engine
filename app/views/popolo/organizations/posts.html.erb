@@ -1,24 +1,16 @@
-<%= render partial: 'popolo/organizations/breadcrumb', locals: {object: @organization} %>
+<%= render partial: 'breadcrumb' %>
 <% ancestors = @organization.ancestors_and_self %>
 
 <section>
   <h1><%= @organization.name %></h1>
 
   <ol class="media-list">
-    <% @posts.asc(:sort_name).each do |post| %>
+    <% @posts.each do |post| %>
       <li class="media">
-        <span class="pull-left">
-          <% if post.person && post.person.image? %>
-            <%= image_tag(post.person.image, alt: '', class: 'image-object') %>
-          <% end %>
-        </span>
         <div class="media-body">
           <h2 class="media-heading">
             <%= link_to post.name, nested_organization_post_path(ancestors, post) %>
           </h2>
-          <% if post.person %>
-            <%= post.person.name %>
-          <% end %>
         </div>
       </li>
     <% end %>

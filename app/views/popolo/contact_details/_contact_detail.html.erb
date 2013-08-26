@@ -1,0 +1,14 @@
+<section>
+  <dl>
+    <dt>
+      <% if contact_detail.label? %>
+        <%= contact_detail.label %>
+      <% else %>
+        <%=t contact_detail.type, scope: [:popolo, :contact_details, :types], default: contact_detail.type %>
+      <% end %>
+    </dt>
+    <dd>
+      <%= contact_detail.value %>
+    </dd>
+  </dl>
+</section>
