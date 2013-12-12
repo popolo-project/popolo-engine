@@ -6,6 +6,9 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
+    extend ConfigurableMongoid
+    configure_mongoid
+
     # The relationships to which the organization is a party.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
     # Posts within the organization.

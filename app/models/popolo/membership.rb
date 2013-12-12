@@ -4,6 +4,9 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
 
+    extend ConfigurableMongoid
+    configure_mongoid
+
     # The person who is a party to the relationship.
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The organization that is a party to the relationship.
