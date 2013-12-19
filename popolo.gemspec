@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency 'rails', '~> 3.1'
+  s.add_dependency 'rails', '~> 3.2.16'
   s.add_dependency 'inherited_resources', '~> 1.3.1'
   s.add_dependency 'mongoid', '~> 3.1.4'
   s.add_dependency 'mongoid-tree', '~> 1.0.4'
