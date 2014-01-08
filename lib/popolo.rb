@@ -5,18 +5,15 @@ require 'inherited_resources'
 require 'mongoid'
 require 'mongoid/tree'
 
-require 'popolo/configurable_mongoid'
-
 module Popolo
   # The parent controller all Popolo controllers inherit from. Defaults to
   # ApplicationController. This should be set early in the initialization
   # process and should be set to a string.
   #
   # @see https://github.com/plataformatec/devise/blob/master/lib/devise.rb#L196
-  mattr_accessor :parent_controller, :session, :database
+  mattr_accessor :parent_controller, :storage_options
   @@parent_controller = 'ApplicationController'
 
   # used by store_in call in our models
-  @@session = :default
-  @@database = :default
+  @@storage_options = { session: :default, database: :default }
 end

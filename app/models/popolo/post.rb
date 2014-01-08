@@ -4,8 +4,7 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
 
-    extend ConfigurableMongoid
-    configure_mongoid
+    store_in Popolo.storage_options
 
     # The organization in which the post is held.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
