@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Popolo do
   describe ".storage_options" do
     context "when default Popolo settings" do
-      it "uses default Popolo settings" do
-        expect(Popolo.storage_options[:database]).to eq :default
+      it "doesn't override any global settings" do
+        expect(Popolo.storage_options).to eq Hash.new
       end
     end
 
@@ -20,7 +20,7 @@ describe Popolo do
       end
 
       after do
-        Popolo.storage_options[:database] = :default
+        Popolo.storage_options = {}
       end
     end
   end

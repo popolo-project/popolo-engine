@@ -14,6 +14,10 @@ module Popolo
   mattr_accessor :parent_controller, :storage_options
   @@parent_controller = 'ApplicationController'
 
-  # used by store_in call in our models
-  @@storage_options = { session: :default, database: :default }
+  # Used by store_in call in our models. You may configure database and session
+  # by setting them in this variable in config/initializers/popolo.rb or the
+  # like.
+  #
+  # @see http://mongoid.org/en/mongoid/docs/documents.html#storage
+  @@storage_options = {}
 end
