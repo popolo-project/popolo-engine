@@ -11,13 +11,12 @@ module Popolo
   # process and should be set to a string.
   #
   # @see https://github.com/plataformatec/devise/blob/master/lib/devise.rb#L196
-  mattr_accessor :parent_controller, :storage_options
+  mattr_accessor :parent_controller
   @@parent_controller = 'ApplicationController'
 
-  # Used by store_in call in our models. You may configure database and session
-  # by setting them in this variable in config/initializers/popolo.rb or the
-  # like.
+  # The database and session storage options used by all Popolo models.
   #
   # @see http://mongoid.org/en/mongoid/docs/documents.html#storage
+  mattr_accessor :storage_options
   @@storage_options = {}
 end

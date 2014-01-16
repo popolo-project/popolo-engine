@@ -1,22 +1,20 @@
 require 'spec_helper'
 
 describe Popolo do
-  describe ".storage_options" do
-    context "when default Popolo settings" do
-      it "doesn't override any global settings" do
-        expect(Popolo.storage_options).to eq Hash.new
+  describe '.storage_options' do
+    context 'when using default storage options' do
+      it 'should use default storage options' do
+        Popolo.storage_options.should == {}
       end
     end
 
-    context "when custom Popolo settings are present" do
+    context 'when using custom storage options' do
       before do
-        module Popolo
-          Popolo.storage_options[:database] = :popolo_test
-        end
+        Popolo.storage_options = {database: :test}
       end
 
-      it "uses custom Popolo settings" do
-        expect(Popolo.storage_options[:database]).to eq :popolo_test
+      it 'should use custom storage options' do
+        Popolo.storage_options.should == {database: :test}
       end
 
       after do
