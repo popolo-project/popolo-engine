@@ -6,10 +6,10 @@ module Popolo
     include Mongoid::Timestamps
     include Mongoid::Tree
 
-    store_in Popolo.storage_options
+    store_in Popolo.storage_options_per_class.fetch(:Organization, Popolo.storage_options)
 
     # The relationships to which the organization is a party.
-    has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
+    has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy, inverse_of: :organization
     # Posts within the organization.
     has_many :posts, class_name: 'Popolo::Post', dependent: :destroy
     # Alternate or former names.

@@ -19,4 +19,10 @@ module Popolo
   # @see http://mongoid.org/en/mongoid/docs/documents.html#storage
   mattr_accessor :storage_options
   @@storage_options = {}
+
+  # The storage options for each Popolo model.
+  #
+  # @see http://mongoid.org/en/mongoid/docs/documents.html#storage
+  mattr_accessor :storage_options_per_class
+  @@storage_options_per_class = {}
 end
