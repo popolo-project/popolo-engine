@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Popolo::Organization do
-  it {should validate_presence_of :name}
-
   [:founding_date, :dissolution_date].each do |attribute|
     it {
       should validate_format_of(attribute).
