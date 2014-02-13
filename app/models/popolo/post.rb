@@ -26,7 +26,7 @@ module Popolo
     # The date on which the post was eliminated.
     field :end_date, type: String
 
-    validates_presence_of :label, :organization_id
+    validates_presence_of :organization_id
     validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :end_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
   end

@@ -31,9 +31,11 @@ module Popolo
     field :founding_date, type: String
     # A date of dissolution.
     field :dissolution_date, type: String
+    # A URL of an image.
+    field :image, type: String
 
-    validates_presence_of :name
     validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    # @note Add URL validation to match JSON Schema?
   end
 end

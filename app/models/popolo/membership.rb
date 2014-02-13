@@ -10,6 +10,8 @@ module Popolo
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The organization that is a party to the relationship.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
+    # The organization on whose behalf the person is a party to the relationship.
+    belongs_to :on_behalf_of, index: true, class_name: 'Popolo::Organization'
     # The post held by the person in the organization through this membership.
     belongs_to :post, index: true, class_name: 'Popolo::Post'
     # Means of contacting the person who is a party to the relationship.

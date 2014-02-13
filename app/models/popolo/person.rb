@@ -49,8 +49,9 @@ module Popolo
     field :summary, type: String
     # An extended account of a person's life.
     field :biography, type: String
+    # A national identity.
+    field :national_identity, type: String
 
-    validates_presence_of :name
     validates_format_of :birth_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :death_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     # @note Add email address validation and URL validation to match JSON Schema?
