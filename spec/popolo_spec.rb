@@ -15,6 +15,12 @@ describe Popolo do
 
       it 'should use custom storage options' do
         Popolo.storage_options.should == {database: :test}
+
+        # We would need to reload the app.
+        # Popolo::Membership.storage_options.should   == {database: :test}
+        # Popolo::Organization.storage_options.should == {database: :test}
+        # Popolo::Person.storage_options.should       == {database: :test}
+        # Popolo::Post.storage_options.should         == {database: :test}
       end
 
       after do
@@ -47,6 +53,12 @@ describe Popolo do
           :Person       => {collection: 'c'},
           :Post         => {collection: 'd'},
         }
+
+        # We would need to reload the app.
+        # Popolo::Membership.storage_options.should   == {collection: 'a'}
+        # Popolo::Organization.storage_options.should == {collection: 'b'}
+        # Popolo::Person.storage_options.should       == {collection: 'c'}
+        # Popolo::Post.storage_options.should         == {collection: 'd'}
       end
 
       after do
