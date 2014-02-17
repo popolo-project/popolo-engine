@@ -1,5 +1,110 @@
 <%= render partial: 'breadcrumb' %>
 
-<% @organization.children.group_by(&:classification).each do |classification,organizations| %>
-<%= render partial: 'classification', locals: {classification: classification, organizations: organizations} %>
+<%= render partial: 'organizations', object: @organization.children %>
+
+<section>
+  <header class="page-header">
+    <div class="media">
+      <div class="pull-left">
+        <% if @organization.image %>
+          <img src="<%= @organization.image %>" alt="" class="media-object img-responsive img-circle">
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h1 class="media-heading">
+          <%= @organization.name %>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <dl>
+    <% if @organization.classification %>
+      <dt><%= Popolo::Organization.human_attribute_name(:classification) %></dt>
+      <dd><%=t @organization.classification, count: 1, scope: [:popolo, :organizations, :classifications] %></dd>
+    <% end %>
+    <% if @organization.founding_date %>
+      <dt><%= Popolo::Organization.human_attribute_name(:founding_date) %></dt>
+      <dd><%=l Date.parse(@organization.founding_date) %></dd>
+    <% end %>
+    <% if @organization.dissolution_date %>
+      <dt><%= Popolo::Organization.human_attribute_name(:dissolution_date) %></dt>
+      <dd><%=l Date.parse(@organization.dissolution_date) %></dd>
+    <% end %>
+  </dl>
+
+  <% unless @organization.contact_details.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::ContactDetail.model_name.human(count: @organization.contact_details.size) %></h2>
+      </header>
+      <%= render @organization.contact_details %>
+    </section>
+  <% end %>
+  <% unless @organization.other_names.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::OtherName.model_name.human(count: @organization.other_names.size) %></h2>
+      </header>
+      <%= render @organization.other_names %>
+    </section>
+  <% end %>
+  <% unless @organization.identifiers.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::Identifier.model_name.human(count: @organization.identifiers.size) %></h2>
+      </header>
+      <%= render @organization.identifiers %>
+    </section>
+  <% end %>
+  <% unless @organization.links.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::Link.model_name.human(count: @organization.links.size) %></h2>
+      </header>
+      <%= render @organization.links %>
+    </section>
+  <% end %>
+  <% unless @organization.sources.empty? %>
+    <section>
+      <header>
+        <h2><%=t 'popolo/source', count: @organization.sources.size, scope: [:popolo]  %></h2>
+      </header>
+      <%= render @organization.sources %>
+    </section>
+  <% end %>
+</section>
+
+<% unless @organization.memberships.empty? %>
+  <section>
+    <header>
+      <h2>
+        <%= Popolo::Membership.model_name.human(count: @organization.memberships.size) %>
+      </h2>
+    </header>
+    <ol>
+      <% @organization.memberships.each do |membership| %>
+        <li>
+          <%= link_to membership.person.name, membership.person %>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+<% end %>
+
+<% unless @organization.posts.empty? %>
+  <section>
+    <header>
+      <h2>
+        <%= Popolo::Post.model_name.human(count: @organization.posts.size) %>
+      </h2>
+    </header>
+    <ol>
+      <% @organization.posts.each do |post| %>
+        <li>
+          <%= link_to post.label, post %>
+        </li>
+      <% end %>
+    </ol>
+  </section>
 <% end %>

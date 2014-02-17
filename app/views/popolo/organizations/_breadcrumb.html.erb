@@ -1,19 +1,9 @@
-<% ancestors = @organization.ancestors %>
-
 <nav>
-  <ul class="breadcrumb">
-    <li>
-      <%= link_to resource_collection_name.capitalize, organizations_path %>
-      <span class="divider">/</span>
-    </li>
-    <% ancestors.each do |ancestor| %>
-      <li>
-        <%= link_to ancestor.name, ancestor %>
-        <span class="divider">/</span>
-      </li>
+  <ol class="breadcrumb">
+    <li><%= link_to Popolo::Organization.model_name.human(count: Float::INFINITY), organizations_path %></li>
+    <% @organization.ancestors.each do |ancestor| %>
+      <li><%= link_to ancestor.name, ancestor %></li>
     <% end %>
-    <li class="active">
-      <%= @organization.name %>
-    </li>
-  </ul>
+    <li class="active"><%= @organization.name %></li>
+  </ol>
 </nav>

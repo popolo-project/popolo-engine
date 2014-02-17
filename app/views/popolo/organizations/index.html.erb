@@ -1,3 +1,1 @@
-<% @organizations.group_by(&:classification).each do |classification,organizations| %>
-<%= render partial: 'classification', locals: {classification: classification, organizations: organizations} %>
-<% end %>
+<%= render partial: 'organizations', object: @organizations %>

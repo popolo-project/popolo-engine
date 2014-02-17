@@ -35,18 +35,41 @@ Finally, run the `popolo` generator and create the MongoDB indexes:
     rails generate popolo
     bundle exec rake db:mongoid:create_indexes
 
+If you would like to use the [free Lumen Bootstrap theme](http://bootswatch.com/lumen/), add the following line to your application's `application.css` file:
+
+    *= require popolo
+
 ## Internationalization
 
 If you are using Popolo's default views, you can translate your contact detail types and organization classifications by creating a locale file, e.g. `config/locales/en.yml`:
 
     en:
       popolo:
-        organizations:
-          classifications:
-            party: Political party
         contact_details:
           types:
             cell: Mobile number
+        organizations:
+          classifications:
+            party:
+              one: Political party
+              other: Political parties
+
+You may translate model names like:
+
+    en:
+      mongoid:
+        models:
+          popolo/membership:
+            one: Membership
+            other: Memberships
+
+The `sources` property reuses the `Link` model. To translate this word:
+
+    en:
+      popolo:
+        popolo/source:
+          one: Source
+          other: Sources
 
 ## Bugs? Questions?
 

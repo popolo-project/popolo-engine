@@ -3,3 +3,21 @@
 
 en:
   hello: "Hello world"
+  mongoid:
+    models:
+      popolo/membership:
+        one: Membership
+        other: Memberships
+      popolo/organization:
+        one: Organization
+        other: Organizations
+      popolo/person:
+        one: Person
+        other: People
+      popolo/post:
+        one: Post
+        other: Posts
+  popolo:
+    popolo/source:
+      one: Source
+      other: Sources
