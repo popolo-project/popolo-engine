@@ -55,5 +55,9 @@ module Popolo
     validates_format_of :birth_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :death_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     # @note Add email address validation and URL validation to match JSON Schema?
+
+    def to_s
+      name
+    end
   end
 end

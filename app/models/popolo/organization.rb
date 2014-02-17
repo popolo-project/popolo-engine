@@ -37,5 +37,9 @@ module Popolo
     validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     # @note Add URL validation to match JSON Schema?
+
+    def to_s
+      name
+    end
   end
 end
