@@ -1,5 +1,5 @@
 <%= render partial: 'breadcrumb' %>
 
 <% @organization.children.group_by(&:classification).each do |classification,organizations| %>
-<%= render partial: 'classification', locals: {classification: classification, organizations: organizations}
+<%= render partial: 'classification', locals: {classification: classification, organizations: organizations} %>
 <% end %>
