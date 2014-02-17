@@ -6,10 +6,6 @@ describe Popolo::PostsController do
       @routes = Popolo::Engine.routes
     end
 
-    it 'routes to #index' do
-      get('/posts').should route_to('popolo/posts#index')
-    end
-
     it 'routes to #show' do
       get('/posts/1').should route_to('popolo/posts#show', id: '1')
     end
