@@ -1,0 +1,14 @@
+<section>
+  <header>
+    <h1>
+      <%=t classification, scope: [:popolo, :organizations, :classifications] %>
+    </h1>
+  </header>
+  <ol>
+    <% organizations.each do |organization| %>
+      <li>
+        <%= link_to organization.name, organization %>
+      </li>
+    <% end %>
+  </ol>
+</section>

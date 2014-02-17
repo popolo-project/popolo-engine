@@ -6,9 +6,9 @@
       <%= link_to resource_collection_name.capitalize, collection_path %>
       <span class="divider">/</span>
     </li>
-    <% ancestors.each_with_index do |ancestor,index| %>
+    <% ancestors.each do |ancestor| %>
       <li>
-        <%= link_to ancestor.name, nested_resource_path(ancestors[0..index]) %>
+        <%= link_to ancestor.name, ancestor %>
         <span class="divider">/</span>
       </li>
     <% end %>
