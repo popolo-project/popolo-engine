@@ -1,6 +1,12 @@
-<%= render partial: 'breadcrumb' %>
-
-<%= render partial: 'organizations', object: @organization.children %>
+<nav>
+  <ol class="breadcrumb">
+    <li><%= link_to Popolo::Organization.model_name.human(count: Float::INFINITY), organizations_path %></li>
+    <% @organization.ancestors.each do |ancestor| %>
+      <li><%= link_to ancestor, ancestor %></li>
+    <% end %>
+    <li class="active"><%= @organization.name %></li>
+  </ol>
+</nav>
 
 <section>
   <header class="page-header">
@@ -85,7 +91,7 @@
     <ol>
       <% @organization.memberships.each do |membership| %>
         <li>
-          <%= link_to membership.person.name, membership.person %>
+          <%= link_to membership, membership %>
         </li>
       <% end %>
     </ol>
@@ -102,7 +108,24 @@
     <ol>
       <% @organization.posts.each do |post| %>
         <li>
-          <%= link_to post.label, post %>
+          <%= link_to post, post %>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+<% end %>
+
+<% @organization.children.each do |organization| %>
+  <section>
+    <header>
+      <h2>
+        <%= Popolo::Organization.model_name.human(count: @organization.children.size) %>
+      </h2>
+    </header>
+    <ol>
+      <% @organization.children.each do |organization| %>
+        <li>
+          <%= link_to organization, organization %>
         </li>
       <% end %>
     </ol>

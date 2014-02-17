@@ -1,9 +1,0 @@
-<nav>
-  <ol class="breadcrumb">
-    <li><%= link_to Popolo::Organization.model_name.human(count: Float::INFINITY), organizations_path %></li>
-    <% @organization.ancestors.each do |ancestor| %>
-      <li><%= link_to ancestor.name, ancestor %></li>
-    <% end %>
-    <li class="active"><%= @organization.name %></li>
-  </ol>
-</nav>
