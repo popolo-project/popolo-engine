@@ -28,9 +28,9 @@ module Popolo
     # An organization category, e.g. committee.
     field :classification, type: String
     # A date of founding.
-    field :founding_date, type: String
+    field :founding_date, type: Popolo::DateString
     # A date of dissolution.
-    field :dissolution_date, type: String
+    field :dissolution_date, type: Popolo::DateString
     # A URL of an image.
     field :image, type: String
 
