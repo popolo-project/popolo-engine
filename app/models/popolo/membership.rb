@@ -41,7 +41,7 @@ module Popolo
       when :organization
         organization.to_s
       else
-        "#{organization.to_s} / #{person.to_s}"
+        "#{organization.to_s} / #{person.to_s}"
       end
     end
   end
