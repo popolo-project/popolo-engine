@@ -1,0 +1,9 @@
+<li>
+  <%= other_name.name %>
+  <% if other_name.start_date? || other_name.end_date? %>
+    (<%=l other_name.start_date %>—<%=l other_name.end_date %>)
+  <% end %>
+  <% if other_name.note? %>
+    <span class="label label-info"><%= other_name.note %></span>
+  <% end %>
+</li>

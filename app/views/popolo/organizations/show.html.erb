@@ -56,7 +56,9 @@
         <header>
           <h2><%= Popolo::OtherName.model_name.human(count: @organization.other_names.size) %></h2>
         </header>
-        <%= render @organization.other_names %>
+        <ul>
+          <%= render @organization.other_names %>
+        </ul>
       </section>
     <% end %>
     <% unless @organization.identifiers.empty? %>
@@ -64,7 +66,9 @@
         <header>
           <h2><%= Popolo::Identifier.model_name.human(count: @organization.identifiers.size) %></h2>
         </header>
-        <%= render @organization.identifiers %>
+        <dl class="dl-horizontal">
+          <%= render @organization.identifiers %>
+        </dl>
       </section>
     <% end %>
     <% unless @organization.links.empty? %>
