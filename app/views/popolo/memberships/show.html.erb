@@ -49,7 +49,9 @@
       <header>
         <h2><%= Popolo::ContactDetail.model_name.human(count: @membership.contact_details.size) %></h2>
       </header>
-      <%= render @membership.contact_details %>
+      <dl class="dl-horizontal">
+        <%= render @membership.contact_details %>
+      </dl>
     </section>
   <% end %>
   <% unless @membership.links.empty? %>

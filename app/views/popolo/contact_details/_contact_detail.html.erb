@@ -1,14 +1,17 @@
-<section>
-  <dl>
-    <dt>
-      <% if contact_detail.label? %>
-        <%= contact_detail.label %>
-      <% else %>
-        <%=t contact_detail.type, scope: [:popolo, :contact_details, :types], default: contact_detail.type %>
-      <% end %>
-    </dt>
-    <dd>
-      <%= contact_detail.value %>
-    </dd>
-  </dl>
-</section>
+<dt>
+  <% if contact_detail.label? %>
+    <%= contact_detail.label %>
+  <% else %>
+    <%=t contact_detail.type, scope: [:popolo, :contact_details, :types], default: contact_detail.type %>
+  <% end %>
+</dt>
+<dd>
+  <% if contact_detail.type == 'email' %>
+    <%= mail_to contact_detail.value %>
+  <% else %>
+    <%= contact_detail.value %>
+  <% end %>
+  <% if contact_detail.note? %>
+    <span class="label label-info"><%= contact_detail.note %></span>
+  <% end %>
+</dd>

@@ -28,7 +28,7 @@
   <dl>
     <% if @organization.classification? %>
       <dt><%= Popolo::Organization.human_attribute_name(:classification) %></dt>
-      <dd><%=t @organization.classification, count: 1, scope: [:popolo, :organizations, :classifications] %></dd>
+      <dd><%=t @organization.classification, count: 1, scope: [:popolo, :organizations, :classifications], default: @organization.classification %></dd>
     <% end %>
     <% if @organization.founding_date? %>
       <dt><%= Popolo::Organization.human_attribute_name(:founding_date) %></dt>
@@ -45,7 +45,9 @@
       <header>
         <h2><%= Popolo::ContactDetail.model_name.human(count: @organization.contact_details.size) %></h2>
       </header>
-      <%= render @organization.contact_details %>
+      <dl class="dl-horizontal">
+        <%= render @organization.contact_details %>
+      </dl>
     </section>
   <% end %>
   <% unless @organization.other_names.empty? %>

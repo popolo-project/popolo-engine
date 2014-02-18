@@ -5,12 +5,24 @@ en:
   hello: "Hello world"
   mongoid:
     models:
+      popolo/contact_detail:
+        one: Contact detail
+        other: Contact details
+      popolo/identifier:
+        one: Identifier
+        other: Identifiers
+      popolo/link:
+        one: Link
+        other: Links
       popolo/membership:
         one: Membership
         other: Memberships
       popolo/organization:
         one: Organization
         other: Organizations
+      popolo/other_name:
+        one: Other name
+        other: Other names
       popolo/person:
         one: Person
         other: People
