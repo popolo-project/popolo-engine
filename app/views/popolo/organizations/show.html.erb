@@ -4,7 +4,7 @@
     <% @organization.ancestors.each do |ancestor| %>
       <li><%= link_to ancestor, ancestor %></li>
     <% end %>
-    <li class="active"><%= @organization.name %></li>
+    <li class="active"><%= @organization %></li>
   </ol>
 </nav>
 
@@ -13,29 +13,30 @@
     <div class="media">
       <div class="pull-left">
         <% if @organization.image %>
-          <img src="<%= @organization.image %>" alt="" class="media-object img-responsive img-circle">
+          <div class="media-object popolo-circle" style="background-image: url(<%= @organization.image %>)">
+          </div>
         <% end %>
       </div>
       <div class="media-body">
         <h1 class="media-heading">
-          <%= @organization.name %>
+          <%= @organization %>
         </h1>
       </div>
     </div>
   </header>
 
   <dl>
-    <% if @organization.classification %>
+    <% if @organization.classification? %>
       <dt><%= Popolo::Organization.human_attribute_name(:classification) %></dt>
       <dd><%=t @organization.classification, count: 1, scope: [:popolo, :organizations, :classifications] %></dd>
     <% end %>
-    <% if @organization.founding_date %>
+    <% if @organization.founding_date? %>
       <dt><%= Popolo::Organization.human_attribute_name(:founding_date) %></dt>
-      <dd><%=l Date.parse(@organization.founding_date) %></dd>
+      <dd><%=l @organization.founding_date %></dd>
     <% end %>
-    <% if @organization.dissolution_date %>
+    <% if @organization.dissolution_date? %>
       <dt><%= Popolo::Organization.human_attribute_name(:dissolution_date) %></dt>
-      <dd><%=l Date.parse(@organization.dissolution_date) %></dd>
+      <dd><%=l @organization.dissolution_date %></dd>
     <% end %>
   </dl>
 

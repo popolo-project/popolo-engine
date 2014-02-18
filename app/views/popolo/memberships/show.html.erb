@@ -1,0 +1,71 @@
+<nav>
+  <ol class="breadcrumb">
+    <li><%= link_to Popolo::Organization.model_name.human(count: Float::INFINITY), organizations_path %></li>
+    <% @membership.organization.ancestors_and_self.each do |ancestor| %>
+      <li><%= link_to ancestor, ancestor %></li>
+    <% end %>
+    <li class="active"><%= @membership %></li>
+  </ol>
+</nav>
+
+<section>
+  <header class="page-header">
+    <div class="media">
+      <div class="media-body">
+        <h1 class="media-heading">
+          <%= @membership %>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <dl>
+    <dt><%= Popolo::Membership.human_attribute_name(:person) %></dt>
+    <dd><%= link_to @membership.person, @membership.person %></dd>
+    <% if @membership.role? %>
+      <dt><%= Popolo::Membership.human_attribute_name(:role) %></dt>
+      <dd><%= @membership.role %></dd>
+    <% end %>
+    <% if @membership.start_date? %>
+      <dt><%= Popolo::Membership.human_attribute_name(:start_date) %></dt>
+      <dd><%=l @membership.start_date %></dd>
+    <% end %>
+    <% if @membership.end_date? %>
+      <dt><%= Popolo::Membership.human_attribute_name(:end_date) %></dt>
+      <dd><%=l @membership.end_date %></dd>
+    <% end %>
+    <% if @membership.on_behalf_of? %>
+      <dt><%= Popolo::Membership.human_attribute_name(:on_behalf_of) %></dt>
+      <dd><%= link_to @membership.on_behalf_of, @membership.on_behalf_of %></dd>
+    <% end %>
+    <% if @membership.post? %>
+      <dt><%= Popolo::Membership.human_attribute_name(:post) %></dt>
+      <dd><%= link_to @membership.post, @membership.post %></dd>
+    <% end %>
+  </dl>
+
+  <% unless @membership.contact_details.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::ContactDetail.model_name.human(count: @membership.contact_details.size) %></h2>
+      </header>
+      <%= render @membership.contact_details %>
+    </section>
+  <% end %>
+  <% unless @membership.links.empty? %>
+    <section>
+      <header>
+        <h2><%= Popolo::Link.model_name.human(count: @membership.links.size) %></h2>
+      </header>
+      <%= render @membership.links %>
+    </section>
+  <% end %>
+  <% unless @membership.sources.empty? %>
+    <section>
+      <header>
+        <h2><%=t 'popolo/source', count: @membership.sources.size, scope: [:popolo]  %></h2>
+      </header>
+      <%= render @membership.sources %>
+    </section>
+  <% end %>
+</section>

@@ -1,0 +1,13 @@
+// http://monkeyraptor.johanpaul.net/2013/06/circle-clipping-photo-using-css.html
+.popolo-circle {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  // Eliminate borders
+  background-size: 104px auto;
+  background-position: -2px -2px;
+}
