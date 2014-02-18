@@ -7,7 +7,8 @@
   border-radius: 50%;
 
   background-repeat: no-repeat;
-  // Eliminate borders
-  background-size: 104px auto;
-  background-position: -2px -2px;
+  // Eliminate any 1px border on the image.
+  background-size: 102px auto;
+  // Faces tend to be low in the image.
+  background-position: -1px -15px;
 }

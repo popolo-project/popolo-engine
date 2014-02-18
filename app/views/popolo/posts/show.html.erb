@@ -1,0 +1,90 @@
+<nav>
+  <ol class="breadcrumb">
+    <li><%= link_to Popolo::Organization.model_name.human(count: Float::INFINITY), organizations_path %></li>
+    <% @post.organization.ancestors_and_self.each do |ancestor| %>
+      <li><%= link_to ancestor, ancestor %></li>
+    <% end %>
+    <li class="active"><%= @post %></li>
+  </ol>
+</nav>
+
+<section>
+  <header class="page-header">
+    <div class="media">
+      <div class="media-body">
+        <h1 class="media-heading">
+          <%= @post %>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <dl>
+    <dt><%= Popolo::Post.human_attribute_name(:organization) %></dt>
+    <dd><%= link_to @post.organization, @post.organization %></dd>
+    <% if @post.role? %>
+      <dt><%= Popolo::Post.human_attribute_name(:role) %></dt>
+      <dd><%= @post.role %></dd>
+    <% end %>
+    <% if @post.start_date? %>
+      <dt><%= Popolo::Post.human_attribute_name(:start_date) %></dt>
+      <dd><%=l @post.start_date %></dd>
+    <% end %>
+    <% if @post.end_date? %>
+      <dt><%= Popolo::Post.human_attribute_name(:end_date) %></dt>
+      <dd><%=l @post.end_date %></dd>
+    <% end %>
+  </dl>
+
+  <aside>
+    <% unless @post.contact_details.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::ContactDetail.model_name.human(count: @post.contact_details.size) %></h2>
+        </header>
+        <dl class="dl-horizontal">
+          <%= render @post.contact_details %>
+        </dl>
+      </section>
+    <% end %>
+    <% unless @post.links.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Link.model_name.human(count: @post.links.size) %></h2>
+        </header>
+        <ul>
+          <%= render @post.links %>
+        </ul>
+      </section>
+    <% end %>
+    <% unless @post.sources.empty? %>
+      <section>
+        <header>
+          <h2><%=t 'popolo/source', count: @post.sources.size, scope: [:popolo]  %></h2>
+        </header>
+        <ul>
+          <%= render @post.sources %>
+        </ul>
+      </section>
+    <% end %>
+  </aside>
+
+  <aside>
+    <% unless @post.memberships.empty? %>
+      <section>
+        <header>
+          <h2>
+            <%= Popolo::Membership.model_name.human(count: @post.memberships.size) %>
+          </h2>
+        </header>
+        <ol>
+          <% @post.memberships.each do |membership| %>
+            <li>
+              <%= link_to membership, membership %>
+            </li>
+          <% end %>
+        </ol>
+      </section>
+    <% end %>
+  </aside>
+</section>

@@ -122,7 +122,7 @@
         </ol>
       </section>
     <% end %>
-    <% @organization.children.each do |organization| %>
+    <% unless @organization.children.empty? %>
       <section>
         <header>
           <h2>

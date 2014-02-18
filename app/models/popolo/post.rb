@@ -22,9 +22,9 @@ module Popolo
     # The function that the holder of the post fulfills.
     field :role, type: String
     # The date on which the post was created.
-    field :start_date, type: String
+    field :start_date, type: Popolo::DateString
     # The date on which the post was eliminated.
-    field :end_date, type: String
+    field :end_date, type: Popolo::DateString
 
     validates_presence_of :organization_id
     validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
