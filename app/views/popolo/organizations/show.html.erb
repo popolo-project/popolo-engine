@@ -40,97 +40,99 @@
     <% end %>
   </dl>
 
-  <% unless @organization.contact_details.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::ContactDetail.model_name.human(count: @organization.contact_details.size) %></h2>
-      </header>
-      <dl class="dl-horizontal">
-        <%= render @organization.contact_details %>
-      </dl>
-    </section>
-  <% end %>
-  <% unless @organization.other_names.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::OtherName.model_name.human(count: @organization.other_names.size) %></h2>
-      </header>
-      <%= render @organization.other_names %>
-    </section>
-  <% end %>
-  <% unless @organization.identifiers.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::Identifier.model_name.human(count: @organization.identifiers.size) %></h2>
-      </header>
-      <%= render @organization.identifiers %>
-    </section>
-  <% end %>
-  <% unless @organization.links.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::Link.model_name.human(count: @organization.links.size) %></h2>
-      </header>
-      <%= render @organization.links %>
-    </section>
-  <% end %>
-  <% unless @organization.sources.empty? %>
-    <section>
-      <header>
-        <h2><%=t 'popolo/source', count: @organization.sources.size, scope: [:popolo]  %></h2>
-      </header>
-      <%= render @organization.sources %>
-    </section>
-  <% end %>
+  <aside>
+    <% unless @organization.contact_details.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::ContactDetail.model_name.human(count: @organization.contact_details.size) %></h2>
+        </header>
+        <dl class="dl-horizontal">
+          <%= render @organization.contact_details %>
+        </dl>
+      </section>
+    <% end %>
+    <% unless @organization.other_names.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::OtherName.model_name.human(count: @organization.other_names.size) %></h2>
+        </header>
+        <%= render @organization.other_names %>
+      </section>
+    <% end %>
+    <% unless @organization.identifiers.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Identifier.model_name.human(count: @organization.identifiers.size) %></h2>
+        </header>
+        <%= render @organization.identifiers %>
+      </section>
+    <% end %>
+    <% unless @organization.links.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Link.model_name.human(count: @organization.links.size) %></h2>
+        </header>
+        <%= render @organization.links %>
+      </section>
+    <% end %>
+    <% unless @organization.sources.empty? %>
+      <section>
+        <header>
+          <h2><%=t 'popolo/source', count: @organization.sources.size, scope: [:popolo]  %></h2>
+        </header>
+        <%= render @organization.sources %>
+      </section>
+    <% end %>
+  </aside>
+
+  <aside>
+    <% unless @organization.memberships.empty? %>
+      <section>
+        <header>
+          <h2>
+            <%= Popolo::Membership.model_name.human(count: @organization.memberships.size) %>
+          </h2>
+        </header>
+        <ol>
+          <% @organization.memberships.each do |membership| %>
+            <li>
+              <%= link_to membership, membership %>
+            </li>
+          <% end %>
+        </ol>
+      </section>
+    <% end %>
+    <% unless @organization.posts.empty? %>
+      <section>
+        <header>
+          <h2>
+            <%= Popolo::Post.model_name.human(count: @organization.posts.size) %>
+          </h2>
+        </header>
+        <ol>
+          <% @organization.posts.each do |post| %>
+            <li>
+              <%= link_to post, post %>
+            </li>
+          <% end %>
+        </ol>
+      </section>
+    <% end %>
+    <% @organization.children.each do |organization| %>
+      <section>
+        <header>
+          <h2>
+            <%= Popolo::Organization.model_name.human(count: @organization.children.size) %>
+          </h2>
+        </header>
+        <ol>
+          <% @organization.children.each do |organization| %>
+            <li>
+              <%= link_to organization, organization %>
+            </li>
+          <% end %>
+        </ol>
+      </section>
+    <% end %>
+  </aside>
 </section>
-
-<% unless @organization.memberships.empty? %>
-  <section>
-    <header>
-      <h2>
-        <%= Popolo::Membership.model_name.human(count: @organization.memberships.size) %>
-      </h2>
-    </header>
-    <ol>
-      <% @organization.memberships.each do |membership| %>
-        <li>
-          <%= link_to membership, membership %>
-        </li>
-      <% end %>
-    </ol>
-  </section>
-<% end %>
-
-<% unless @organization.posts.empty? %>
-  <section>
-    <header>
-      <h2>
-        <%= Popolo::Post.model_name.human(count: @organization.posts.size) %>
-      </h2>
-    </header>
-    <ol>
-      <% @organization.posts.each do |post| %>
-        <li>
-          <%= link_to post, post %>
-        </li>
-      <% end %>
-    </ol>
-  </section>
-<% end %>
-
-<% @organization.children.each do |organization| %>
-  <section>
-    <header>
-      <h2>
-        <%= Popolo::Organization.model_name.human(count: @organization.children.size) %>
-      </h2>
-    </header>
-    <ol>
-      <% @organization.children.each do |organization| %>
-        <li>
-          <%= link_to organization, organization %>
-        </li>
-      <% end %>
-    </ol>
-  </section>
-<% end %>

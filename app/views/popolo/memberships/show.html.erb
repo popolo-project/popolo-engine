@@ -44,30 +44,32 @@
     <% end %>
   </dl>
 
-  <% unless @membership.contact_details.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::ContactDetail.model_name.human(count: @membership.contact_details.size) %></h2>
-      </header>
-      <dl class="dl-horizontal">
-        <%= render @membership.contact_details %>
-      </dl>
-    </section>
-  <% end %>
-  <% unless @membership.links.empty? %>
-    <section>
-      <header>
-        <h2><%= Popolo::Link.model_name.human(count: @membership.links.size) %></h2>
-      </header>
-      <%= render @membership.links %>
-    </section>
-  <% end %>
-  <% unless @membership.sources.empty? %>
-    <section>
-      <header>
-        <h2><%=t 'popolo/source', count: @membership.sources.size, scope: [:popolo]  %></h2>
-      </header>
-      <%= render @membership.sources %>
-    </section>
-  <% end %>
+  <aside>
+    <% unless @membership.contact_details.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::ContactDetail.model_name.human(count: @membership.contact_details.size) %></h2>
+        </header>
+        <dl class="dl-horizontal">
+          <%= render @membership.contact_details %>
+        </dl>
+      </section>
+    <% end %>
+    <% unless @membership.links.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Link.model_name.human(count: @membership.links.size) %></h2>
+        </header>
+        <%= render @membership.links %>
+      </section>
+    <% end %>
+    <% unless @membership.sources.empty? %>
+      <section>
+        <header>
+          <h2><%=t 'popolo/source', count: @membership.sources.size, scope: [:popolo]  %></h2>
+        </header>
+        <%= render @membership.sources %>
+      </section>
+    <% end %>
+  </aside>
 </section>
