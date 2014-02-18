@@ -12,5 +12,9 @@ module Popolo
 
     validates_presence_of :url
     # @note Add URL validation to match JSON Schema?
+
+    def to_s
+      note || url
+    end
   end
 end

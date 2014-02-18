@@ -1,25 +1,116 @@
 <section>
-  <div class="media">
-    <span class="pull-left">
-      <% if @person.image? %>
-        <%= image_tag(@person.image, alt: '', class: 'media-object') %>
-      <% end %>
-    </span>
-    <div class="media-body">
-      <h1 class="media-heading">
-        <%= @person.name %>
-      </h1>
+  <header class="page-header">
+    <div class="media">
+      <div class="pull-left">
+        <% if @person.image %>
+          <div class="media-object popolo-circle" style="background-image: url(<%= @person.image %>)">
+          </div>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h1 class="media-heading">
+          <%= @person %>
+        </h1>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <% if @person.summary? %>
-    <p><%= @person.summary %></p>
-  <% end %>
+  <dl>
+    <% if @person.email? %>
+      <dt><%= Popolo::Person.human_attribute_name(:email) %></dt>
+      <dd><%= mail_to @person.email %></dd>
+    <% end %>
+    <% if @person.gender? %>
+      <dt><%= Popolo::Person.human_attribute_name(:gender) %></dt>
+      <dd><%= @person.gender %></dd>
+    <% end %>
+    <% if @person.national_identity? %>
+      <dt><%= Popolo::Person.human_attribute_name(:national_identity) %></dt>
+      <dd><%= @person.national_identity %></dd>
+    <% end %>
+    <% if @person.birth_date? %>
+      <dt><%= Popolo::Person.human_attribute_name(:birth_date) %></dt>
+      <dd><%=l @person.birth_date %></dd>
+    <% end %>
+    <% if @person.death_date? %>
+      <dt><%= Popolo::Person.human_attribute_name(:death_date) %></dt>
+      <dd><%=l @person.death_date %></dd>
+    <% end %>
+    <% if @person.summary? %>
+      <dt><%= Popolo::Person.human_attribute_name(:summary) %></dt>
+      <dd><%= simple_format @person.summary %></dd>
+    <% end %>
+    <% if @person.biography? %>
+      <dt><%= Popolo::Person.human_attribute_name(:biography) %></dt>
+      <dd><%= simple_format @person.biography %></dd>
+    <% end %>
+  </dl>
 
   <aside>
-    <% if @person.email? %>
-      <p>Email: <%= mail_to @person.email %></p>
+    <% unless @person.contact_details.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::ContactDetail.model_name.human(count: @person.contact_details.size) %></h2>
+        </header>
+        <dl class="dl-horizontal">
+          <%= render @person.contact_details %>
+        </dl>
+      </section>
     <% end %>
-    <%= render @person.contact_details %>
+    <% unless @person.other_names.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::OtherName.model_name.human(count: @person.other_names.size) %></h2>
+        </header>
+        <%= render @person.other_names %>
+      </section>
+    <% end %>
+    <% unless @person.identifiers.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Identifier.model_name.human(count: @person.identifiers.size) %></h2>
+        </header>
+        <%= render @person.identifiers %>
+      </section>
+    <% end %>
+    <% unless @person.links.empty? %>
+      <section>
+        <header>
+          <h2><%= Popolo::Link.model_name.human(count: @person.links.size) %></h2>
+        </header>
+        <ul>
+          <%= render @person.links %>
+        </ul>
+      </section>
+    <% end %>
+    <% unless @person.sources.empty? %>
+      <section>
+        <header>
+          <h2><%=t 'popolo/source', count: @person.sources.size, scope: [:popolo]  %></h2>
+        </header>
+        <ul>
+          <%= render @person.sources %>
+        </ul>
+      </section>
+    <% end %>
+  </aside>
+
+  <aside>
+    <% unless @person.memberships.empty? %>
+      <section>
+        <header>
+          <h2>
+            <%= Popolo::Membership.model_name.human(count: @person.memberships.size) %>
+          </h2>
+        </header>
+        <ol>
+          <% @person.memberships.each do |membership| %>
+            <li>
+              <%= link_to membership.to_s(format: :organization), membership %>
+            </li>
+          <% end %>
+        </ol>
+      </section>
+    <% end %>
   </aside>
 </section>

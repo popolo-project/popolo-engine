@@ -40,9 +40,9 @@ module Popolo
     # A gender.
     field :gender, type: String
     # A date of birth.
-    field :birth_date, type: String
+    field :birth_date, type: Popolo::DateString
     # A date of death.
-    field :death_date, type: String
+    field :death_date, type: Popolo::DateString
     # A URL of a head shot.
     field :image, type: String
     # A one-line account of a person's life.

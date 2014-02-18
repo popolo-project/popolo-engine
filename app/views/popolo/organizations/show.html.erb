@@ -72,7 +72,9 @@
         <header>
           <h2><%= Popolo::Link.model_name.human(count: @organization.links.size) %></h2>
         </header>
-        <%= render @organization.links %>
+        <ul>
+          <%= render @organization.links %>
+        </ul>
       </section>
     <% end %>
     <% unless @organization.sources.empty? %>
@@ -80,7 +82,9 @@
         <header>
           <h2><%=t 'popolo/source', count: @organization.sources.size, scope: [:popolo]  %></h2>
         </header>
-        <%= render @organization.sources %>
+        <ul>
+          <%= render @organization.sources %>
+        </ul>
       </section>
     <% end %>
   </aside>
@@ -96,7 +100,7 @@
         <ol>
           <% @organization.memberships.each do |membership| %>
             <li>
-              <%= link_to membership, membership %>
+              <%= link_to membership.to_s(format: :person), membership %>
             </li>
           <% end %>
         </ol>

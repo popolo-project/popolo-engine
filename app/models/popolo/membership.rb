@@ -34,8 +34,15 @@ module Popolo
     validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
     validates_format_of :end_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
 
-    def to_s
-      label || person.name
+    def to_s(options = {})
+      label || case options[:format]
+      when :person
+        person.to_s
+      when :organization
+        organization.to_s
+      else
+        "#{organization.to_s} / #{person.to_s}"
+      end
     end
   end
 end
