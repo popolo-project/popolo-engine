@@ -71,6 +71,24 @@ The `sources` property reuses the `Link` model. To translate this word:
           one: Source
           other: Sources
 
+## Deployment
+
+A Popolo app is easy to deploy on [Heroku](http://www.heroku.com/) using either the [MongoLab](https://addons.heroku.com/mongolab) or [MongoHQ](https://addons.heroku.com/mongohq) add-ons.
+
+1. [Sign up for Heroku](http://api.heroku.com/signup) if you don't already have an account, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+
+1. Create a new Cedar app on Heroku with either MongoLab or MongoHQ:
+
+    ```sh
+    heroku apps:create -s cedar --addons mongolab:starter
+    # OR
+    heroku apps:create -s cedar --addons mongohq:sandbox
+    ```
+
+1. If this is your first time using Heroku, read its guide, [Getting Started with Rails 3.x on Heroku](https://devcenter.heroku.com/articles/rails3), for next steps.
+
+We highly recommend using the [Unicorn](http://unicorn.bogomips.org/) Rack HTTP server. [This blog post](http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html) has great instructions. You can remove the `before_fork` and `after_fork` blocks from your `config/unicorn.rb` because [Mongoid will automatically reconnect after forks](http://mongoid.org/en/mongoid/docs/rails.html).
+
 ## Bugs? Questions?
 
 This engine's main repository is on GitHub: [http://github.com/opennorth/popolo-engine](http://github.com/opennorth/popolo-engine), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
