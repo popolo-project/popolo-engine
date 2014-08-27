@@ -9,13 +9,13 @@ module Popolo
     store_in Popolo.storage_options_per_class.fetch(:Motion, Popolo.storage_options)
 
     # The organization in which the motion is proposed
-    belongs_to :organization, index: true, class_name: 'Popolo::Organization'
+    belongs_to :organization, class_name: 'Popolo::Organization'
 
     #legislative_session   opengov:legislativeSession  The legislative session in which the motion is proposed
     #TODO: a field for legislative session?
 
     # The person who proposed the motion
-    belongs_to :creator, index: true, class_name: 'Popolo::Person'
+    belongs_to :creator, class_name: 'Popolo::Person'
     # The transcript or text of the motion.
     field :text, type: Text
     # A motion category, e.g. adjournment.
