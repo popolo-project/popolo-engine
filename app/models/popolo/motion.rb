@@ -17,7 +17,7 @@ module Popolo
     # The person who proposed the motion
     belongs_to :creator, class_name: 'Popolo::Person'
     # The transcript or text of the motion.
-    field :text, type: Text
+    field :text, type: String
     # A motion category, e.g. adjournment.
     field :classification, type: String
     # The date on which the motion was proposed.
