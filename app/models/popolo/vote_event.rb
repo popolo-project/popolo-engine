@@ -20,17 +20,14 @@ module Popolo
     field :end_date, type: DateTime
     # The result of the vote event (pass or fail, alternatively can use other ways to describe result)
     field :result, type: String
-
     #The individual votes
     has_many :votes, class_name: 'Popolo::Vote', dependent: :destroy
-
 
     #NB group results should not be reported if the
     #group results have no impact on the overall result of the vote event: for example, results by party.
 
     #TODO: has_many :group_results, class_name: 'Popolo::Group', dependent: :destroy
     #TODO: has_many :counts, class_name: 'Popolo::Count', dependent: :destroy
-
 
     #The vote totals dont need include all options from individual votes,
     #in particular options that have no effect on the result.
