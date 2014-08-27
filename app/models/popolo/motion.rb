@@ -31,7 +31,7 @@ module Popolo
     # URLs to source documents about the motion.
     embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
-    validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validates_format_of :date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
 
     def to_s
       "Motion #{id} (#{date})"
