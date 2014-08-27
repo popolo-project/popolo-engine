@@ -27,7 +27,7 @@ module Popolo
     # The result of the motion (pass or fail, alternatively can use other ways to describe result)
     field :result, type: String
     # An event at which people vote on the motion
-    has_many :vote_event, class_name: 'Popolo::VoteEvent', dependent: :destroy
+    has_many :vote_events, class_name: 'Popolo::VoteEvent', dependent: :destroy
     # URLs to source documents about the motion.
     embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
