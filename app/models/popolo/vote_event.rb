@@ -4,7 +4,6 @@ module Popolo
   class VoteEvent
     include Mongoid::Document
     include Mongoid::Timestamps
-    include Mongoid::Tree
 
     store_in Popolo.storage_options_per_class.fetch(:VoteEvent, Popolo.storage_options)
 
