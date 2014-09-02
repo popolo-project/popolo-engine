@@ -1,6 +1,8 @@
 module Popolo
-  # A group with a common purpose or reason for existence that goes beyond the
-  # set of people belonging to it.
+
+  #A motion is "a formal step to introduce a matter for consideration by a group."1
+  #1. http://en.wikipedia.org/wiki/Motion_%28democracy%29
+
   class Motion
     include Mongoid::Document
     include Mongoid::Timestamps

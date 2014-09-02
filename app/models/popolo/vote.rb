@@ -21,6 +21,7 @@ module Popolo
     field :weight, type: Float, :default => 1.0
     # The person with whom the voter is paired
     belongs_to :pair, class_name: 'Popolo::Person'
+    belongs_to :vote_event, class_name: 'Popolo::VoteEvent'
 
     def to_s
       "#{option} from #{voter_id}"
