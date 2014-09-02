@@ -1,5 +1,8 @@
 # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
 FactoryGirl.define do
+
+  sequence(:name) { |n| "ABC#{n} Org." }
+
   factory :membership, class: Popolo::Membership do
     organization
     person
@@ -7,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :organization, class: Popolo::Organization do
-    name 'ABC, Inc.'
+    name
   end
 
   factory :person, class: Popolo::Person do

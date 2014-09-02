@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Popolo::Organization do
+
+  it "should be able to save two siblings" do
+    org1 = FactoryGirl.create(:organization)
+    org2 = FactoryGirl.create(:organization)
+    Popolo::Organization.all.size.should eq(2)
+  end
+
   [:founding_date, :dissolution_date].each do |attribute|
     it {
       should validate_format_of(attribute).
