@@ -2,6 +2,7 @@
 
 *If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/opennorth/popolo-spec/tree/gh-pages) repository.*
 
+[![Gem Version](https://badge.fury.io/rb/popolo-engine.svg)](http://badge.fury.io/rb/popolo-engine)
 [![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](http://travis-ci.org/opennorth/popolo-engine)
 [![Dependency Status](https://gemnasium.com/opennorth/popolo-engine.png)](https://gemnasium.com/opennorth/popolo-engine)
 [![Coverage Status](https://coveralls.io/repos/opennorth/popolo/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo)
