@@ -57,7 +57,7 @@ module Popolo
     # @note Add email address validation and URL validation to match JSON Schema?
 
     def to_s
-      name
+      "#{name} #{family_name}"
     end
   end
 end
