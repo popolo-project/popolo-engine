@@ -8,29 +8,38 @@ describe Popolo::Organization do
     Popolo::Organization.all.size.should eq(2)
   end
 
-  [:founding_date, :dissolution_date].each do |attribute|
-    it {
-      should validate_format_of(attribute).
-        # 4.1.2.2 Basic format
-        not_to_allow('20041231').
-        # 4.1.2.2 Extended format
-        to_allow('2004-12-31').
-        # 4.1.2.3 a) A specific month
-        to_allow('2004-01').
-        # 4.1.2.3 b) A specific year
-        to_allow('2004').
-        # 4.1.2.3 c) A specific century
-        not_to_allow('20').
-        # Avoid confusion with YYMMDD
-        not_to_allow('200401').
-        # Date and time of day.
-        not_to_allow('2004-12-31T00:00:00Z')
-    }
+  describe "date_formats" do
+    subject { FactoryGirl.create(:organization) }
+
+    it "should not allow basic format" do
+      subject.founding_date = '20041231'
+      subject.valid?.should == false
+    end
+
+    it "should not allow specific century" do
+      subject.founding_date = '20'
+      subject.valid?.should == false
+    end
+
+    it "should not allow time of day" do
+      subject.founding_date = '2004-12-31T00:00:00Z'
+      subject.valid?.should == false
+    end
+
+    it "should not allow confusion with YYMMDD" do
+      subject.founding_date = '200401'
+      subject.valid?.should == false
+    end
+
+    it "should allow specific month" do
+      subject.founding_date = '2004-01'
+      subject.valid?.should == true
+    end
+
+    it "should allow a specific year" do
+      subject.founding_date = '2004'
+      subject.valid?.should == true
+    end
   end
 
-  it "should not be able to update to an invalid date" do
-    org1 = FactoryGirl.create(:organization)
-    org1.founding_date = "0"
-    org1.valid?.should == false
-  end
 end

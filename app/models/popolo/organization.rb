@@ -28,18 +28,29 @@ module Popolo
     # An organization category, e.g. committee.
     field :classification, type: String
     # A date of founding.
-    field :founding_date, type: Popolo::DateString
+    field :founding_date, type: DateString
     # A date of dissolution.
-    field :dissolution_date, type: Popolo::DateString
+    field :dissolution_date, type: DateString
     # A URL of an image.
     field :image, type: String
 
-    validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
-    validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validate :date_formats
     # @note Add URL validation to match JSON Schema?
 
     def to_s
       name
     end
+
+    def date_formats
+      date = self.read_attribute(:founding_date)
+      unless date.nil?
+        errors.add(:founding_date, "format is invalid") if (/\A\d{4}(-\d{2}){0,2}\z/ =~ date).blank?
+      end
+      date = self.read_attribute(:dissolution_date)
+      unless date.nil?
+        errors.add(:dissolution_date, "format is invalid") if (/\A\d{4}(-\d{2}){0,2}\z/ =~ date).blank?
+      end
+    end
+
   end
 end
