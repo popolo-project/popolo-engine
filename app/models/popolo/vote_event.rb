@@ -7,8 +7,8 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:VoteEvent, Popolo.storage_options)
 
-    # An issued identifier, e.g. a sequential number
-    field :identifier, type: String
+    # Issued identifiers.
+    embeds_many :identifiers, as: :identifiable, class_name: 'Popolo::Identifier'
     # The motion being decided
     belongs_to :motion, class_name: 'Popolo::Motion'
     # The organization whose members are voting
