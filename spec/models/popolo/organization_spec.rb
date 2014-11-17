@@ -27,4 +27,10 @@ describe Popolo::Organization do
         not_to_allow('2004-12-31T00:00:00Z')
     }
   end
+
+  it "should not be able to update to an invalid date" do
+    org1 = FactoryGirl.create(:organization)
+    org1.founding_date = "0"
+    org1.valid?.should == false
+  end
 end
