@@ -14,9 +14,9 @@ module Popolo
     embeds_many :identifiers, as: :identifiable, class_name: 'Popolo::Identifier'
     # Means of contacting the person.
     embeds_many :contact_details, as: :contactable, class_name: 'Popolo::ContactDetail'
-    # URLs to documents about the person.
+    # URLs to documents about the person
     embeds_many :links, as: :linkable, class_name: 'Popolo::Link'
-    # URLs to source documents about the person.
+    # URLs to documents from which the person is derived
     embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
     # A person's preferred full name.
