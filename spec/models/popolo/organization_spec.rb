@@ -11,18 +11,8 @@ describe Popolo::Organization do
   describe "date_formats" do
     subject { FactoryGirl.create(:organization) }
 
-    it "should not allow basic format" do
-      subject.founding_date = '20041231'
-      subject.valid?.should == false
-    end
-
     it "should not allow specific century" do
       subject.founding_date = '20'
-      subject.valid?.should == false
-    end
-
-    it "should not allow time of day" do
-      subject.founding_date = '2004-12-31T00:00:00Z'
       subject.valid?.should == false
     end
 
@@ -31,13 +21,23 @@ describe Popolo::Organization do
       subject.valid?.should == false
     end
 
-    it "should allow specific month" do
+    it "should not allow specific month" do
       subject.founding_date = '2004-01'
-      subject.valid?.should == true
+      subject.valid?.should == false
     end
 
-    it "should allow a specific year" do
+    it "should not allow a specific year" do
       subject.founding_date = '2004'
+      subject.valid?.should == false
+    end
+
+    it "should reset value to avoid parse errors" do
+      subject.founding_date = ''
+      (subject.valid? and subject.founding_date.nil?).should == false
+    end
+
+    it "should allow 2011-12-30" do
+      subject.founding_date = '2011-12-30'
       subject.valid?.should == true
     end
   end

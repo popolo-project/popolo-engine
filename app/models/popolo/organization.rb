@@ -44,14 +44,14 @@ module Popolo
     def date_formats
       date = self.read_attribute(:founding_date)
       unless date.nil?
-        if (/\A\d{4}(-\d{2}){0,2}\z/ =~ date).blank?
+        if (/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})|(\d{4}[-\/]\d{1,2}[-\/]\d{1,2})/ =~ date).blank?
           errors.add(:founding_date, "format is invalid")
           self.founding_date = nil
         end
       end
       date = self.read_attribute(:dissolution_date)
       unless date.nil?
-        if (/\A\d{4}(-\d{2}){0,2}\z/ =~ date).blank?
+        if (/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})|(\d{4}[-\/]\d{1,2}[-\/]\d{1,2})/ =~ date).blank?
           errors.add(:dissolution_date, "format is invalid")
           self.dissolution_date = nil
         end
