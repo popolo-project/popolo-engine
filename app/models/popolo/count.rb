@@ -12,7 +12,7 @@ module Popolo
     # e.g. 128
     field :value, type: Integer
 
-    belongs_to :vote_event, class_name: 'Popolo::Person'
+    belongs_to :vote_event, class_name: 'Popolo::VoteEvent'
 
     #TODO: Group
     # "group": {
