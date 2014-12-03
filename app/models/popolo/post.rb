@@ -6,6 +6,8 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:Post, Popolo.storage_options)
 
+    # The geographic area to which the post is related.
+    belongs_to :area, index: true, class_name: 'Popolo::Area'
     # The organization in which the post is held.
     belongs_to :organization, index: true, class_name: 'Popolo::Organization'
     # The memberships through which people hold the post in the organization.

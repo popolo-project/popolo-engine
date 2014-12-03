@@ -8,6 +8,8 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:Organization, Popolo.storage_options)
 
+    # The geographic area to which the organization is related.
+    belongs_to :area, index: true, class_name: 'Popolo::Area'
     # The relationships to which the organization is a party.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy, inverse_of: :organization
     # Posts within the organization.

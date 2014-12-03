@@ -6,6 +6,8 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:Membership, Popolo.storage_options)
 
+    # The geographic area to which the membership is related.
+    belongs_to :area, index: true, class_name: 'Popolo::Area'
     # The person who is a party to the relationship.
     belongs_to :person, index: true, class_name: 'Popolo::Person'
     # The organization that is a party to the relationship.
