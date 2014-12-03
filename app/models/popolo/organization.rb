@@ -1,3 +1,4 @@
+#require 'concerns/date_handler'
 module Popolo
   # A group with a common purpose or reason for existence that goes beyond the
   # set of people belonging to it.
@@ -5,6 +6,7 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
     include Mongoid::Tree
+    include DateHandler
 
     store_in Popolo.storage_options_per_class.fetch(:Organization, Popolo.storage_options)
 
@@ -28,18 +30,23 @@ module Popolo
     # An organization category, e.g. committee.
     field :classification, type: String
     # A date of founding.
-    field :founding_date, type: Popolo::DateString
+    field :founding_date, type: DateString
     # A date of dissolution.
-    field :dissolution_date, type: Popolo::DateString
+    field :dissolution_date, type: DateString
     # A URL of an image.
     field :image, type: String
 
-    validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
-    validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validate :date_formats
     # @note Add URL validation to match JSON Schema?
 
     def to_s
       name
     end
+
+    def date_formats
+      validate_date_for(:founding_date)
+      validate_date_for(:dissolution_date)
+    end
+
   end
 end
