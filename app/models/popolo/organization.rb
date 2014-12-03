@@ -20,7 +20,7 @@ module Popolo
     embeds_many :contact_details, as: :contactable, class_name: 'Popolo::ContactDetail'
     # URLs to documents about the organization.
     embeds_many :links, as: :linkable, class_name: 'Popolo::Link'
-    # URLs to source documents about the organization.
+    # URLs to documents from which the organization is derived.
     embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
     # A primary name, e.g. a legally recognized name.
@@ -28,14 +28,14 @@ module Popolo
     # An organization category, e.g. committee.
     field :classification, type: String
     # A date of founding.
-    field :founding_date, type: Popolo::DateString
+    field :founding_date, type: DateString
     # A date of dissolution.
-    field :dissolution_date, type: Popolo::DateString
+    field :dissolution_date, type: DateString
     # A URL of an image.
     field :image, type: String
 
-    validates_format_of :founding_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
-    validates_format_of :dissolution_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+    validates_format_of :founding_date, with: DATE_STRING_FORMAT, allow_blank: true
+    validates_format_of :dissolution_date, with: DATE_STRING_FORMAT, allow_blank: true
     # @note Add URL validation to match JSON Schema?
 
     def to_s

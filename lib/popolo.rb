@@ -25,4 +25,6 @@ module Popolo
   # @see http://mongoid.org/en/mongoid/docs/documents.html#storage
   mattr_accessor :storage_options_per_class
   @@storage_options_per_class = {}
+
+  DATE_STRING_FORMAT = /\A\d{4}(-\d{2}){0,2}\z/
 end

@@ -5,7 +5,7 @@ module Popolo
     include Mongoid::Timestamps
 
     embedded_in :contactable, polymorphic: true
-    # URLs to source documents about the contact detail.
+    # URLs to documents from which the contact detail is derived.
     embeds_many :sources, as: :linkable, class_name: 'Popolo::Link'
 
     # A human-readable label for the contact detail.
