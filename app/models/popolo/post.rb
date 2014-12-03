@@ -3,6 +3,7 @@ module Popolo
   class Post
     include Mongoid::Document
     include Mongoid::Timestamps
+    include DateHandler
 
     store_in Popolo.storage_options_per_class.fetch(:Post, Popolo.storage_options)
 
@@ -27,11 +28,17 @@ module Popolo
     field :end_date, type: Popolo::DateString
 
     validates_presence_of :organization_id
-    validates_format_of :start_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
-    validates_format_of :end_date, with: /\A\d{4}(-\d{2}){0,2}\z/, allow_blank: true
+
+    validate :date_formats
 
     def to_s
       label
     end
+
+    def date_formats
+      validate_date_for(:start_date)
+      validate_date_for(:end_date)
+    end
+
   end
 end

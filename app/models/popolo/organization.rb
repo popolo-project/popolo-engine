@@ -1,3 +1,4 @@
+#require 'concerns/date_handler'
 module Popolo
   # A group with a common purpose or reason for existence that goes beyond the
   # set of people belonging to it.
@@ -5,6 +6,7 @@ module Popolo
     include Mongoid::Document
     include Mongoid::Timestamps
     include Mongoid::Tree
+    include DateHandler
 
     store_in Popolo.storage_options_per_class.fetch(:Organization, Popolo.storage_options)
 
@@ -42,20 +44,8 @@ module Popolo
     end
 
     def date_formats
-      date = self.read_attribute(:founding_date)
-      unless date.nil?
-        if (/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})|(\d{4}[-\/]\d{1,2}[-\/]\d{1,2})/ =~ date).blank?
-          errors.add(:founding_date, "format is invalid")
-          self.founding_date = nil
-        end
-      end
-      date = self.read_attribute(:dissolution_date)
-      unless date.nil?
-        if (/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})|(\d{4}[-\/]\d{1,2}[-\/]\d{1,2})/ =~ date).blank?
-          errors.add(:dissolution_date, "format is invalid")
-          self.dissolution_date = nil
-        end
-      end
+      validate_date_for(:founding_date)
+      validate_date_for(:dissolution_date)
     end
 
   end
