@@ -1,5 +1,5 @@
 module Popolo
-  # An area is a geographic area whose geometry may change over time.
+  # A geographic area whose geometry may change over time.
   class Area
     include Mongoid::Document
     include Mongoid::Timestamps
