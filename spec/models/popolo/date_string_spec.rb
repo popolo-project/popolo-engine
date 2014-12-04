@@ -9,6 +9,10 @@ describe Popolo::DateString do
     Popolo::DateString.new('2011-02-03')
   end
 
+  let :empty_string do
+    ''
+  end
+
   let :string do
     '2011-02-03'
   end
@@ -23,6 +27,10 @@ describe Popolo::DateString do
     it 'returns a date' do
       Popolo::DateString.demongoize(string).mongoize.should == date
     end
+
+    it 'returns nil if empty string' do
+      Popolo::DateString.demongoize(empty_string).mongoize.should == nil
+    end
   end
 
   describe '.mongoize' do
@@ -30,12 +38,16 @@ describe Popolo::DateString do
       Popolo::DateString.mongoize(date).should == string
     end
 
-    it 'returns a string when given a string' do
+    it 'returns a string when given a date string' do
       Popolo::DateString.mongoize(date_string).should == string
     end
 
     it 'returns a string when given a string' do
       Popolo::DateString.mongoize(string).should == string
+    end
+
+    it 'returns nil when given an empty string' do
+      Popolo::DateString.mongoize(empty_string).should == nil
     end
   end
 
@@ -44,12 +56,16 @@ describe Popolo::DateString do
       Popolo::DateString.mongoize(date).should == string
     end
 
-    it 'returns a string when given a string' do
+    it 'returns a string when given a date string' do
       Popolo::DateString.mongoize(date_string).should == string
     end
 
     it 'returns a string when given a string' do
       Popolo::DateString.mongoize(string).should == string
+    end
+
+    it 'returns nil when given an empty string' do
+      Popolo::DateString.mongoize(empty_string).should == nil
     end
   end
 end
