@@ -8,6 +8,10 @@ module Popolo
 
     # The relationships to which the person is a party.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
+    # The person who proposed the motion.
+    has_many :motions, class_name: 'Popolo::Motion'
+    # The person that is voting.
+    has_many :votes, as: :voter, class_name: 'Popolo::Vote'
     # Alternate or former names.
     embeds_many :other_names, as: :nameable, class_name: 'Popolo::OtherName'
     # Issued identifiers.
