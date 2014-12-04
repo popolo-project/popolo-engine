@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe Popolo::OrganizationsController do
   describe 'routing' do
-    before :each do
-      @routes = Popolo::Engine.routes
-    end
+    routes { Popolo::Engine.routes }
 
     it 'routes to #index' do
       get('/organizations').should route_to('popolo/organizations#index')

@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe Popolo::MembershipsController do
   describe 'routing' do
-    before :each do
-      @routes = Popolo::Engine.routes
-    end
+    routes { Popolo::Engine.routes }
 
     it 'routes to #show' do
       get('/memberships/1').should route_to('popolo/memberships#show', id: '1')
