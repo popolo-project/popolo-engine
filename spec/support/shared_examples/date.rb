@@ -1,4 +1,4 @@
-shared_examples_for 'a model with a date attribute' do |attribute|
+RSpec.shared_examples 'a model with a date attribute' do |attribute|
   it {
     should validate_format_of(attribute).
       # 4.1.2.2 Basic format

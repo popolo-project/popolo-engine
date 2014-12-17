@@ -1,15 +1,17 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::OrganizationsController do
-  describe 'routing' do
-    routes { Popolo::Engine.routes }
+module Popolo
+  RSpec.describe OrganizationsController, type: :routing do
+    describe 'routing' do
+      routes { Engine.routes }
 
-    it 'routes to #index' do
-      get('/organizations').should route_to('popolo/organizations#index')
-    end
+      it 'routes to #index' do
+        expect(get: '/organizations').to route_to('popolo/organizations#index')
+      end
 
-    it 'routes to #show' do
-      get('/organizations/1').should route_to('popolo/organizations#show', id: '1')
+      it 'routes to #show' do
+        expect(get: '/organizations/1').to route_to('popolo/organizations#show', id: '1')
+      end
     end
   end
 end

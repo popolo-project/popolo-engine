@@ -1,4 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::VoteEvent do
+module Popolo
+  RSpec.describe VoteEvent do
+  end
 end

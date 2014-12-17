@@ -1,7 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::ContactDetail do
-  [:type, :value].each do |attribute|
-    it {should validate_presence_of attribute}
+module Popolo
+  RSpec.describe ContactDetail do
+    [:type, :value].each do |attribute|
+      it {should validate_presence_of attribute}
+    end
   end
 end

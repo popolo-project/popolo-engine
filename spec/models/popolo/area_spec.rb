@@ -1,4 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Area do
+module Popolo
+  RSpec.describe Area do
+  end
 end

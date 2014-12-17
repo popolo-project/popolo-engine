@@ -1,16 +1,18 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::PeopleController do
-  before :each do
-    @routes = Popolo::Engine.routes
-    @person = FactoryGirl.create :person
-  end
+module Popolo
+  RSpec.describe PeopleController, type: :controller do
+    routes { Engine.routes }
 
-  describe 'GET show' do
-    it 'assigns the requested person as @person' do
-      get :show, id: @person.id.to_s
-      assigns(:person).should == @person
-      response.should be_success
+    before :each do
+      @person = FactoryGirl.create(:person)
+    end
+
+    describe 'GET show' do
+      it 'assigns the requested person as @person' do
+        get :show, {id: @person.to_param}
+        expect(assigns(:person)).to eq(@person)
+      end
     end
   end
 end

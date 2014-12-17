@@ -1,5 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Motion do
-  it_should_behave_like 'a model with a date attribute', :date
+module Popolo
+  RSpec.describe Motion do
+    it_behaves_like 'a model with a date attribute', :date
+  end
 end

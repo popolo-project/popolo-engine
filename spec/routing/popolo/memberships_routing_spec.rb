@@ -1,11 +1,13 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::MembershipsController do
-  describe 'routing' do
-    routes { Popolo::Engine.routes }
+module Popolo
+  RSpec.describe MembershipsController, type: :routing do
+    describe 'routing' do
+      routes { Engine.routes }
 
-    it 'routes to #show' do
-      get('/memberships/1').should route_to('popolo/memberships#show', id: '1')
+      it 'routes to #show' do
+        expect(get: '/memberships/1').to route_to('popolo/memberships#show', id: '1')
+      end
     end
   end
 end

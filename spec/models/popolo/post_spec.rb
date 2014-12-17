@@ -1,5 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Post do
-  it {should validate_presence_of :organization_id}
+module Popolo
+  RSpec.describe Post do
+    it {should validate_presence_of :organization_id}
+  end
 end

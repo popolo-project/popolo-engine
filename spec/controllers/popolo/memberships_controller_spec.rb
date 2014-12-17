@@ -1,16 +1,18 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::MembershipsController do
-  before :each do
-    @routes = Popolo::Engine.routes
-    @membership = FactoryGirl.create :membership
-  end
+module Popolo
+  RSpec.describe MembershipsController, type: :controller do
+    routes { Engine.routes }
 
-  describe 'GET show' do
-    it 'assigns the requested membership as @membership' do
-      get :show, id: @membership.id.to_s
-      assigns(:membership).should == @membership
-      response.should be_success
+    before :each do
+      @membership = FactoryGirl.create(:membership)
+    end
+
+    describe 'GET show' do
+      it 'assigns the requested membership as @membership' do
+        get :show, {id: @membership.to_param}
+        expect(assigns(:membership)).to eq(@membership)
+      end
     end
   end
 end

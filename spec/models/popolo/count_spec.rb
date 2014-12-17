@@ -1,7 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Count do
-  [:option, :value].each do |attribute|
-    it {should validate_presence_of attribute}
+module Popolo
+  RSpec.describe Count do
+    [:option, :value].each do |attribute|
+      it {should validate_presence_of attribute}
+    end
   end
 end

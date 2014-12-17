@@ -1,5 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Link do
-  it {should validate_presence_of :url}
+module Popolo
+  RSpec.describe Link do
+    it {should validate_presence_of :url}
+  end
 end

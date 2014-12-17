@@ -1,16 +1,18 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::PostsController do
-  before :each do
-    @routes = Popolo::Engine.routes
-    @post = FactoryGirl.create :post
-  end
+module Popolo
+  RSpec.describe PostsController, type: :controller do
+    routes { Engine.routes }
 
-  describe 'GET show' do
-    it 'assigns the requested post as @post' do
-      get :show, id: @post.id.to_s
-      assigns(:post).should == @post
-      response.should be_success
+    before :each do
+      @post = FactoryGirl.create(:post)
+    end
+
+    describe 'GET show' do
+      it 'assigns the requested post as @post' do
+        get :show, {id: @post.to_param}
+        expect(assigns(:post)).to eq(@post)
+      end
     end
   end
 end

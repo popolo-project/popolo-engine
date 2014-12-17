@@ -1,5 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo::Identifier do
-  it {should validate_presence_of :identifier}
+module Popolo
+  RSpec.describe Identifier do
+    it {should validate_presence_of :identifier}
+  end
 end

@@ -1,10 +1,10 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Popolo do
+RSpec.describe Popolo do
   describe '.storage_options' do
     context 'when using default storage options' do
       it 'should use default storage options' do
-        Popolo.storage_options.should == {}
+        expect(Popolo.storage_options).to eq({})
       end
     end
 
@@ -14,13 +14,13 @@ describe Popolo do
       end
 
       it 'should use custom storage options' do
-        Popolo.storage_options.should == {database: :test}
+        expect(Popolo.storage_options).to eq({database: :test})
 
         # We would need to reload the app.
-        # Popolo::Membership.storage_options.should   == {database: :test}
-        # Popolo::Organization.storage_options.should == {database: :test}
-        # Popolo::Person.storage_options.should       == {database: :test}
-        # Popolo::Post.storage_options.should         == {database: :test}
+        # expect(Popolo::Membership.storage_options).to   eq({database: :test})
+        # expect(Popolo::Organization.storage_options).to eq({database: :test})
+        # expect(Popolo::Person.storage_options).to       eq({database: :test})
+        # expect(Popolo::Post.storage_options).to         eq({database: :test})
       end
 
       after do
@@ -32,7 +32,7 @@ describe Popolo do
   describe '.storage_options_per_class' do
     context 'when using default storage options' do
       it 'should use default storage options' do
-        Popolo.storage_options_per_class.should == {}
+        expect(Popolo.storage_options_per_class).to eq({})
       end
     end
 
@@ -47,18 +47,18 @@ describe Popolo do
       end
 
       it 'should use custom storage options' do
-        Popolo.storage_options_per_class.should == {
+        expect(Popolo.storage_options_per_class).to eq({
           :Membership   => {collection: 'a'},
           :Organization => {collection: 'b'},
           :Person       => {collection: 'c'},
           :Post         => {collection: 'd'},
-        }
+        })
 
         # We would need to reload the app.
-        # Popolo::Membership.storage_options.should   == {collection: 'a'}
-        # Popolo::Organization.storage_options.should == {collection: 'b'}
-        # Popolo::Person.storage_options.should       == {collection: 'c'}
-        # Popolo::Post.storage_options.should         == {collection: 'd'}
+        # expect(Popolo::Membership.storage_options).to   eq({collection: 'a'})
+        # expect(Popolo::Organization.storage_options).to eq({collection: 'b'})
+        # expect(Popolo::Person.storage_options).to       eq({collection: 'c'})
+        # expect(Popolo::Post.storage_options).to         eq({collection: 'd'})
       end
 
       after do
