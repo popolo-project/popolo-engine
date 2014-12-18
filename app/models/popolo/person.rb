@@ -6,11 +6,11 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:Person, Popolo.storage_options)
 
-    # The relationships to which the person is a party.
+    # The person's memberships.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy
-    # The person who proposed the motion.
+    # The person's motions.
     has_many :motions, class_name: 'Popolo::Motion'
-    # The person that is voting.
+    # The person's votes.
     has_many :votes, as: :voter, class_name: 'Popolo::Vote'
     # Alternate or former names.
     embeds_many :other_names, as: :nameable, class_name: 'Popolo::OtherName'

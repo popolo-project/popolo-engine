@@ -7,11 +7,11 @@ module Popolo
 
     store_in Popolo.storage_options_per_class.fetch(:Area, Popolo.storage_options)
 
-    # The geographic area to which the membership is related.
+    # The memberships to which this area is related.
     has_many :memberships, class_name: 'Popolo::Membership'
-    # The geographic area to which the organization is related.
+    # The organizations to which this area is related.
     has_many :organizations, class_name: 'Popolo::Organization'
-    # The geographic area to which the post is related.
+    # The posts to which this area is related.
     has_many :posts, class_name: 'Popolo::Post'
 
     # URLs to documents from which the area is derived.

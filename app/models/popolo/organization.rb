@@ -10,15 +10,15 @@ module Popolo
 
     # The geographic area to which the organization is related.
     belongs_to :area, index: true, class_name: 'Popolo::Area'
-    # The relationships to which the organization is a party.
+    # The memberships of the members of the organization.
     has_many :memberships, class_name: 'Popolo::Membership', dependent: :destroy, inverse_of: :organization
-    # The organization in which the motion is proposed.
+    # Motions within the organization.
     has_many :motions, class_name: 'Popolo::Motion', dependent: :destroy
     # Posts within the organization.
     has_many :posts, class_name: 'Popolo::Post', dependent: :destroy
-    # The organization whose members are voting.
+    # Vote events in which members of the organization are voting.
     has_many :vote_events, class_name: 'Popolo::VoteEvent', dependent: :destroy
-    # The organization that is voting.
+    # Votes cast by the organization.
     has_many :votes, as: :voter, class_name: 'Popolo::Vote'
     # Alternate or former names.
     embeds_many :other_names, as: :nameable, class_name: 'Popolo::OtherName'
