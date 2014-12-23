@@ -12,7 +12,11 @@ Popolo's goal is to make it easier for civic developers to create government tra
 
 Popolo is a [Ruby on Rails engine](http://guides.rubyonrails.org/engines.html) that provides additional functionality to a [Ruby on Rails](http://rubyonrails.org/) application, so that developers can focus on what's special about the governments they want to monitor, instead of re-implementing features commonly found in open government websites. The core Popolo engine provides basic models, controllers and views for the objects found in all open government websites – people, organizations and the relationships between the two. Other engines provide additional functionality.
 
-In addition to being a Rails engine, Popolo is also a [data specification](http://popoloproject.com/specs/). This engine is up-to-date with its 2014-02-10 version.
+In addition to being a Rails engine, Popolo is also a [data specification](http://popoloproject.com/specs/). This engine is up-to-date with its 2014-12-21 version, except for the updates:
+
+* 2014-12-14: Add a video property to the Speech class.
+* 2014-11-23: Add a Speech class.
+* 2014-05-09: Add a member property to the Membership class, to relate organizations to organizations.
 
 ## Getting Started
 

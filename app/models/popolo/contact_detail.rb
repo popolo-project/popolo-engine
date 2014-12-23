@@ -16,6 +16,10 @@ module Popolo
     field :value, type: String
     # A note, e.g. for grouping contact details by physical location.
     field :note, type: String
+    # The date from which the contact detail is valid.
+    field :valid_from, type: DateString
+    # The date from which the contact detail is no longer valid.
+    field :valid_until, type: DateString
 
     validates_presence_of :type, :value
   end

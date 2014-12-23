@@ -21,6 +21,8 @@ module Popolo
 
     # A label describing the post.
     field :label, type: String
+    # An alternate label.
+    field :other_label, type: Array
     # The function that the holder of the post fulfills.
     field :role, type: String
     # The date on which the post was created.

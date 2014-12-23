@@ -7,6 +7,18 @@ module Popolo
 
     # An alternate or former name.
     field :name, type: String
+    # One or more family names.
+    field :family_name, type: String
+    # One or more primary given names.
+    field :given_name, type: String
+    # One or more secondary given names.
+    field :additional_name, type: String
+    # One or more honorifics preceding a person's name.
+    field :honorific_prefix, type: String
+    # One or more honorifics following a person's name.
+    field :honorific_suffix, type: String
+    # One or more patronymic names.
+    field :patronymic_name, type: String
     # The date on which the name was adopted.
     field :start_date, type: DateString
     # The date on which the name was abandoned.

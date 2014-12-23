@@ -9,7 +9,7 @@ module Popolo
     # The organization whose members are voting.
     belongs_to :organization, class_name: 'Popolo::Organization'
     # The legislative session in which the vote occurs.
-    # @todo belongs to :legislative_session, class_name: 'Popolo::Event'
+    belongs to :legislative_session # @todo , class_name: 'Popolo::Event'
     # The motion being decided.
     belongs_to :motion, class_name: 'Popolo::Motion'
     # The result of the vote event within groups of voters.

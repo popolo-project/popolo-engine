@@ -9,7 +9,7 @@ module Popolo
     # The organization in which the motion is proposed.
     belongs_to :organization, class_name: 'Popolo::Organization'
     # The legislative session in which the motion is proposed.
-    # @todo belongs to :legislative_session, class_name: 'Popolo::Event'
+    belongs to :legislative_session # @todo , class_name: 'Popolo::Event'
     # The person who proposed the motion.
     belongs_to :creator, class_name: 'Popolo::Person'
     # Events at which people vote on the motion.
@@ -19,6 +19,8 @@ module Popolo
 
     # The transcript or text of the motion.
     field :text, type: String
+    # An issued identifier.
+    field :identifier, type: String
     # A motion category, e.g. adjournment.
     field :classification, type: String
     # The date on which the motion was proposed.

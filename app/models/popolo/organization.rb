@@ -35,6 +35,10 @@ module Popolo
     field :name, type: String
     # An organization category, e.g. committee.
     field :classification, type: String
+    # A one-line description of an organization.
+    field :abstract, type: String
+    # An extended description of an organization.
+    field :description, type: String
     # A date of founding.
     field :founding_date, type: DateString
     # A date of dissolution.
