@@ -20,7 +20,7 @@ In addition to being a Rails engine, Popolo is also a [data specification](http:
 
 ## Getting Started
 
-Popolo uses Mongoid to connect to MongoDB, which requires Rails 3 and supports only MRI 1.9.3, 2.0.0 and HEAD, and JRuby 1.6.0+ in 1.9 mode.
+Popolo uses Mongoid to connect to MongoDB.
 
 First, create your Rails application:
 
