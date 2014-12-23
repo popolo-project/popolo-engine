@@ -9,7 +9,7 @@ module Popolo
     # The organization in which the motion is proposed.
     belongs_to :organization, class_name: 'Popolo::Organization'
     # The legislative session in which the motion is proposed.
-    belongs to :legislative_session # @todo , class_name: 'Popolo::Event'
+    belongs_to :legislative_session # @todo , class_name: 'Popolo::Event'
     # The person who proposed the motion.
     belongs_to :creator, class_name: 'Popolo::Person'
     # Events at which people vote on the motion.
