@@ -1,16 +1,17 @@
 require File.expand_path('../lib/popolo/version', __FILE__)
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "popolo"
   s.version     = Popolo::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Open North"]
   s.email       = ["info@opennorth.ca"]
   s.homepage    = "http://github.com/opennorth/popolo"
-  s.summary     = "A Rails engine for open government websites."
+  s.summary     = %q{A Rails engine for open government websites.}
+  s.license     = 'MIT'
 
-  s.files = Dir["{app,config,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"]
+  s.files         = Dir["{app,config,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
 
   s.add_dependency('rails', '~> 4.1.0')
   s.add_dependency('inherited_resources', '~> 1.5.1')
