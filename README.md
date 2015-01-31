@@ -2,8 +2,8 @@
 
 *If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/opennorth/popolo-spec/tree/gh-pages) repository.*
 
-[![Gem Version](https://badge.fury.io/rb/popolo-engine.svg)](http://badge.fury.io/rb/popolo-engine)
-[![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](http://travis-ci.org/opennorth/popolo-engine)
+[![Gem Version](https://badge.fury.io/rb/popolo-engine.svg)](https://badge.fury.io/rb/popolo-engine)
+[![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](https://travis-ci.org/opennorth/popolo-engine)
 [![Dependency Status](https://gemnasium.com/opennorth/popolo-engine.png)](https://gemnasium.com/opennorth/popolo-engine)
 [![Coverage Status](https://coveralls.io/repos/opennorth/popolo/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo)
 [![Code Climate](https://codeclimate.com/github/opennorth/popolo-engine.png)](https://codeclimate.com/github/opennorth/popolo-engine)
@@ -12,7 +12,7 @@ Popolo's goal is to make it easier for civic developers to create government tra
 
 Popolo is a [Ruby on Rails engine](http://guides.rubyonrails.org/engines.html) that provides additional functionality to a [Ruby on Rails](http://rubyonrails.org/) application, so that developers can focus on what's special about the governments they want to monitor, instead of re-implementing features commonly found in open government websites. The core Popolo engine provides basic models, controllers and views for the objects found in all open government websites – people, organizations and the relationships between the two. Other engines provide additional functionality.
 
-In addition to being a Rails engine, Popolo is also a [data specification](http://popoloproject.com/specs/). This engine is up-to-date with its 2014-12-21 version, except for the updates:
+In addition to being a Rails engine, Popolo is also a [data specification](http://www.popoloproject.com/specs/). This engine is up-to-date with its 2014-12-21 version, except for the updates:
 
 * 2014-12-14: Add a video property to the Speech class.
 * 2014-11-23: Add a Speech class.
@@ -78,9 +78,9 @@ The `sources` property reuses the `Link` model. To translate this word:
 
 ## Deployment
 
-A Popolo app is easy to deploy on [Heroku](http://www.heroku.com/) using either the [MongoLab](https://addons.heroku.com/mongolab) or [MongoHQ](https://addons.heroku.com/mongohq) add-ons.
+A Popolo app is easy to deploy on [Heroku](https://www.heroku.com/) using either the [MongoLab](https://addons.heroku.com/mongolab) or [MongoHQ](https://addons.heroku.com/mongohq) add-ons.
 
-1. [Sign up for Heroku](http://api.heroku.com/signup) if you don't already have an account, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+1. [Sign up for Heroku](https://signup.heroku.com/identity) if you don't already have an account, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 1. Create a new Cedar app on Heroku with either MongoLab or MongoHQ:
 
@@ -96,7 +96,7 @@ We highly recommend using the [Unicorn](http://unicorn.bogomips.org/) Rack HTTP 
 
 ## Bugs? Questions?
 
-This engine's main repository is on GitHub: [http://github.com/opennorth/popolo-engine](http://github.com/opennorth/popolo-engine), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
+This engine's main repository is on GitHub: [https://github.com/opennorth/popolo-engine](https://github.com/opennorth/popolo-engine), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
 
 ## Acknowledgements
 

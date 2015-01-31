@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Open North"]
   s.email       = ["info@opennorth.ca"]
-  s.homepage    = "http://github.com/opennorth/popolo"
+  s.homepage    = "https://github.com/opennorth/popolo"
   s.summary     = %q{A Rails engine for open government websites.}
   s.license     = 'MIT'
 
