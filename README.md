@@ -94,10 +94,6 @@ A Popolo app is easy to deploy on [Heroku](https://www.heroku.com/) using either
 
 We highly recommend using the [Unicorn](http://unicorn.bogomips.org/) Rack HTTP server. [This blog post](http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html) has great instructions. You can remove the `before_fork` and `after_fork` blocks from your `config/unicorn.rb` because [Mongoid will automatically reconnect after forks](http://mongoid.org/en/mongoid/docs/rails.html).
 
-## Bugs? Questions?
-
-This engine's main repository is on GitHub: [https://github.com/opennorth/popolo-engine](https://github.com/opennorth/popolo-engine), where your contributions, forks, bug reports, feature requests, and feedback are greatly welcomed.
-
 ## Acknowledgements
 
 This gem is developed by [Open North](http://www.opennorth.ca/) through a partnership with the [Participatory Politics Foundation](http://www.participatorypolitics.org/).
