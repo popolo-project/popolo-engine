@@ -2,7 +2,7 @@
 
 *If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/popolo-project/popolo-spec/tree/gh-pages) repository.*
 
-[![Gem Version](https://badge.fury.io/rb/popolo-engine.svg)](https://badge.fury.io/rb/popolo-engine)
+[![Gem Version](https://badge.fury.io/rb/popolo.svg)](https://badge.fury.io/rb/popolo)
 [![Build Status](https://secure.travis-ci.org/popolo-project/popolo-engine.png)](https://travis-ci.org/popolo-project/popolo-engine)
 [![Dependency Status](https://gemnasium.com/popolo-project/popolo-engine.png)](https://gemnasium.com/popolo-project/popolo-engine)
 [![Coverage Status](https://coveralls.io/repos/popolo-project/popolo-engine/badge.png?branch=master)](https://coveralls.io/r/popolo-project/popolo-engine)
