@@ -4,9 +4,8 @@ Gem::Specification.new do |s|
   s.name        = "popolo"
   s.version     = Popolo::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Open North"]
-  s.email       = ["info@opennorth.ca"]
-  s.homepage    = "https://github.com/opennorth/popolo"
+  s.authors     = ["James McKinney"]
+  s.homepage    = "https://github.com/popolo-project/popolo-engine"
   s.summary     = %q{A Rails engine for open government websites.}
   s.license     = 'MIT'
 

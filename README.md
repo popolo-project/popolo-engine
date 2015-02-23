@@ -1,12 +1,12 @@
 # Popolo Rails Engine
 
-*If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/opennorth/popolo-spec/tree/gh-pages) repository.*
+*If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/popolo-project/popolo-spec/tree/gh-pages) repository.*
 
 [![Gem Version](https://badge.fury.io/rb/popolo-engine.svg)](https://badge.fury.io/rb/popolo-engine)
-[![Build Status](https://secure.travis-ci.org/opennorth/popolo-engine.png)](https://travis-ci.org/opennorth/popolo-engine)
-[![Dependency Status](https://gemnasium.com/opennorth/popolo-engine.png)](https://gemnasium.com/opennorth/popolo-engine)
-[![Coverage Status](https://coveralls.io/repos/opennorth/popolo/badge.png?branch=master)](https://coveralls.io/r/opennorth/popolo)
-[![Code Climate](https://codeclimate.com/github/opennorth/popolo-engine.png)](https://codeclimate.com/github/opennorth/popolo-engine)
+[![Build Status](https://secure.travis-ci.org/popolo-project/popolo-engine.png)](https://travis-ci.org/popolo-project/popolo-engine)
+[![Dependency Status](https://gemnasium.com/popolo-project/popolo-engine.png)](https://gemnasium.com/popolo-project/popolo-engine)
+[![Coverage Status](https://coveralls.io/repos/popolo-project/popolo-engine/badge.png?branch=master)](https://coveralls.io/r/popolo-project/popolo-engine)
+[![Code Climate](https://codeclimate.com/github/popolo-project/popolo-engine.png)](https://codeclimate.com/github/popolo-project/popolo-engine)
 
 Popolo's goal is to make it easier for civic developers to create government transparency, monitoring and engagement websites.
 
@@ -94,8 +94,4 @@ A Popolo app is easy to deploy on [Heroku](https://www.heroku.com/) using either
 
 We highly recommend using the [Unicorn](http://unicorn.bogomips.org/) Rack HTTP server. [This blog post](http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html) has great instructions. You can remove the `before_fork` and `after_fork` blocks from your `config/unicorn.rb` because [Mongoid will automatically reconnect after forks](http://mongoid.org/en/mongoid/docs/rails.html).
 
-## Acknowledgements
-
-This gem is developed by [Open North](http://www.opennorth.ca/) through a partnership with the [Participatory Politics Foundation](http://www.participatorypolitics.org/).
-
-Copyright (c) 2012 Open North Inc., released under the MIT license
+Copyright (c) 2015 James McKinney, released under the MIT license
