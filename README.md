@@ -1,7 +1,5 @@
 # Popolo Rails Engine
 
-**THIS REPOSITORY IS UNMAINTAINED**
-
 *If you are looking for the GitHub repository for the data specification, head over to the [popolo-spec](https://github.com/popolo-project/popolo-spec/tree/gh-pages) repository.*
 
 [![Gem Version](https://badge.fury.io/rb/popolo.svg)](https://badge.fury.io/rb/popolo)
