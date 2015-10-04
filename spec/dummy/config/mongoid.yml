@@ -1,12 +1,12 @@
 development:
   clients:
     default:
-      database: popolo_development
+      database: dummy_development
       hosts:
         - localhost:27017
 test:
   clients:
     default:
-      database: popolo_test
+      database: dummy_test
       hosts:
         - localhost:27017
