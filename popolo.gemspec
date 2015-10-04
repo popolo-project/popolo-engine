@@ -14,14 +14,14 @@ Gem::Specification.new do |s|
 
   s.add_dependency('rails', '~> 4.1.0')
   s.add_dependency('inherited_resources', '~> 1.5.1')
-  s.add_dependency('mongoid', '~> 4.0.0')
-  s.add_dependency('mongoid-tree', '~> 2.0.0')
+  s.add_dependency('mongoid', '~> 5.0.0')
+  s.add_dependency('mongoid-tree', '~> 2.0.1')
 
-  s.add_development_dependency('database_cleaner', '~> 1.2')
+  s.add_development_dependency('database_cleaner', '~> 1.5.0')
   s.add_development_dependency('factory_girl_rails', '~> 4.1')
   s.add_development_dependency('guard-bundler', '~> 2.0')
   s.add_development_dependency('guard-rspec', '~> 4.3')
-  s.add_development_dependency('rspec-rails', '~> 3.0')
+  s.add_development_dependency('rspec-rails', '~> 3.3')
   s.add_development_dependency('coveralls')
-  s.add_development_dependency('mongoid-rspec', '~> 2.0.0.rc1')
+  s.add_development_dependency('mongoid-rspec', '~> 3.0.0')
 end

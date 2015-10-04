@@ -66,3 +66,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+Mongo::Logger.logger.level = Logger::WARN
